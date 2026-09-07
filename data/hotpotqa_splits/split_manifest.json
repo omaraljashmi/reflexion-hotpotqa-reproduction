@@ -1,0 +1,55 @@
+{
+  "created_utc": "2026-09-07T00:56:10.107753+00:00",
+  "dataset": "HotpotQA distractor training partition",
+  "dataset_page": "https://huggingface.co/datasets/hotpotqa/hotpot_qa",
+  "source_urls": [
+    "https://huggingface.co/datasets/hotpotqa/hotpot_qa/resolve/main/distractor/train-00000-of-00002.parquet",
+    "https://huggingface.co/datasets/hotpotqa/hotpot_qa/resolve/main/distractor/train-00001-of-00002.parquet"
+  ],
+  "local_source": "data/source",
+  "parent_paper": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/1b44b878bb782e6954cd888628510e90-Abstract-Conference.html",
+  "license": "CC BY-SA 4.0",
+  "source_records": 90447,
+  "ratios": {
+    "train": 0.6,
+    "test": 0.2,
+    "validation": 0.2
+  },
+  "seed": 42,
+  "stratified_by": [
+    "type",
+    "level"
+  ],
+  "files": {
+    "train": {
+      "records": 54268,
+      "shards": [
+        {
+          "path": "train-00000-of-00002.jsonl.gz",
+          "records": 27134,
+          "bytes": 60123975,
+          "sha256": "d9a758fbc452ce5aa5fdf58bfe479dc7ec2747b4ab463541cf84cea938de21a3"
+        },
+        {
+          "path": "train-00001-of-00002.jsonl.gz",
+          "records": 27134,
+          "bytes": 60282993,
+          "sha256": "c276e8c9a484daabb0da1d08aa4aab6c6b35b5dfc15a1d83fe98e477eeb10a79"
+        }
+      ]
+    },
+    "test": {
+      "path": "test.jsonl.gz",
+      "records": 18089,
+      "bytes": 40007937,
+      "sha256": "b18cfc9c5908501e2f5557fac223e7838ca8f44e46ddce0b8a1a452aa5b0a729"
+    },
+    "validation": {
+      "path": "validation_unseen/validation.jsonl.gz",
+      "records": 18090,
+      "bytes": 40146715,
+      "sha256": "4fdd54c05bd155348a93ac881307eb7efe1f1e29f33ebdd8d69fca67cf640a7c"
+    }
+  },
+  "validation_policy": "Do not load validation_unseen/validation.jsonl.gz during development. Use it once after training and test work is complete."
+}

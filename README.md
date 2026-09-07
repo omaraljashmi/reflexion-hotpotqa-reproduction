@@ -40,6 +40,22 @@ Useful options:
 --output PATH
 ```
 
+## Full dataset split
+
+The official HotpotQA distractor training pool contains 90,447 labeled
+questions. It is divided with seed 42 and stratified by question type and
+difficulty:
+
+- Training: 54,268 questions (60%) in two compressed JSONL shards
+- Testing: 18,089 questions (20%)
+- Validation: 18,090 questions (20%)
+
+The files are in `data/hotpotqa_splits/`. Keep
+`validation_unseen/validation.jsonl.gz` sealed until development and testing are
+complete. See `split_manifest.json` for the source links, counts, and SHA-256
+checksums. Run `scripts/split_hotpotqa.py` to reproduce the split from the two
+official Parquet source shards.
+
 ## What matches the parent paper
 
 - repeated trials on HotPotQA question-answering tasks;
@@ -68,6 +84,8 @@ src/reflexion_reproduction/providers.py offline and live model providers
 src/reflexion_reproduction/prompts.py   Actor and reflection prompts
 src/reflexion_reproduction/metrics.py   exact match and token F1
 data/hotpotqa_mini.json                  five released HotPotQA sample items
+data/hotpotqa_splits/                    full 60/20/20 split and manifest
+scripts/split_hotpotqa.py                deterministic dataset splitting tool
 tests/test_reflexion.py                  automated regression tests
 results/                                 generated detailed trial records
 ```

@@ -5,4 +5,5 @@ __pycache__/
 .env
 results/*.json
 !results/.gitkeep
-
+data/source/
+data/hotpotqa_splits/train.jsonl.gz
