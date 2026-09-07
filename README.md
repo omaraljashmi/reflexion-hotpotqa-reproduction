@@ -12,27 +12,6 @@ The implementation uses a five-question subset of the authors' released
 HotPotQA distractor sample. It reports HotPotQA-style exact match (EM), token F1,
 and cumulative accuracy after each trial.
 
-## Run this for the screen recording
-
-No API key or package installation is needed:
-
-```bash
-python3 run_reflexion.py
-```
-
-The command runs a baseline and a Reflexion condition, saves detailed records to
-`results/latest.json`, and ends with `SUCCESS: run completed without errors`.
-
-The default `scripted` provider deliberately fails its first attempts and then
-follows the stored reflections. It is a deterministic **control-flow smoke test**
-that makes the Actor → Evaluator → Reflection → Memory behavior easy to inspect.
-It is not presented as a scientific LLM result.
-
-Run the automated checks before recording:
-
-```bash
-python3 -m unittest discover -s tests -v
-```
 
 ## Run a real LLM experiment
 
