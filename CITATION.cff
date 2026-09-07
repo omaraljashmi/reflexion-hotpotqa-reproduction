@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this reproduction, cite the original Reflexion paper."
+title: "Reflexion HotPotQA Mini Reproduction"
+type: software
+authors:
+  - family-names: Aljashmi
+    given-names: Omar
+version: 1.0.0
+date-released: 2026-09-06
+references:
+  - type: conference-paper
+    title: "Reflexion: Language Agents with Verbal Reinforcement Learning"
+    authors:
+      - family-names: Shinn
+        given-names: Noah
+      - family-names: Cassano
+        given-names: Federico
+      - family-names: Berman
+        given-names: Edward
+      - family-names: Gopinath
+        given-names: Ashwin
+      - family-names: Narasimhan
+        given-names: Karthik
+      - family-names: Yao
+        given-names: Shunyu
+    year: 2023
+    conference:
+      name: NeurIPS
+    url: "https://proceedings.neurips.cc/paper_files/paper/2023/hash/1b44b878bb782e6954cd888628510e90-Abstract-Conference.html"
+

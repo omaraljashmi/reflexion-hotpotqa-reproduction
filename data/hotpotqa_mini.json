@@ -1,0 +1,82 @@
+{
+  "source": "Five items extracted from the 100-question sample released by noahshinn/reflexion",
+  "source_url": "https://github.com/noahshinn/reflexion/tree/main/hotpotqa_runs/data",
+  "examples": [
+    {
+      "id": "5a7180205542994082a3e856",
+      "question": "The creator of \"Wallace and Gromit\" also created what animation comedy that matched animated zoo animals with a soundtrack of people talking about their homes?",
+      "answer": "Creature Comforts",
+      "context": [
+        {
+          "title": "Creature Comforts",
+          "text": "Creature Comforts is a stop motion clay animation comedy mockumentary franchise originating in a 1989 British humorous animated short film of the same name. The film matched animated zoo animals with a soundtrack of people talking about their homes, making it appear as if the animals were being interviewed about their living conditions. It was created by Nick Park and Aardman Animations."
+        },
+        {
+          "title": "Nick Park",
+          "text": "Nicholas Wulstan Nick Park is an English director, writer and animator best known as the creator of Wallace and Gromit and Shaun the Sheep. Park won Academy Awards for works including Creature Comforts."
+        }
+      ]
+    },
+    {
+      "id": "5a8e27d45542995a26add46a",
+      "question": "Jaclyn Stapp is married to the former frontman of a band that disbanded in what year?",
+      "answer": "2004",
+      "context": [
+        {
+          "title": "Jaclyn Stapp",
+          "text": "Jaclyn Nesheiwat Stapp is married to Scott Stapp, former frontman of the band Creed, and current frontman for the band Art of Anarchy."
+        },
+        {
+          "title": "Creed (band)",
+          "text": "Creed is an American rock band formed in 1993 in Tallahassee, Florida. The band disbanded in 2004 due to increasing tension between members."
+        }
+      ]
+    },
+    {
+      "id": "5a881d2355429938390d3eeb",
+      "question": "If You Ever Get Lonely was covered by what Lyric Street Records-affiliated band?",
+      "answer": "Love and Theft",
+      "context": [
+        {
+          "title": "If You Ever Get Lonely",
+          "text": "If You Ever Get Lonely was covered by American country music duo Love and Theft on their second studio album in 2012."
+        },
+        {
+          "title": "Love and Theft (duo)",
+          "text": "Love and Theft is an American country music group. It signed to Lyric Street Records subsidiary Carolwood Records in 2009."
+        }
+      ]
+    },
+    {
+      "id": "5abdd0f15542991f6610604d",
+      "question": "The Rome Protocols were signed by three Prime Ministers one of which was assassinated as part of what?",
+      "answer": "a failed coup attempt",
+      "context": [
+        {
+          "title": "Rome Protocols",
+          "text": "The Rome Protocols were signed by Italian Prime Minister Benito Mussolini, Austrian Prime Minister Engelbert Dollfuss and Hungarian Prime Minister Gyula Gombos."
+        },
+        {
+          "title": "Engelbert Dollfuss",
+          "text": "Dollfuss was assassinated as part of a failed coup attempt by Nazi agents in 1934."
+        }
+      ]
+    },
+    {
+      "id": "5a78bc6b554299148911f979",
+      "question": "Woman's Era and Naj are what kind of magazines?",
+      "answer": "fortnightly women interest magazine",
+      "context": [
+        {
+          "title": "Woman's Era",
+          "text": "Woman's Era is a fortnightly women interest magazine published in English in India."
+        },
+        {
+          "title": "Naj",
+          "text": "Naj is a Polish language fortnightly lifestyle and women's magazine published in Warsaw, Poland."
+        }
+      ]
+    }
+  ]
+}
+
