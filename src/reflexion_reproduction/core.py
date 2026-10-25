@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
 from enum import Enum
-from typing import Protocol, Sequence
+from typing import Callable, Protocol, Sequence
 
 from .metrics import exact_match, token_f1
 
@@ -22,6 +22,8 @@ class Example:
     question: str
     answer: str
     context: tuple[dict[str, str], ...]
+    qtype: str = ""
+    level: str = ""
 
     @property
     def context_text(self) -> str:
@@ -51,6 +53,7 @@ class LanguageModel(Protocol):
         memory: Sequence[str],
         previous_trace: str,
         attempt: int,
+        lessons: Sequence[str] = (),
     ) -> ActorOutput: ...
 
     def reflect(
@@ -73,6 +76,10 @@ class TrialRecord:
     feedback: str
     memory_before: list[str]
     reflection_added: str | None = None
+    lessons_used: list[str] = field(default_factory=list)
+    lesson_ids: list[str] = field(default_factory=list)
+    prompt_tokens: int = 0
+    completion_tokens: int = 0
 
 
 @dataclass
@@ -122,10 +129,16 @@ class ReflexionAgent:
         example: Example,
         model: LanguageModel,
         strategy: Strategy,
+        lessons: Sequence[str] = (),
+        lesson_ids: Sequence[str] = (),
     ) -> None:
         self.example = example
         self.model = model
         self.strategy = strategy
+        # Cross-task lessons are fixed before the first attempt; within-task
+        # reflections (self.memory) are the original Reflexion mechanism.
+        self.lessons = list(lessons)
+        self.lesson_ids = list(lesson_ids)
         self.memory: list[str] = []
         self.previous_trace = ""
         self.solved = False
@@ -137,7 +150,9 @@ class ReflexionAgent:
             memory=memory_before,
             previous_trace=self.previous_trace,
             attempt=trial,
+            lessons=self.lessons,
         )
+        usage = dict(getattr(self.model, "last_usage", {}) or {})
         is_correct = exact_match(output.answer, self.example.answer)
         record = TrialRecord(
             example_id=self.example.id,
@@ -149,6 +164,10 @@ class ReflexionAgent:
             f1=token_f1(output.answer, self.example.answer),
             feedback="CORRECT" if is_correct else "INCORRECT",
             memory_before=memory_before,
+            lessons_used=list(self.lessons),
+            lesson_ids=list(self.lesson_ids),
+            prompt_tokens=int(usage.get("prompt_tokens", 0)),
+            completion_tokens=int(usage.get("completion_tokens", 0)),
         )
 
         self.previous_trace = output.trace + f"\nObservation: Answer is {record.feedback}"
@@ -171,13 +190,21 @@ def run_experiment(
     model: LanguageModel,
     strategy: Strategy,
     max_trials: int,
+    lessons_for: Callable[[Example], tuple[Sequence[str], Sequence[str]]] | None = None,
 ) -> ExperimentResult:
-    """Evaluate cumulative task success across repeated trials."""
+    """Evaluate cumulative task success across repeated trials.
+
+    ``lessons_for`` optionally returns (lesson texts, lesson ids) retrieved from a
+    cross-task memory bank before the first attempt on each example.
+    """
 
     if max_trials < 1:
         raise ValueError("max_trials must be at least 1")
 
-    agents = [ReflexionAgent(example, model, strategy) for example in examples]
+    agents = []
+    for example in examples:
+        texts, ids = lessons_for(example) if lessons_for else ((), ())
+        agents.append(ReflexionAgent(example, model, strategy, texts, ids))
     result = ExperimentResult(
         strategy=strategy,
         provider=model.name,
