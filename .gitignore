@@ -7,3 +7,7 @@ results/*.json
 !results/.gitkeep
 data/source/
 data/hotpotqa_splits/train.jsonl.gz
+# keep experiment outputs that let others rerun the analysis without an API key
+!results/memory.json
+!results/eval_report*.json
+!results/*_report.json

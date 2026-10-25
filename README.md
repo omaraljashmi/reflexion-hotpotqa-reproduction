@@ -40,6 +40,58 @@ Useful options:
 --output PATH
 ```
 
+## Extension: cross-task structured failure memory
+
+Reflexion reuses a reflection only on the same task. The extension tests
+whether lessons from past failures transfer to **different, unseen** questions.
+
+1. **Build** (training split): each question gets one attempt. Each failure is
+   labeled with a failure type (rules first, then the LLM), and the LLM writes a
+   lesson in two separate parts: a task-specific *diagnosis* and a general *fix*
+   that may not mention the question's entities or answer.
+2. **Validate**: a fresh attempt sees only the fix. The lesson is kept only if
+   that attempt now passes. This shows the fix helped, not that the diagnosis
+   is true.
+3. **Evaluate** (test split): before the first attempt on each new question,
+   the agent retrieves up to `k` lessons covering the failure types most common
+   for that question type (bridge or comparison).
+
+The correct answer never appears in any model prompt. It is used only for
+scoring and for the rule-based failure labels.
+
+| Condition | Within-task reflection | Cross-task lessons |
+|---|---|---|
+| `no_memory` | no | none |
+| `reflexion` (parent paper) | yes | none |
+| `failure_memory` (ours) | yes | by failure type |
+| `random_memory` (control) | yes | random, same count |
+| `similarity_memory` (optional) | yes | by question similarity |
+
+The main metric is **first-attempt exact match** on test questions, since
+cross-task lessons are the only thing that can change a first attempt.
+`random_memory` checks whether any extra advice helps, not the retrieval method.
+
+```bash
+export GROQ_API_KEY="your-key"           # console.groq.com
+python run_experiment.py pilot    --provider groq --n 30     # target 40-75% first-attempt EM
+python run_experiment.py build    --provider groq --n 150    # -> results/memory.json
+python run_experiment.py evaluate --provider groq --n 100 --trials 2
+python run_experiment.py analyze  --attempts results/eval_attempts.csv   # no API needed
+```
+
+Every model attempt is saved as a row in a CSV (`results/*_attempts.csv`): the
+condition, question type, prediction, exact match, F1, failure type, lessons
+used, the reflection, and token counts. `analyze` reports EM per condition,
+paired fail-to-pass and pass-to-fail flips with an exact McNemar test, failure
+type counts, how often each lesson helped or hurt, and repeated mistakes.
+
+Default model: `openai/gpt-oss-20b` on Groq (reasoning effort `low`, reasoning
+text hidden, temperature 0). Use `--model` to change it. Run with
+`--provider scripted` to test the full pipeline offline. Scripted numbers are
+not results. The sealed validation split can only be loaded with
+`--final-validation`. A Colab version is in
+`notebooks/failure_memory_experiment.ipynb`.
+
 ## Full dataset split
 
 The official HotpotQA distractor training pool contains 90,447 labeled
@@ -87,6 +139,12 @@ data/hotpotqa_mini.json                  five released HotPotQA sample items
 data/hotpotqa_splits/                    full 60/20/20 split and manifest
 scripts/split_hotpotqa.py                deterministic dataset splitting tool
 tests/test_reflexion.py                  automated regression tests
+run_experiment.py                        failure-memory experiment entry point
+src/reflexion_reproduction/data.py      split loader (validation sealed)
+src/reflexion_reproduction/failure_memory.py  labels, lessons, validation, retrieval
+src/reflexion_reproduction/pipeline.py  conditions, CSV logging, analysis
+tests/test_failure_memory.py             tests for the extension
+notebooks/failure_memory_experiment.ipynb  Colab walkthrough
 results/                                 generated detailed trial records
 ```
 
