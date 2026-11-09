@@ -32,6 +32,9 @@ It writes `results/reproduction_attempts.csv` (one row per attempt),
 values) and `results/reproduction_curve.png`. Run it with `--provider scripted`
 to check the pipeline without an API key; scripted numbers are not results.
 
+As in the paper's CoT (GT) setting, `reproduce` gives the agent only the two
+supporting paragraphs (`--context gold`); `--context full` supplies all ten
+distractor paragraphs and costs about ten times more tokens.
 The baseline condition sends a fresh prompt on every attempt, with no memory and
 no trace of earlier attempts, which matches the paper's "CoT (GT) only" line.
 The Reflexion condition carries the failed attempt and its reflections forward.

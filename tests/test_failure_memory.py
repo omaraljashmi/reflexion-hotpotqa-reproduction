@@ -67,6 +67,15 @@ class DataTests(unittest.TestCase):
         with self.assertRaises(SealedSplitError):
             load_split("validation", 3)
 
+    def test_gold_context_keeps_only_supporting_paragraphs(self) -> None:
+        full = load_split("test", 5, seed=3)
+        gold = load_split("test", 5, seed=3, gold_only=True)
+        self.assertEqual([e.id for e in full], [e.id for e in gold])
+        for f, g in zip(full, gold):
+            self.assertLess(len(g.context), len(f.context))
+            self.assertTrue(all(item in f.context for item in g.context))
+            self.assertEqual(g.answer, f.answer)
+
     def test_level_filter(self) -> None:
         hard = load_split("test", 8, seed=1, level="hard")
         self.assertEqual(len(hard), 8)

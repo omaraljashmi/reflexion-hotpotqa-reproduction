@@ -46,12 +46,35 @@ def _normalize_context(raw: object) -> tuple[dict[str, str], ...]:
     raise ValueError("Unrecognized HotpotQA context format")
 
 
-def row_to_example(row: dict) -> Example:
+def _gold_titles(raw: object) -> set[str]:
+    """Titles of the supporting paragraphs, from either HotpotQA format."""
+
+    if isinstance(raw, dict) and "title" in raw:
+        return {str(title) for title in raw["title"]}
+    if isinstance(raw, (list, tuple)):
+        return {str(item[0]) for item in raw if isinstance(item, (list, tuple)) and item}
+    return set()
+
+
+def row_to_example(row: dict, gold_only: bool = False) -> Example:
+    """Build an Example; ``gold_only`` keeps just the supporting paragraphs.
+
+    The paper's "CoT (GT)" HotPotQA setting gives the agent the ground truth
+    paragraphs only. The distractor setting adds eight unrelated paragraphs
+    and is about ten times longer.
+    """
+
+    context = _normalize_context(row["context"])
+    if gold_only:
+        titles = _gold_titles(row.get("supporting_facts"))
+        gold = tuple(item for item in context if item["title"] in titles)
+        if gold:
+            context = gold
     return Example(
         id=str(row["id"]),
         question=str(row["question"]),
         answer=str(row["answer"]),
-        context=_normalize_context(row["context"]),
+        context=context,
         qtype=str(row.get("type", "")),
         level=str(row.get("level", "")),
     )
@@ -75,12 +98,15 @@ def load_split(
     allow_validation: bool = False,
     splits_dir: Path = SPLITS_DIR,
     level: str | None = None,
+    gold_only: bool = False,
 ) -> list[Example]:
     """Return a seeded random sample of ``n`` examples from one split.
 
     Uses reservoir sampling so the 50k-row training split never sits in memory.
     The sealed validation split needs ``allow_validation=True``. ``level``
     restricts the sample to one HotpotQA difficulty (easy, medium or hard).
+    ``gold_only`` supplies only the supporting paragraphs, as in the paper's
+    CoT (GT) setting.
     """
 
     if split not in SPLIT_FILES:
@@ -109,7 +135,7 @@ def load_split(
                 reservoir[slot] = row
     reservoir.sort(key=lambda row: row["id"])  # stable order independent of sampling
     rng.shuffle(reservoir)
-    return [row_to_example(row) for row in reservoir]
+    return [row_to_example(row, gold_only=gold_only) for row in reservoir]
 
 
 def load_mini(path: Path, limit: int) -> list[Example]:

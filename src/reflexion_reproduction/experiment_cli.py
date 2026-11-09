@@ -58,6 +58,11 @@ def add_common(parser: argparse.ArgumentParser, split: str, n: int) -> None:
         "--level", choices=("all", "easy", "medium", "hard"), default="all",
         help="restrict the sample to one HotpotQA difficulty level",
     )
+    parser.add_argument(
+        "--context", choices=("gold", "full"), default="full",
+        help="gold: only the supporting paragraphs (the paper's CoT (GT) setting); "
+        "full: all ten distractor paragraphs",
+    )
     parser.add_argument("--seed", type=int, default=0, help="sampling and retrieval seed")
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--reasoning-effort", choices=("low", "medium", "high", "none"), default="low")
@@ -79,6 +84,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     add_common(reproduce, "test", 100)
     reproduce.add_argument("--trials", type=int, default=4, help="attempts per question")
+    reproduce.set_defaults(context="gold")  # the paper's CoT (GT) setting
 
     pilot = sub.add_parser("pilot", help="first-attempt accuracy check to pick a model")
     add_common(pilot, "test", 30)
@@ -114,6 +120,7 @@ def _sample(args: argparse.Namespace):
     return load_split(
         args.split, args.n, seed=args.seed, allow_validation=args.final_validation,
         level=None if args.level == "all" else args.level,
+        gold_only=(args.context == "gold"),
     )
 
 
