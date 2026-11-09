@@ -37,7 +37,9 @@ no trace of earlier attempts, which matches the paper's "CoT (GT) only" line.
 The Reflexion condition carries the failed attempt and its reflections forward.
 Absolute numbers will differ from the paper because the model is different
 (the paper used GPT-4 in 2023); the pattern to look for is a flat baseline and
-a rising Reflexion curve.
+a rising Reflexion curve. If the baseline already solves more than about 75% of
+questions on the first attempt, Reflexion has little to fix: pick a weaker
+model with `--model`, or add `--level hard` to sample only the hard questions.
 
 ### Results
 

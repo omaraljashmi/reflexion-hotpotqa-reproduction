@@ -54,6 +54,10 @@ def add_common(parser: argparse.ArgumentParser, split: str, n: int) -> None:
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--split", choices=("train", "test", "validation"), default=split)
     parser.add_argument("--n", type=int, default=n, help="number of questions to sample")
+    parser.add_argument(
+        "--level", choices=("all", "easy", "medium", "hard"), default="all",
+        help="restrict the sample to one HotpotQA difficulty level",
+    )
     parser.add_argument("--seed", type=int, default=0, help="sampling and retrieval seed")
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--reasoning-effort", choices=("low", "medium", "high", "none"), default="low")
@@ -107,7 +111,10 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def _sample(args: argparse.Namespace):
-    return load_split(args.split, args.n, seed=args.seed, allow_validation=args.final_validation)
+    return load_split(
+        args.split, args.n, seed=args.seed, allow_validation=args.final_validation,
+        level=None if args.level == "all" else args.level,
+    )
 
 
 def cmd_reproduce(args: argparse.Namespace) -> int:

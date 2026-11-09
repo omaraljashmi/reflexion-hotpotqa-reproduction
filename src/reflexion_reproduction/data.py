@@ -65,17 +65,22 @@ def iter_split_rows(split: str, splits_dir: Path = SPLITS_DIR) -> Iterator[dict]
                     yield json.loads(line)
 
 
+LEVELS = ("easy", "medium", "hard")
+
+
 def load_split(
     split: str,
     n: int,
     seed: int = 0,
     allow_validation: bool = False,
     splits_dir: Path = SPLITS_DIR,
+    level: str | None = None,
 ) -> list[Example]:
     """Return a seeded random sample of ``n`` examples from one split.
 
     Uses reservoir sampling so the 50k-row training split never sits in memory.
-    The sealed validation split needs ``allow_validation=True``.
+    The sealed validation split needs ``allow_validation=True``. ``level``
+    restricts the sample to one HotpotQA difficulty (easy, medium or hard).
     """
 
     if split not in SPLIT_FILES:
@@ -87,10 +92,15 @@ def load_split(
         )
     if n < 1:
         raise ValueError("Sample size must be at least 1")
+    if level is not None and level not in LEVELS:
+        raise ValueError(f"Unknown level {level!r}; choose from {LEVELS}")
 
     rng = random.Random(seed)
     reservoir: list[dict] = []
-    for index, row in enumerate(iter_split_rows(split, splits_dir)):
+    rows = iter_split_rows(split, splits_dir)
+    if level is not None:
+        rows = (row for row in rows if row.get("level") == level)
+    for index, row in enumerate(rows):
         if index < n:
             reservoir.append(row)
         else:
