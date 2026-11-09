@@ -12,6 +12,44 @@ The implementation uses a five-question subset of the authors' released
 HotPotQA distractor sample. It reports HotPotQA-style exact match (EM), token F1,
 and cumulative accuracy after each trial.
 
+## Reproducing the parent paper's HotPotQA result
+
+The paper's HotPotQA experiment (Fig. 4b, "CoT (GT)") gives the agent the
+supporting passages and lets it retry each of 100 questions. Without reflection
+the share of solved questions stays flat at about 0.61. With reflection it rises
+to about 0.75 after a few retries. The `reproduce` command runs those two
+conditions on a seeded sample of the test split and prints both curves next to
+the paper's values:
+
+```bash
+python3 -m pip install -r requirements.txt
+export GROQ_API_KEY="your-key"           # console.groq.com
+python3 run_experiment.py reproduce --provider groq --n 100 --trials 4
+```
+
+It writes `results/reproduction_attempts.csv` (one row per attempt),
+`results/reproduction_report.json` (both curves plus the paper's reference
+values) and `results/reproduction_curve.png`. Run it with `--provider scripted`
+to check the pipeline without an API key; scripted numbers are not results.
+
+The baseline condition sends a fresh prompt on every attempt, with no memory and
+no trace of earlier attempts, which matches the paper's "CoT (GT) only" line.
+The Reflexion condition carries the failed attempt and its reflections forward.
+Absolute numbers will differ from the paper because the model is different
+(the paper used GPT-4 in 2023); the pattern to look for is a flat baseline and
+a rising Reflexion curve.
+
+### Results
+
+| Attempt | Baseline | Reflexion | Paper baseline | Paper Reflexion |
+|---|---|---|---|---|
+| 1 | | | 0.61 | 0.61 |
+| 2 | | | 0.61 | 0.69 |
+| 3 | | | 0.61 | 0.69 |
+| 4 | | | 0.61 | 0.70 |
+
+Fill this table from `results/reproduction_report.json` after the run and
+commit the three result files.
 
 ## Run a real LLM experiment
 
@@ -144,6 +182,8 @@ src/reflexion_reproduction/data.py      split loader (validation sealed)
 src/reflexion_reproduction/failure_memory.py  labels, lessons, validation, retrieval
 src/reflexion_reproduction/pipeline.py  conditions, CSV logging, analysis
 tests/test_failure_memory.py             tests for the extension
+src/reflexion_reproduction/reproduction.py  baseline vs Reflexion curves next to the paper's
+tests/test_reproduction.py               tests for the reproduction command
 notebooks/failure_memory_experiment.ipynb  Colab walkthrough
 results/                                 generated detailed trial records
 ```
@@ -151,12 +191,16 @@ results/                                 generated detailed trial records
 ## Suggested recording sequence
 
 1. Show this public GitHub repository and its file list.
-2. Open `src/reflexion_reproduction/core.py` and point out `run_trial`.
-3. Open `src/reflexion_reproduction/providers.py` and identify the two providers.
-4. In a terminal at the repository root, run the unit-test command above.
-5. Run `python3 run_reflexion.py`.
-6. Keep the final comparison and green/successful terminal exit visible.
-7. Open `results/latest.json` to show that trial traces and reflections were saved.
+2. Open `src/reflexion_reproduction/core.py` and point out `run_trial`: the
+   Actor call, the exact-match Evaluator, the reflection, and the memory append.
+3. Open `src/reflexion_reproduction/providers.py` and show that the model is
+   swapped by choosing a provider; the loop does not change.
+4. In a terminal at the repository root, run `python3 -m pytest -q`.
+5. Run `python3 run_experiment.py reproduce --provider groq --n 100 --trials 4`
+   (or open the saved `results/reproduction_report.json` if the run was done
+   earlier) and keep the table with the paper's values visible.
+6. Open `results/reproduction_curve.png` and `results/reproduction_attempts.csv`
+   to show one question's failed attempt, its reflection, and the retry.
 
 ## Sources and attribution
 

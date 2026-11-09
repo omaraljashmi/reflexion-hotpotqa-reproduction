@@ -145,10 +145,14 @@ class ReflexionAgent:
 
     def run_trial(self, trial: int, can_reflect: bool) -> TrialRecord:
         memory_before = list(self.memory)
+        # The baseline matches the paper's "CoT (GT) only" condition: every
+        # attempt is a fresh prompt with no trace of earlier attempts. Only the
+        # Reflexion agent carries its failed trial and reflections forward.
+        previous = self.previous_trace if self.strategy is Strategy.REFLEXION else ""
         output = self.model.act(
             example=self.example,
             memory=memory_before,
-            previous_trace=self.previous_trace,
+            previous_trace=previous,
             attempt=trial,
             lessons=self.lessons,
         )

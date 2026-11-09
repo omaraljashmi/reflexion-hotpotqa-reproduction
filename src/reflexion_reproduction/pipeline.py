@@ -134,6 +134,36 @@ def run_condition(
 # ---------------------------------------------------------------- analysis
 
 
+def cumulative_accuracy(
+    rows: Sequence[dict], condition: str, max_trials: int, run_id: int = 0
+) -> list[float]:
+    """Share of examples solved by the end of each attempt, as in Fig. 4 of the paper.
+
+    An example counts as solved at attempt ``t`` if any of its attempts up to
+    ``t`` was an exact match. Examples that passed early have no later rows,
+    so the curve never decreases.
+    """
+
+    solved_at: dict[str, int] = {}
+    examples: set[str] = set()
+    for row in rows:
+        if row["phase"] != "eval" or row["condition"] != condition:
+            continue
+        if str(row["run_id"]) != str(run_id):
+            continue
+        example_id = row["example_id"]
+        examples.add(example_id)
+        if row["exact_match"] in ("1", 1, True):
+            trial = int(row["trial"])
+            solved_at[example_id] = min(trial, solved_at.get(example_id, trial))
+    if not examples:
+        return [0.0] * max_trials
+    return [
+        sum(1 for t in solved_at.values() if t <= trial) / len(examples)
+        for trial in range(1, max_trials + 1)
+    ]
+
+
 def mcnemar_exact(b: int, c: int) -> float:
     """Two-sided exact McNemar p-value from discordant pair counts b and c."""
 
