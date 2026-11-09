@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from reflexion_reproduction.core import ActorOutput, Strategy, run_experiment  # noqa: E402
 from reflexion_reproduction.data import load_mini  # noqa: E402
 from reflexion_reproduction.pipeline import cumulative_accuracy  # noqa: E402
-from reflexion_reproduction.providers import ScriptedProvider  # noqa: E402
+from reflexion_reproduction.providers import GroqProvider, ScriptedProvider  # noqa: E402
 from reflexion_reproduction.reproduction import (  # noqa: E402
     PAPER_REFERENCE,
     format_table,
@@ -55,6 +55,37 @@ class BaselineIsolationTests(unittest.TestCase):
         second = model.calls[1]
         self.assertIn("Answer is INCORRECT", second["previous_trace"])
         self.assertEqual(second["memory"], ["Check the second hop before answering."])
+
+
+class EmptyReplyTests(unittest.TestCase):
+    """A reasoning model that returns no text must not abort the run."""
+
+    def _provider(self, replies: list[str]) -> tuple[GroqProvider, list[int]]:
+        provider = GroqProvider.__new__(GroqProvider)
+        provider.last_usage = {}
+        provider.total_usage = {"prompt_tokens": 0, "completion_tokens": 0, "calls": 0}
+        provider.name = "groq:test"
+        provider.reasoning_effort = "low"
+        provider.max_tokens = 1024
+        budgets: list[int] = []
+
+        def fake_call(instructions, prompt, max_tokens):
+            budgets.append(max_tokens)
+            return replies.pop(0)
+
+        provider._call = fake_call  # type: ignore[method-assign]
+        return provider, budgets
+
+    def test_retries_once_with_a_larger_budget(self) -> None:
+        provider, budgets = self._provider(["", "Thought: ok\nFinish[2004]"])
+        self.assertEqual(provider._generate("sys", "prompt"), "Thought: ok\nFinish[2004]")
+        self.assertEqual(budgets, [1024, 4096])
+
+    def test_empty_reply_becomes_a_failed_attempt(self) -> None:
+        provider, _ = self._provider(["", ""])
+        example = load_mini(ROOT / "data" / "hotpotqa_mini.json", limit=1)[0]
+        output = provider.act(example, memory=[], previous_trace="", attempt=1)
+        self.assertEqual(output.answer, "")
 
 
 class CurveTests(unittest.TestCase):

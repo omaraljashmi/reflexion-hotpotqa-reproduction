@@ -221,6 +221,17 @@ class GroqProvider(_LiveProvider):
         self.client = OpenAI(api_key=os.environ["GROQ_API_KEY"], base_url=self.BASE_URL)
 
     def _generate(self, instructions: str, prompt: str) -> str:
+        text = self._call(instructions, prompt, self.max_tokens)
+        if not text and self.reasoning_effort:
+            # A reasoning model can spend the whole budget on hidden reasoning
+            # and return nothing. Give it one more try with a larger budget.
+            text = self._call(instructions, prompt, max(4 * self.max_tokens, 4096))
+        if not text:
+            # Counted as a failed attempt by the caller; never abort a whole run.
+            print("  warning: the model returned no text; counting this call as a failure")
+        return text
+
+    def _call(self, instructions: str, prompt: str, max_tokens: int) -> str:
         kwargs = dict(
             model=self.model,
             messages=[
@@ -228,7 +239,7 @@ class GroqProvider(_LiveProvider):
                 {"role": "user", "content": prompt},
             ],
             temperature=self.temperature,
-            max_completion_tokens=self.max_tokens,
+            max_completion_tokens=max_tokens,
         )
         if self.seed is not None:
             kwargs["seed"] = self.seed
@@ -246,13 +257,7 @@ class GroqProvider(_LiveProvider):
             int(getattr(usage, "prompt_tokens", 0) or 0),
             int(getattr(usage, "completion_tokens", 0) or 0),
         )
-        text = (response.choices[0].message.content or "").strip()
-        if not text:
-            raise RuntimeError(
-                "The model returned no text. If this is a reasoning model, raise "
-                "--max-tokens or lower --reasoning-effort."
-            )
-        return text
+        return (response.choices[0].message.content or "").strip()
 
 
 class OpenAIProvider(_LiveProvider):
@@ -296,7 +301,7 @@ class OpenAIProvider(_LiveProvider):
         )
         text = response.output_text.strip()
         if not text:
-            raise RuntimeError("The model returned no text.")
+            print("  warning: the model returned no text; counting this call as a failure")
         return text
 
 
