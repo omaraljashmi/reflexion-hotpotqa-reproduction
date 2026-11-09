@@ -1,0 +1,68 @@
+{
+  "created_at_utc": "2026-11-09T02:29:59.375043+00:00",
+  "model": "groq:openai/gpt-oss-20b",
+  "examples": 100,
+  "max_trials": 4,
+  "accuracy_by_attempt": {
+    "no_memory": [
+      0.66,
+      0.66,
+      0.67,
+      0.67
+    ],
+    "reflexion": [
+      0.65,
+      0.71,
+      0.72,
+      0.72
+    ]
+  },
+  "first_attempt_failures": {
+    "no_memory": 34,
+    "reflexion": 35
+  },
+  "recovered_by_reflexion": 7,
+  "total_tokens": {
+    "no_memory": 97283,
+    "reflexion": 109019
+  },
+  "paper_reference": {
+    "paper": "Shinn et al. 2023, Fig. 4(b), CoT (GT), 100 HotPotQA questions",
+    "baseline": [
+      0.61,
+      0.61,
+      0.61,
+      0.61,
+      0.61,
+      0.61,
+      0.61,
+      0.61
+    ],
+    "reflexion": [
+      0.61,
+      0.69,
+      0.69,
+      0.7,
+      0.72,
+      0.74,
+      0.75,
+      0.75
+    ]
+  },
+  "config": {
+    "command": "reproduce",
+    "provider": "groq",
+    "model": "openai/gpt-oss-20b",
+    "split": "test",
+    "n": "100",
+    "level": "hard",
+    "context": "gold",
+    "seed": "0",
+    "temperature": "0.0",
+    "reasoning_effort": "low",
+    "max_tokens": "1024",
+    "out_dir": "/Users/klo/reflexion-hotpotqa-reproduction/results",
+    "final_validation": "False",
+    "trials": "4"
+  }
+}

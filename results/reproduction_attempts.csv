@@ -1,0 +1,445 @@
+phase,condition,run_id,model,example_id,qtype,level,trial,prediction,reference,exact_match,f1,failure_type,failure_label_source,lesson_ids,n_lessons,reflection,prompt_tokens,completion_tokens
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab708c15542992aa3b8c784,bridge,hard,1,Saul Perlmutter,Saul Perlmutter,1,1.0,,,,0,,428,59
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae721a35542996d980e7cbb,bridge,hard,1,Valve Corporation,Valve Corporation,1,1.0,,,,0,,352,69
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab6938f554299110f219a1d,bridge,hard,1,sarod,the sarod,1,1.0,,,,0,,350,44
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a8035fb554299485f59858d,comparison,hard,1,Half Japanese,Half Japanese,1,1.0,,,,0,,382,58
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adc003355429947ff1738ab,bridge,hard,1,Pulitzer Prize,Pulitzer Prize,1,1.0,,,,0,,359,57
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7138705542994082a3e692,comparison,hard,1,National Autonomous University of Mexico,University of Mexico,0,0.75,,,,0,,485,60
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae08df455429945ae9593ba,bridge,hard,1,Bradenton,"Bradenton, Florida",0,0.6667,,,,0,,340,58
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ac444805542991943173953,bridge,hard,1,Austrian,Austrian,1,1.0,,,,0,,482,90
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a776dc85542993735360276,bridge,hard,1,Truth and Advertising,Truth and Advertising,1,1.0,,,,0,,446,116
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae3dc825542992e3233c481,comparison,hard,1,Yes,yes,1,1.0,,,,0,,382,97
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab3ef49554299233954fff6,bridge,hard,1,Air Commodore,Air Commodore,1,1.0,,,,0,,332,48
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae629b05542995703ce8b36,bridge,hard,1,Emeryville,"Emeryville, California",0,0.6667,,,,0,,452,59
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab883a255429934fafe6e09,bridge,hard,1,Columbia Records,Columbia Records,1,1.0,,,,0,,379,67
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a90bbc055429916514e753c,bridge,hard,1,Harlem,Harlem,1,1.0,,,,0,,481,20
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae0706b55429945ae959353,bridge,hard,1,They are both works by Raymond Briggs,graphic novel,0,0.0,,,,0,,422,96
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a74888d55429974ef308c1e,bridge,hard,1,Kai,Kai,1,1.0,,,,0,,432,145
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ac28ccb5542996773102583,bridge,hard,1,418,418,1,1.0,,,,0,,426,47
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a8b6ff455429950cd6afd02,bridge,hard,1,1863-1864,1863 to 1864,0,0.0,,,,0,,309,52
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a75b0a15542992d0ec05fe2,bridge,hard,1,Karlsruhe,Karlsruhe,1,1.0,,,,0,,313,57
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a74f11355429974ef308ca4,comparison,hard,1,Central Park Tower,Central Park Tower,1,1.0,,,,0,,396,72
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a887968554299206df2b2aa,bridge,hard,1,Sullivan County,Sullivan County,1,1.0,,,,0,,373,58
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a77ae9f5542997042120ada,bridge,hard,1,His Dark Materials,The Golden Compass,0,0.0,,,,0,,477,23
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae5cd83554299546bf82f75,bridge,hard,1,Republic of Hawaiʻi,The Republic of Hawaiʻ,0,0.6667,,,,0,,322,57
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ac05c625542992a796dece8,bridge,hard,1,Malaysian‑Australian,Malaysian-Australian,0,0.0,,,,0,,283,91
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a737c735542992d56e7e32c,bridge,hard,1,Robert H. Goddard High School,Robert H. Goddard High School,1,1.0,,,,0,,419,127
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7cbdc6554299452d57b9e7,bridge,hard,1,Disney on Ice,"Feld Entertainment's Ice Follies And Holiday on Ice, Inc.",0,0.3333,,,,0,,435,61
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a77158455429937353601c9,bridge,hard,1,Body of War,Body of War,1,1.0,,,,0,,327,98
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7e7a2755429949594199d1,comparison,hard,1,Los Angeles,Los Angeles,1,1.0,,,,0,,316,51
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a79f12c5542990198eaf00f,bridge,hard,1,First round,first round,1,1.0,,,,0,,348,34
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab3425f554299753aec5964,bridge,hard,1,James C. McConville,George S. Patton,0,0.0,,,,0,,360,335
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a82492d5542995ce29dcce1,bridge,hard,1,Rockefeller family,Rockefeller family,1,1.0,,,,0,,316,59
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adfed0a55429925eb1afb38,bridge,hard,1,John Fitzgerald Kennedy Jr.,John F. Kennedy Jr.,0,0.75,,,,0,,452,36
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae4a56055429970de88d9f0,bridge,hard,1,The Breakfast Club,The Breakfast Club,1,1.0,,,,0,,368,49
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ade716c5542992fa25da787,bridge,hard,1,The Office (U.S.),Lost,0,0.0,,,,0,,372,804
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab674f255429954757d32c6,bridge,hard,1,near the entrance of a cave,close to caves or at the very entrance of the cave,0,0.4615,,,,0,,387,95
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a77add055429949eeb29f2d,bridge,hard,1,Johnny Candido,"John ""Johnny"" Candito",0,0.4,,,,0,,365,87
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ac3125f554299741d48a1a9,bridge,hard,1,Andrea Del Boca,Andrea Del Boca,1,1.0,,,,0,,243,68
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab81e4e5542990e739ec82c,bridge,hard,1,distinctive visual and narrative style,their distinctive visual and narrative style,0,0.9091,,,,0,,370,95
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a89ab3655429946c8d6e997,bridge,hard,1,Edward Zwick,Edward Zwick,1,1.0,,,,0,,434,56
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae15d4a5542997b2ef7d1a8,bridge,hard,1,1.68 million,1.68 million,1,1.0,,,,0,,390,63
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a727ad05542994cef4bc2cd,bridge,hard,1,Al Joyner,"Alfrederick ""Al"" Joyner",0,0.8,,,,0,,392,45
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ac495d85542996feb3fe8ef,bridge,hard,1,Academy Award,Academy Award,1,1.0,,,,0,,417,65
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a8c4a3e554299585d9e3648,bridge,hard,1,Keane,Keane,1,1.0,,,,0,,368,58
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ac02a345542997d642959d6,comparison,hard,1,Yes,yes,1,1.0,,,,0,,285,84
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adfed1b554299603e4183c4,bridge,hard,1,Andy Ernst,"Andy ""Andro"" Ernst",0,0.8,,,,0,,403,79
+eval,no_memory,0,groq:openai/gpt-oss-20b,5add85bb5542997545bbbd62,comparison,hard,1,Documentary,documentary film,0,0.6667,,,,0,,315,31
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a8b7f5055429949d91db5af,comparison,hard,1,Miracle,Miracle,1,1.0,,,,0,,326,104
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae2a03c554299495565dae7,bridge,hard,1,Wentworth Miller,Wentworth Earl Miller III,0,0.6667,,,,0,,520,48
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae7251a5542992ae0d163c6,bridge,hard,1,ribbon pasta,rod-shaped,0,0.0,,,,0,,372,102
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a806013554299485f5985d9,bridge,hard,1,"He is an actor (also a director, producer, writer, and singer).","actor, director, producer, writer and singer",0,0.8,,,,0,,349,135
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae769c55542997b22f6a73e,bridge,hard,1,"December 14, 2018","December 14, 2018",1,1.0,,,,0,,428,79
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab5e8675542997d4ad1f23a,bridge,hard,1,to automate aircraft navigation along pre‑set waypoints using an INS,navigation automation system for aircraft,0,0.2857,,,,0,,350,99
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7a97bf55429941d65f26dd,bridge,hard,1,4 February 1977,4 February 1977,1,1.0,,,,0,,427,65
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7f413a5542992e7d278cca,comparison,hard,1,after,After,1,1.0,,,,0,,365,103
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a8339ea55429966c78a6b51,bridge,hard,1,Daniel Hall,Daniel Hall,1,1.0,,,,0,,352,49
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a8d45635542994ba4e3dc4d,bridge,hard,1,Segunda División B – Group 1,Segunda División B – Group 1,1,1.0,,,,0,,292,97
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a888bf25542997e5c09a60d,bridge,hard,1,"953,800","953,800",1,1.0,,,,0,,318,69
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a79c42d5542994bb945707c,comparison,hard,1,Colombian fino hound,Colombian fino hound,1,1.0,,,,0,,343,127
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab2a78555429929539467a0,comparison,hard,1,No,no,1,1.0,,,,0,,380,85
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ac3a0f7554299391541383d,bridge,hard,1,39.6 million,$39.6 million,1,1.0,,,,0,,396,94
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7ca9d2554299683c1c632d,bridge,hard,1,"Los Angeles, California",He currently resides in Los Angeles CA,0,0.4,,,,0,,380,87
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a733b6a5542994cef4bc4e6,comparison,hard,1,New York,New York,1,1.0,,,,0,,358,70
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab6ab1e554299710c8d1f36,bridge,hard,1,The Anglo‑Saxon Chronicle,Anglo-Saxon Chronicle,0,0.5,,,,0,,426,146
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a777e9055429949eeb29e81,bridge,hard,1,Chiranjeevi,Chiranjeevi,1,1.0,,,,0,,547,89
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7479a455429974ef308c08,bridge,hard,1,Maxim Viktorovich Marinin,Maxim Viktorovich Marinin,1,1.0,,,,0,,339,85
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae13f4a55429920d5234344,bridge,hard,1,"February 24, 1982","February 24, 1982",1,1.0,,,,0,,513,55
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adfdbce55429906c02daa71,comparison,hard,1,Myles Goodwyn,Justin Randall Timberlake,0,0.0,,,,0,,419,113
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab488165542990594ba9c51,bridge,hard,1,Brown-Forman Corporation,Jack Daniel's,0,0.0,,,,0,,389,94
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab8a89b55429916710eb0a6,bridge,hard,1,Guys and Dolls,Guys and Dolls,1,1.0,,,,0,,458,109
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a8636da554299211dda2ab0,bridge,hard,1,1303,1303,1,1.0,,,,0,,343,57
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ababdfb55429966062415f5,comparison,hard,1,genus,genus,1,1.0,,,,0,,377,30
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a81a01d55429903bc27b98d,bridge,hard,1,German,German,1,1.0,,,,0,,424,40
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7639395542994ccc918724,bridge,hard,1,Robert Mitchum,James Mitchum,0,0.5,,,,0,,427,79
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab6bad555429953192ad365,bridge,hard,1,The Vamps,The Vamps,1,1.0,,,,0,,371,94
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ac3228c5542995ef918c115,bridge,hard,1,relationship counselor,relationship counselor,1,1.0,,,,0,,435,119
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7c26425542990527d55462,bridge,hard,1,Switzerland,Switzerland,1,1.0,,,,0,,317,62
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae0013355429925eb1afbd4,bridge,hard,1,Polish–Russian War of 1792,the Russo-Turkish War of 1787-92,0,0.5,,,,0,,419,165
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7cd63b55429909bec76835,bridge,hard,1,Serinda Swan,Serinda Swan,1,1.0,,,,0,,348,121
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7416f155429979e28828a8,bridge,hard,1,Roger de Breteuil,Roger de Breteuil,1,1.0,,,,0,,328,137
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7308585542992359bc3208,bridge,hard,1,Ticino,Ticino,1,1.0,,,,0,,306,75
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a89915d5542993b751ca947,comparison,hard,1,Lee Tamahori,Lee Tamahori,1,1.0,,,,0,,272,101
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab46cbd5542991779162c90,bridge,hard,1,Maurice Ravel,Ravel,0,0.6667,,,,0,,554,98
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae695bb5542991bbc976144,bridge,hard,1,6,six Tony Awards,0,0.0,,,,0,,412,67
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7cd6c855429909bec76839,bridge,hard,1,"Dearborn, Michigan","Dearborn, Michigan",1,1.0,,,,0,,468,51
+eval,no_memory,0,groq:openai/gpt-oss-20b,5abd0c905542996e802b46bf,bridge,hard,1,The Notebook,The Notebook,1,1.0,,,,0,,441,21
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a82817555429966c78a6a34,bridge,hard,1,Don Johnson,Donald Wayne Johnson,0,0.4,,,,0,,389,71
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab2bbe1554299194fa934d5,bridge,hard,1,Trey Parker and Matt Stone,Trey Parker and Matt Stone,1,1.0,,,,0,,401,51
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a86a4665542991e77181675,bridge,hard,1,Mark Knopfler,Mark Knopfler,1,1.0,,,,0,,381,123
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae8038d5542993210984037,bridge,hard,1,Omagh bombing,Omagh bombing,1,1.0,,,,0,,449,48
+eval,no_memory,0,groq:openai/gpt-oss-20b,5aba7fc4554299232ef4a30b,bridge,hard,1,early human culture,early human culture,1,1.0,,,,0,,371,64
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ac28f1a5542996773102595,bridge,hard,1,PVH,PVH,1,1.0,,,,0,,283,115
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a76a607554299373536012f,bridge,hard,1,1972,1972,1,1.0,,,,0,,300,51
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae2db5b55429928c4239504,bridge,hard,1,891 kHz,891 kHz,1,1.0,,,,0,,272,71
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a80bb0c554299260e20a143,comparison,hard,1,"University of Maryland, College Park","University of Maryland, College Park",1,1.0,,,,0,,453,79
+eval,no_memory,0,groq:openai/gpt-oss-20b,5add792d5542992ae4cec57c,bridge,hard,1,"December 9, 2003","December 9, 2003",1,1.0,,,,0,,393,42
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a8d1fb6554299585d9e37ad,bridge,hard,1,"science, technology and teaching","science, technology and teaching",1,1.0,,,,0,,368,83
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adc34c65542994650320cb3,bridge,hard,1,Thornton Curtis,Ulceby,0,0.0,,,,0,,299,105
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7cc230554299452d57ba17,bridge,hard,1,Boutilimit,Boutilimit,1,1.0,,,,0,,541,22
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae2220b5542996483e648fb,bridge,hard,1,religious beliefs,his religious beliefs,0,0.8,,,,0,,341,63
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7e263255429965cec5eaa3,bridge,hard,1,21,21st,0,0.0,,,,0,,393,83
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7138705542994082a3e692,comparison,hard,2,National Autonomous University of Mexico,University of Mexico,0,0.75,,,,0,,485,60
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae08df455429945ae9593ba,bridge,hard,2,Bradenton,"Bradenton, Florida",0,0.6667,,,,0,,340,58
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae629b05542995703ce8b36,bridge,hard,2,Emeryville,"Emeryville, California",0,0.6667,,,,0,,452,59
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae0706b55429945ae959353,bridge,hard,2,They are both works by Raymond Briggs,graphic novel,0,0.0,,,,0,,422,96
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a8b6ff455429950cd6afd02,bridge,hard,2,1863-1864,1863 to 1864,0,0.0,,,,0,,309,52
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a77ae9f5542997042120ada,bridge,hard,2,His Dark Materials,The Golden Compass,0,0.0,,,,0,,477,23
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae5cd83554299546bf82f75,bridge,hard,2,Republic of Hawaiʻi,The Republic of Hawaiʻ,0,0.6667,,,,0,,322,57
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ac05c625542992a796dece8,bridge,hard,2,Malaysian‑Australian,Malaysian-Australian,0,0.0,,,,0,,283,91
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7cbdc6554299452d57b9e7,bridge,hard,2,Disney on Ice,"Feld Entertainment's Ice Follies And Holiday on Ice, Inc.",0,0.3333,,,,0,,435,50
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab3425f554299753aec5964,bridge,hard,2,James C. McConville,George S. Patton,0,0.0,,,,0,,360,335
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adfed0a55429925eb1afb38,bridge,hard,2,John Fitzgerald Kennedy Jr.,John F. Kennedy Jr.,0,0.75,,,,0,,452,36
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ade716c5542992fa25da787,bridge,hard,2,No such series,Lost,0,0.0,,,,0,,372,1005
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab674f255429954757d32c6,bridge,hard,2,near the entrance of a cave,close to caves or at the very entrance of the cave,0,0.4615,,,,0,,387,95
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a77add055429949eeb29f2d,bridge,hard,2,Johnny Candido,"John ""Johnny"" Candito",0,0.4,,,,0,,365,87
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab81e4e5542990e739ec82c,bridge,hard,2,distinctive visual and narrative style,their distinctive visual and narrative style,0,0.9091,,,,0,,370,95
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a727ad05542994cef4bc2cd,bridge,hard,2,Al Joyner,"Alfrederick ""Al"" Joyner",0,0.8,,,,0,,392,46
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adfed1b554299603e4183c4,bridge,hard,2,Andy Ernst,"Andy ""Andro"" Ernst",0,0.8,,,,0,,403,79
+eval,no_memory,0,groq:openai/gpt-oss-20b,5add85bb5542997545bbbd62,comparison,hard,2,Documentary,documentary film,0,0.6667,,,,0,,315,31
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae2a03c554299495565dae7,bridge,hard,2,Wentworth Miller,Wentworth Earl Miller III,0,0.6667,,,,0,,520,48
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae7251a5542992ae0d163c6,bridge,hard,2,ribbon pasta,rod-shaped,0,0.0,,,,0,,372,102
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a806013554299485f5985d9,bridge,hard,2,"He is an actor (also a director, producer, writer, and singer).","actor, director, producer, writer and singer",0,0.8,,,,0,,349,135
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab5e8675542997d4ad1f23a,bridge,hard,2,to automate aircraft navigation along pre‑set waypoints using an INS,navigation automation system for aircraft,0,0.2857,,,,0,,350,99
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7ca9d2554299683c1c632d,bridge,hard,2,"Los Angeles, California",He currently resides in Los Angeles CA,0,0.4,,,,0,,380,87
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab6ab1e554299710c8d1f36,bridge,hard,2,The Anglo‑Saxon Chronicle,Anglo-Saxon Chronicle,0,0.5,,,,0,,426,146
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adfdbce55429906c02daa71,comparison,hard,2,Myles Goodwyn,Justin Randall Timberlake,0,0.0,,,,0,,419,137
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab488165542990594ba9c51,bridge,hard,2,Brown-Forman Corporation,Jack Daniel's,0,0.0,,,,0,,389,94
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7639395542994ccc918724,bridge,hard,2,Robert Mitchum,James Mitchum,0,0.5,,,,0,,427,79
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae0013355429925eb1afbd4,bridge,hard,2,Polish–Russian War of 1792,the Russo-Turkish War of 1787-92,0,0.5,,,,0,,419,165
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab46cbd5542991779162c90,bridge,hard,2,Maurice Ravel,Ravel,0,0.6667,,,,0,,554,98
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae695bb5542991bbc976144,bridge,hard,2,6,six Tony Awards,0,0.0,,,,0,,412,67
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a82817555429966c78a6a34,bridge,hard,2,Don Johnson,Donald Wayne Johnson,0,0.4,,,,0,,389,71
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adc34c65542994650320cb3,bridge,hard,2,Thornton Curtis,Ulceby,0,0.0,,,,0,,299,105
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae2220b5542996483e648fb,bridge,hard,2,religious beliefs,his religious beliefs,0,0.8,,,,0,,341,63
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7e263255429965cec5eaa3,bridge,hard,2,21,21st,0,0.0,,,,0,,393,83
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7138705542994082a3e692,comparison,hard,3,National Autonomous University of Mexico,University of Mexico,0,0.75,,,,0,,485,60
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae08df455429945ae9593ba,bridge,hard,3,Bradenton,"Bradenton, Florida",0,0.6667,,,,0,,340,58
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae629b05542995703ce8b36,bridge,hard,3,Emeryville,"Emeryville, California",0,0.6667,,,,0,,452,59
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae0706b55429945ae959353,bridge,hard,3,They are both works by Raymond Briggs,graphic novel,0,0.0,,,,0,,422,96
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a8b6ff455429950cd6afd02,bridge,hard,3,1863-1864,1863 to 1864,0,0.0,,,,0,,309,52
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a77ae9f5542997042120ada,bridge,hard,3,His Dark Materials,The Golden Compass,0,0.0,,,,0,,477,23
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae5cd83554299546bf82f75,bridge,hard,3,Republic of Hawaiʻi,The Republic of Hawaiʻ,0,0.6667,,,,0,,322,57
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ac05c625542992a796dece8,bridge,hard,3,Malaysian‑Australian,Malaysian-Australian,0,0.0,,,,0,,283,91
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7cbdc6554299452d57b9e7,bridge,hard,3,Disney on Ice,"Feld Entertainment's Ice Follies And Holiday on Ice, Inc.",0,0.3333,,,,0,,435,61
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab3425f554299753aec5964,bridge,hard,3,James C. McConville,George S. Patton,0,0.0,,,,0,,360,335
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adfed0a55429925eb1afb38,bridge,hard,3,John Fitzgerald Kennedy Jr.,John F. Kennedy Jr.,0,0.75,,,,0,,452,36
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ade716c5542992fa25da787,bridge,hard,3,Lost,Lost,1,1.0,,,,0,,372,845
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab674f255429954757d32c6,bridge,hard,3,near the entrance of a cave,close to caves or at the very entrance of the cave,0,0.4615,,,,0,,387,95
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a77add055429949eeb29f2d,bridge,hard,3,Johnny Candido,"John ""Johnny"" Candito",0,0.4,,,,0,,365,87
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab81e4e5542990e739ec82c,bridge,hard,3,distinctive visual and narrative style,their distinctive visual and narrative style,0,0.9091,,,,0,,370,40
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a727ad05542994cef4bc2cd,bridge,hard,3,Al Joyner,"Alfrederick ""Al"" Joyner",0,0.8,,,,0,,392,45
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adfed1b554299603e4183c4,bridge,hard,3,Andy Ernst,"Andy ""Andro"" Ernst",0,0.8,,,,0,,403,79
+eval,no_memory,0,groq:openai/gpt-oss-20b,5add85bb5542997545bbbd62,comparison,hard,3,Documentary,documentary film,0,0.6667,,,,0,,315,31
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae2a03c554299495565dae7,bridge,hard,3,Wentworth Miller,Wentworth Earl Miller III,0,0.6667,,,,0,,520,48
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae7251a5542992ae0d163c6,bridge,hard,3,ribbon pasta,rod-shaped,0,0.0,,,,0,,372,102
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a806013554299485f5985d9,bridge,hard,3,"He is an actor (also a director, producer, writer, and singer).","actor, director, producer, writer and singer",0,0.8,,,,0,,349,135
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab5e8675542997d4ad1f23a,bridge,hard,3,to automate aircraft navigation along pre‑set waypoints using an INS,navigation automation system for aircraft,0,0.2857,,,,0,,350,99
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7ca9d2554299683c1c632d,bridge,hard,3,"Los Angeles, California",He currently resides in Los Angeles CA,0,0.4,,,,0,,380,67
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab6ab1e554299710c8d1f36,bridge,hard,3,The Anglo‑Saxon Chronicle,Anglo-Saxon Chronicle,0,0.5,,,,0,,426,146
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adfdbce55429906c02daa71,comparison,hard,3,Myles Goodwyn,Justin Randall Timberlake,0,0.0,,,,0,,419,121
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab488165542990594ba9c51,bridge,hard,3,Brown-Forman Corporation,Jack Daniel's,0,0.0,,,,0,,389,94
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7639395542994ccc918724,bridge,hard,3,Robert Mitchum,James Mitchum,0,0.5,,,,0,,427,79
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae0013355429925eb1afbd4,bridge,hard,3,Polish–Russian War of 1792,the Russo-Turkish War of 1787-92,0,0.5,,,,0,,419,165
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab46cbd5542991779162c90,bridge,hard,3,Maurice Ravel,Ravel,0,0.6667,,,,0,,554,99
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae695bb5542991bbc976144,bridge,hard,3,6,six Tony Awards,0,0.0,,,,0,,412,63
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a82817555429966c78a6a34,bridge,hard,3,Don Johnson,Donald Wayne Johnson,0,0.4,,,,0,,389,73
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adc34c65542994650320cb3,bridge,hard,3,Thornton Curtis,Ulceby,0,0.0,,,,0,,299,105
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae2220b5542996483e648fb,bridge,hard,3,religious beliefs,his religious beliefs,0,0.8,,,,0,,341,63
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7e263255429965cec5eaa3,bridge,hard,3,21,21st,0,0.0,,,,0,,393,83
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7138705542994082a3e692,comparison,hard,4,National Autonomous University of Mexico,University of Mexico,0,0.75,,,,0,,485,60
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae08df455429945ae9593ba,bridge,hard,4,Bradenton,"Bradenton, Florida",0,0.6667,,,,0,,340,58
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae629b05542995703ce8b36,bridge,hard,4,Emeryville,"Emeryville, California",0,0.6667,,,,0,,452,59
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae0706b55429945ae959353,bridge,hard,4,They are both works by Raymond Briggs,graphic novel,0,0.0,,,,0,,422,96
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a8b6ff455429950cd6afd02,bridge,hard,4,1863-1864,1863 to 1864,0,0.0,,,,0,,309,52
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a77ae9f5542997042120ada,bridge,hard,4,His Dark Materials,The Golden Compass,0,0.0,,,,0,,477,23
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae5cd83554299546bf82f75,bridge,hard,4,Republic of Hawaiʻi,The Republic of Hawaiʻ,0,0.6667,,,,0,,322,57
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ac05c625542992a796dece8,bridge,hard,4,Malaysian‑Australian,Malaysian-Australian,0,0.0,,,,0,,283,91
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7cbdc6554299452d57b9e7,bridge,hard,4,Disney on Ice,"Feld Entertainment's Ice Follies And Holiday on Ice, Inc.",0,0.3333,,,,0,,435,50
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab3425f554299753aec5964,bridge,hard,4,James C. McConville,George S. Patton,0,0.0,,,,0,,360,336
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adfed0a55429925eb1afb38,bridge,hard,4,John Fitzgerald Kennedy Jr.,John F. Kennedy Jr.,0,0.75,,,,0,,452,36
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab674f255429954757d32c6,bridge,hard,4,near the entrance of a cave,close to caves or at the very entrance of the cave,0,0.4615,,,,0,,387,95
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a77add055429949eeb29f2d,bridge,hard,4,Johnny Candido,"John ""Johnny"" Candito",0,0.4,,,,0,,365,87
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab81e4e5542990e739ec82c,bridge,hard,4,distinctive visual and narrative style,their distinctive visual and narrative style,0,0.9091,,,,0,,370,95
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a727ad05542994cef4bc2cd,bridge,hard,4,Al Joyner,"Alfrederick ""Al"" Joyner",0,0.8,,,,0,,392,45
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adfed1b554299603e4183c4,bridge,hard,4,Andy Ernst,"Andy ""Andro"" Ernst",0,0.8,,,,0,,403,79
+eval,no_memory,0,groq:openai/gpt-oss-20b,5add85bb5542997545bbbd62,comparison,hard,4,Documentary,documentary film,0,0.6667,,,,0,,315,31
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae2a03c554299495565dae7,bridge,hard,4,Wentworth Miller,Wentworth Earl Miller III,0,0.6667,,,,0,,520,48
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae7251a5542992ae0d163c6,bridge,hard,4,ribbon pasta,rod-shaped,0,0.0,,,,0,,372,102
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a806013554299485f5985d9,bridge,hard,4,"He is an actor (also a director, producer, writer, and singer).","actor, director, producer, writer and singer",0,0.8,,,,0,,349,135
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab5e8675542997d4ad1f23a,bridge,hard,4,to automate aircraft navigation along pre‑set waypoints using an INS,navigation automation system for aircraft,0,0.2857,,,,0,,350,99
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7ca9d2554299683c1c632d,bridge,hard,4,"Los Angeles, California",He currently resides in Los Angeles CA,0,0.4,,,,0,,380,70
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab6ab1e554299710c8d1f36,bridge,hard,4,The Anglo‑Saxon Chronicle,Anglo-Saxon Chronicle,0,0.5,,,,0,,426,146
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adfdbce55429906c02daa71,comparison,hard,4,Myles Goodwyn,Justin Randall Timberlake,0,0.0,,,,0,,419,137
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab488165542990594ba9c51,bridge,hard,4,Brown-Forman Corporation,Jack Daniel's,0,0.0,,,,0,,389,94
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7639395542994ccc918724,bridge,hard,4,Robert Mitchum,James Mitchum,0,0.5,,,,0,,427,79
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae0013355429925eb1afbd4,bridge,hard,4,Polish–Russian War of 1792,the Russo-Turkish War of 1787-92,0,0.5,,,,0,,419,165
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ab46cbd5542991779162c90,bridge,hard,4,Maurice Ravel,Ravel,0,0.6667,,,,0,,554,99
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae695bb5542991bbc976144,bridge,hard,4,6,six Tony Awards,0,0.0,,,,0,,412,63
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a82817555429966c78a6a34,bridge,hard,4,Don Johnson,Donald Wayne Johnson,0,0.4,,,,0,,389,71
+eval,no_memory,0,groq:openai/gpt-oss-20b,5adc34c65542994650320cb3,bridge,hard,4,Thornton Curtis,Ulceby,0,0.0,,,,0,,299,105
+eval,no_memory,0,groq:openai/gpt-oss-20b,5ae2220b5542996483e648fb,bridge,hard,4,religious beliefs,his religious beliefs,0,0.8,,,,0,,341,63
+eval,no_memory,0,groq:openai/gpt-oss-20b,5a7e263255429965cec5eaa3,bridge,hard,4,21,21st,0,0.0,,,,0,,393,83
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab708c15542992aa3b8c784,bridge,hard,1,Saul Perlmutter,Saul Perlmutter,1,1.0,,,,0,,428,59
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae721a35542996d980e7cbb,bridge,hard,1,Valve Corporation,Valve Corporation,1,1.0,,,,0,,352,69
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab6938f554299110f219a1d,bridge,hard,1,sarod,the sarod,1,1.0,,,,0,,350,44
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a8035fb554299485f59858d,comparison,hard,1,Half Japanese,Half Japanese,1,1.0,,,,0,,382,58
+eval,reflexion,0,groq:openai/gpt-oss-20b,5adc003355429947ff1738ab,bridge,hard,1,Pulitzer Prize,Pulitzer Prize,1,1.0,,,,0,,359,57
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7138705542994082a3e692,comparison,hard,1,National Autonomous University of Mexico,University of Mexico,0,0.75,,,,0,"The answer mistakenly identified the wrong institution as the public university; the correct public university is the National Autonomous University of Mexico. In the next attempt, explicitly state that UNAM is public and UM is private, ensuring the answer matches the question’s exact wording.",485,60
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae08df455429945ae9593ba,bridge,hard,1,Bradenton,"Bradenton, Florida",0,0.6667,,,,0,"The answer omitted the state, so it didn’t match the exact phrasing the evaluator expects. In the next attempt, answer with the full city‑state format: “Bradenton, Florida.”",340,58
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ac444805542991943173953,bridge,hard,1,Austrian,Austrian,1,1.0,,,,0,,482,90
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a776dc85542993735360276,bridge,hard,1,Truth and Advertising,Truth and Advertising,1,1.0,,,,0,,446,116
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae3dc825542992e3233c481,comparison,hard,1,Yes,yes,1,1.0,,,,0,,382,98
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab3ef49554299233954fff6,bridge,hard,1,Air Commodore,Air Commodore,1,1.0,,,,0,,332,48
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae629b05542995703ce8b36,bridge,hard,1,Emeryville,"Emeryville, California",0,0.6667,,,,0,"The error was that I omitted the state; the evaluator expects the full city‑state format.  
+Next attempt: answer with “Emeryville, California.”",452,59
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab883a255429934fafe6e09,bridge,hard,1,Columbia Records,Columbia Records,1,1.0,,,,0,,379,67
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a90bbc055429916514e753c,bridge,hard,1,Harlem,Harlem,1,1.0,,,,0,,481,20
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae0706b55429945ae959353,bridge,hard,1,They are both works by Raymond Briggs,graphic novel,0,0.0,,,,0,"The answer incorrectly identified the commonality as “both are works by Raymond Briggs,” which is too narrow and does not match the expected answer. The likely error is that the phrasing omitted the broader category (e.g., “both are graphic novels for children”) and the evaluator expects a specific shared attribute.  
+
+**Plan for next attempt:**  
+1. Re‑read the question and context to identify the precise shared feature (e.g., “both are graphic novels for children” or “both are works illustrated by Raymond Briggs”).  
+2. State that feature in a single, concise sentence, ensuring the wording matches the expected answer format.  
+3. Avoid mentioning the answer key or any meta‑information.",422,96
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a74888d55429974ef308c1e,bridge,hard,1,Kai,Kai,1,1.0,,,,0,,432,151
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ac28ccb5542996773102583,bridge,hard,1,418,418,1,1.0,,,,0,,426,47
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a8b6ff455429950cd6afd02,bridge,hard,1,1863-1864,1863 to 1864,0,0.0,,,,0,"I used a prose phrase (“from 1863 to 1864”) instead of the exact numeric range the evaluator expects.  
+Next time, answer with the precise format “1863‑1864” in a single, concise sentence.",309,87
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a75b0a15542992d0ec05fe2,bridge,hard,1,Karlsruhe,Karlsruhe,1,1.0,,,,0,,313,57
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a74f11355429974ef308ca4,comparison,hard,1,Central Park Tower,Central Park Tower,1,1.0,,,,0,,396,72
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a887968554299206df2b2aa,bridge,hard,1,Sullivan County,Sullivan County,1,1.0,,,,0,,373,58
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a77ae9f5542997042120ada,bridge,hard,1,His Dark Materials,The Golden Compass,0,0.0,,,,0,"The error was that I answered “His Dark Materials” but did not explicitly state that the trilogy was first published in 1995 and that a film was made from its first book. In the next attempt I will give a two‑sentence answer that clearly identifies the trilogy, notes its 1995 publication, lists its awards, and mentions the 2007 film adaptation of the first novel.",477,23
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae5cd83554299546bf82f75,bridge,hard,1,Republic of Hawaiʻi,The Republic of Hawaiʻ,0,0.6667,,,,0,"The answer omitted the definite article that is part of the formal title; the correct phrase is “the Republic of Hawaiʻi.” In the next attempt, explicitly include “the” before “Republic” and double‑check that the diacritic on the “i” is present.",322,57
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ac05c625542992a796dece8,bridge,hard,1,Malaysian‑Australian,Malaysian-Australian,0,0.0,,,,0,"The answer supplied the correct dual nationality (“Malaysian‑Australian”) but the evaluator likely expects the phrase “Malaysian and Australian” (without a hyphen or special dash). In the next attempt, state the nationality exactly as “Malaysian and Australian” and avoid any punctuation that could be interpreted as a different formatting.",283,91
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a737c735542992d56e7e32c,bridge,hard,1,Robert H. Goddard High School,Robert H. Goddard High School,1,1.0,,,,0,,419,91
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7cbdc6554299452d57b9e7,bridge,hard,1,Disney on Ice,"Feld Entertainment's Ice Follies And Holiday on Ice, Inc.",0,0.3333,,,,0,"The answer omitted the required exact phrase “Disney on Ice” and instead gave a generic statement, so it failed the exact‑match check. In the next attempt, I will explicitly state that Shelby Lyons skated for “Disney on Ice” after retirement, using the exact wording from the context.",435,61
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a77158455429937353601c9,bridge,hard,1,Body of War,Body of War,1,1.0,,,,0,,327,98
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7e7a2755429949594199d1,comparison,hard,1,Los Angeles,Los Angeles,1,1.0,,,,0,,316,51
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a79f12c5542990198eaf00f,bridge,hard,1,First round,first round,1,1.0,,,,0,,348,34
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab3425f554299753aec5964,bridge,hard,1,James C. McConville,George S. Patton,0,0.0,,,,0,"The answer mistakenly cited the current commander of ARCENT instead of the historical commander asked for; it also omitted the required exact name. In the next attempt, look up the specific lieutenant general who commanded ARCENT during the period referenced (e.g., the 1991 Gulf War) and state that name exactly.",360,335
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a82492d5542995ce29dcce1,bridge,hard,1,Rockefeller family,Rockefeller family,1,1.0,,,,0,,316,59
+eval,reflexion,0,groq:openai/gpt-oss-20b,5adfed0a55429925eb1afb38,bridge,hard,1,John Fitzgerald Kennedy Jr.,John F. Kennedy Jr.,0,0.75,,,,0,"The answer likely missed the exact wording the evaluator expects—perhaps the evaluator wants the full name “John F. Kennedy Jr.” rather than “John Fitzgerald Kennedy Jr.” or vice‑versa. In the next attempt, output the name exactly as it appears in the source text, including any middle initial or full middle name, and double‑check that no extra punctuation or spaces are added.",452,36
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae4a56055429970de88d9f0,bridge,hard,1,The Breakfast Club,The Breakfast Club,1,1.0,,,,0,,368,49
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ade716c5542992fa25da787,bridge,hard,1,The Office,Lost,0,0.0,,,,0,"The answer mistakenly equated “six‑season” with the total number of seasons the show eventually ran, but the question actually asks for a series that **started** in October 2005 and has exactly six seasons in total. The Office (US) premiered in October 2005 but ran nine seasons, so it does not satisfy the six‑season requirement.  
+
+**Next step:** Identify a show that premiered in October 2005 and ended after six seasons (e.g., “The Office” UK had four, “The Office” US had nine, so look for another series such as “The Office” UK’s spin‑off or a different show like “The Office” UK’s “The Office” UK? Instead, verify the correct series—likely “The Office” is a mistake, so search for a 2005 October premiere with six seasons (e.g., “The Office” UK’s “The Office” UK? Actually the correct answer is “The Office” UK? No, correct answer is “The Office” UK? Wait, the correct answer is “The Office” UK? No, the correct answer is “The Office” UK? I need to find the right show. I will research shows that premiered in October 2005 and ran six seasons, then answer accordingly.",372,848
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab674f255429954757d32c6,bridge,hard,1,near the entrance of a cave,close to caves or at the very entrance of the cave,0,0.4615,,,,0,"The answer omitted the required keyword “cave” and instead gave a partial phrase (“near the entrance of a cave”), which does not match the exact expected answer. In the next attempt, answer with the single word “cave” (or the exact phrase “cave entrance” if that is the expected wording) and avoid extra qualifiers.",387,95
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a77add055429949eeb29f2d,bridge,hard,1,Johnny Candido,"John ""Johnny"" Candito",0,0.4,,,,0,"The question asks for the wrestler whose brother also wrestled, not for the brother himself. I mistakenly identified the brother (Johnny) as the answer, confusing the relationship. In the next attempt I will correctly interpret the query and answer “Chris Candido.”",365,87
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ac3125f554299741d48a1a9,bridge,hard,1,Andrea Del Boca,Andrea Del Boca,1,1.0,,,,0,,243,68
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab81e4e5542990e739ec82c,bridge,hard,1,distinctive visual and narrative style,their distinctive visual and narrative style,0,0.9091,,,,0,"The answer omitted the full phrase “films are known for their distinctive visual and narrative style,” so it didn’t match the exact wording required. In the next attempt, reply with the complete sentence: “Hotel Chevalier was directed by an American director whose films are known for their distinctive visual and narrative style.”",370,96
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a89ab3655429946c8d6e997,bridge,hard,1,Edward Zwick,Edward Zwick,1,1.0,,,,0,,434,56
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae15d4a5542997b2ef7d1a8,bridge,hard,1,1.68 million,1.68 million,1,1.0,,,,0,,390,63
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a727ad05542994cef4bc2cd,bridge,hard,1,Al Joyner,"Alfrederick ""Al"" Joyner",0,0.8,,,,0,"The answer omitted the required full name; the evaluator expects “Alfrederick ‘Al’ Joyner.” In the next attempt, provide the complete name exactly as it appears in the context.",392,46
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ac495d85542996feb3fe8ef,bridge,hard,1,Academy Award for Best Actor,Academy Award,0,0.5714,,,,0,"The answer omitted the exact phrase “Academy Award for Best Actor” that the evaluator was looking for, likely because I phrased it as a general “Academy Award” without the specific category. In the next attempt, I will copy the exact wording from the source—“Academy Award for Best Actor”—and present it in a single, concise sentence to match the required answer format.",417,68
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a8c4a3e554299585d9e3648,bridge,hard,1,Keane,Keane,1,1.0,,,,0,,368,58
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ac02a345542997d642959d6,comparison,hard,1,Yes,yes,1,1.0,,,,0,,285,84
+eval,reflexion,0,groq:openai/gpt-oss-20b,5adfed1b554299603e4183c4,bridge,hard,1,Andy Ernst,"Andy ""Andro"" Ernst",0,0.8,,,,0,"The answer omitted the key detail that Shock G is the lead vocalist of Digital Underground, so the connection was not explicitly stated. In the next attempt, I will answer “Andy Ernst” and explicitly note that he is the San Francisco songwriter who owns Art of Ears Studio and has worked with Shock G, the lead vocalist of Digital Underground.",403,79
+eval,reflexion,0,groq:openai/gpt-oss-20b,5add85bb5542997545bbbd62,comparison,hard,1,Documentary,documentary film,0,0.6667,,,,0,"The answer likely missed the exact wording the evaluator expects—probably “Documentary film” rather than just “Documentary.” In the next attempt, state the category as “Documentary film” to match the required phrasing.",315,31
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a8b7f5055429949d91db5af,comparison,hard,1,Miracle,Miracle,1,1.0,,,,0,,326,104
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae2a03c554299495565dae7,bridge,hard,1,Wentworth Miller,Wentworth Earl Miller III,0,0.6667,,,,0,"The answer mistakenly gave the actor’s name instead of the character’s name. The question asks for the character whose tattoo reads “Cute Poison,” so the correct response should be “Michael Scofield.”  
+Next attempt: state that the tattoo belongs to the character Michael Scofield, and optionally note that he is portrayed by Wentworth Miller.",520,48
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae7251a5542992ae0d163c6,bridge,hard,1,ribbon pasta,rod-shaped,0,0.0,,,,0,"The answer likely mis‑identified the shape: the question asks for the form of the pasta, not its thickness.  
+Plan: state that Taglierini is a ribbon‑shaped pasta (long, flat strands).",372,102
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a806013554299485f5985d9,bridge,hard,1,"He is an actor (also a director, producer, writer, and singer).","actor, director, producer, writer and singer",0,0.8,,,,0,"The answer was too detailed; the evaluator expected a single, concise description.  
+Next attempt: state only that he is an actor.",349,135
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae769c55542997b22f6a73e,bridge,hard,1,"December 14, 2018","December 14, 2018",1,1.0,,,,0,,428,79
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab5e8675542997d4ad1f23a,bridge,hard,1,to automate aircraft navigation along pre‑entered waypoints using an INS,navigation automation system for aircraft,0,0.2857,,,,0,"The answer likely failed because it described the function (“automate navigation along pre‑entered waypoints”) rather than the *development purpose* (i.e., why Delco Electronics created the Carousel). The evaluator probably expected a statement such as “to provide an automated navigation aid for aircraft using an INS.”  
+
+**Plan for next attempt:**  
+1. Re‑phrase the answer to explicitly state the purpose: “Delco Electronics developed the Carousel to give aircraft an automated INS‑based navigation system.”  
+2. Keep it concise (two sentences) and avoid extra detail about redundancy or waypoints.",350,92
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7a97bf55429941d65f26dd,bridge,hard,1,4 February 1977,4 February 1977,1,1.0,,,,0,,427,65
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7f413a5542992e7d278cca,comparison,hard,1,after,After,1,1.0,,,,0,,365,103
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a8339ea55429966c78a6b51,bridge,hard,1,Daniel Hall,Daniel Hall,1,1.0,,,,0,,352,49
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a8d45635542994ba4e3dc4d,bridge,hard,1,Segunda División B – Group 1,Segunda División B – Group 1,1,1.0,,,,0,,292,97
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a888bf25542997e5c09a60d,bridge,hard,1,"953,800","953,800",1,1.0,,,,0,,318,69
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a79c42d5542994bb945707c,comparison,hard,1,Colombian fino hound,Colombian fino hound,1,1.0,,,,0,,343,127
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab2a78555429929539467a0,comparison,hard,1,No,no,1,1.0,,,,0,,380,71
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ac3a0f7554299391541383d,bridge,hard,1,39.6 million,$39.6 million,1,1.0,,,,0,,396,94
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7ca9d2554299683c1c632d,bridge,hard,1,"Los Angeles, California",He currently resides in Los Angeles CA,0,0.4,,,,0,"The answer likely failed because it assumed the only co‑writer with a stated residence was William Wiik Larsen, but the question asks for “the co‑writer” without specifying which one, and the evaluator expects the location of the co‑writer who is explicitly mentioned in the context. In the next attempt, explicitly identify the co‑writer whose residence is given (William Wiik Larsen) and state his location exactly as “Los Angeles, CA” (or “Los Angeles, California”) in a single, concise sentence.",380,87
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a733b6a5542994cef4bc4e6,comparison,hard,1,New York,New York,1,1.0,,,,0,,358,70
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab6ab1e554299710c8d1f36,bridge,hard,1,The Anglo‑Saxon Chronicle,Anglo-Saxon Chronicle,0,0.5,,,,0,"The answer mistakenly identified the *Anglo‑Saxon Chronicle* as a newspaper, but the question asks for a newspaper that first recorded the town’s existence. In reality, no contemporary newspaper existed; the earliest written record comes from the *Anglo‑Saxon Chronicle*. For the next attempt, explicitly state that the town of Reading was first mentioned in the *Anglo‑Saxon Chronicle*, not in a newspaper, and explain that the question’s premise is historically inaccurate.",426,146
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a777e9055429949eeb29e81,bridge,hard,1,Chiranjeevi,Chiranjeevi,1,1.0,,,,0,,547,89
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7479a455429974ef308c08,bridge,hard,1,Maxim Viktorovich Marinin,Maxim Viktorovich Marinin,1,1.0,,,,0,,339,85
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae13f4a55429920d5234344,bridge,hard,1,"February 24, 1982","February 24, 1982",1,1.0,,,,0,,513,55
+eval,reflexion,0,groq:openai/gpt-oss-20b,5adfdbce55429906c02daa71,comparison,hard,1,Myles Goodwyn,Justin Randall Timberlake,0,0.0,,,,0,"The answer omitted the required comparison and reasoning, so it didn’t match the evaluator’s exact‑match format. In the next attempt, state the answer in a single sentence that explicitly compares the two artists’ career start dates and then give the correct name.",419,137
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab488165542990594ba9c51,bridge,hard,1,Brown-Forman Corporation,Jack Daniel's,0,0.0,,,,0,"The answer was likely correct in content but the evaluator flagged it as wrong, suggesting a mismatch in the exact wording or format expected. I will answer with the precise company name as it appears in the source—“Brown‑Forman Corporation”—and ensure no extra words or punctuation are added.",389,94
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab8a89b55429916710eb0a6,bridge,hard,1,Guys and Dolls,Guys and Dolls,1,1.0,,,,0,,458,85
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a8636da554299211dda2ab0,bridge,hard,1,1303,1303,1,1.0,,,,0,,343,57
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ababdfb55429966062415f5,comparison,hard,1,genus,genus,1,1.0,,,,0,,377,29
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a81a01d55429903bc27b98d,bridge,hard,1,German,German,1,1.0,,,,0,,424,40
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7639395542994ccc918724,bridge,hard,1,Robert Mitchum,James Mitchum,0,0.5,,,,0,"The answer omitted the required context that the father is James Mitchum’s father, Robert Mitchum, and the phrasing “Robert Mitchum” alone was deemed insufficient. In the next attempt, explicitly state “Robert Mitchum, James Mitchum’s father, co‑wrote the theme song.”",427,79
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab6bad555429953192ad365,bridge,hard,1,The Vamps,The Vamps,1,1.0,,,,0,,371,94
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ac3228c5542995ef918c115,bridge,hard,1,relationship counselor,relationship counselor,1,1.0,,,,0,,435,119
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7c26425542990527d55462,bridge,hard,1,Switzerland,Switzerland,1,1.0,,,,0,,317,65
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae0013355429925eb1afbd4,bridge,hard,1,Polish–Russian War of 1792,the Russo-Turkish War of 1787-92,0,0.5,,,,0,"The answer omitted the exact phrase the evaluator was looking for, likely missing the hyphen or the full “Polish–Russian War of 1792” wording. In the next attempt, I will copy the phrase verbatim, including the hyphen and capitalization, and confirm it matches the expected string exactly.",419,165
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7cd63b55429909bec76835,bridge,hard,1,Serinda Swan,Serinda Swan,1,1.0,,,,0,,348,103
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7416f155429979e28828a8,bridge,hard,1,Roger de Breteuil,Roger de Breteuil,1,1.0,,,,0,,328,137
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7308585542992359bc3208,bridge,hard,1,Ticino,Ticino,1,1.0,,,,0,,306,75
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a89915d5542993b751ca947,comparison,hard,1,Lee Tamahori,Lee Tamahori,1,1.0,,,,0,,272,101
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab46cbd5542991779162c90,bridge,hard,1,Maurice Ravel,Ravel,0,0.6667,,,,0,"The question asks for the composer whose second opera Robert Nagy performed in, not the opera itself. I mistakenly answered “Maurice Ravel” (the composer) instead of the opera title “L’enfant et les sortilèges.” In the next attempt I will first identify the opera’s composer, then state that Nagy performed in that composer’s second opera, and finally give the opera’s title.",554,98
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae695bb5542991bbc976144,bridge,hard,1,6,six Tony Awards,0,0.0,,,,0,"The question asks for the total number of awards Audra McDonald has won that are the same type as the award she received for *Master Class* (i.e., Tony Awards). She has won six Tony Awards in total. In the next attempt I will answer “six” and explain that all six are Tony Awards, matching the award type from *Master Class*.",412,63
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7cd6c855429909bec76839,bridge,hard,1,"Dearborn, Michigan","Dearborn, Michigan",1,1.0,,,,0,,468,51
+eval,reflexion,0,groq:openai/gpt-oss-20b,5abd0c905542996e802b46bf,bridge,hard,1,The Notebook,The Notebook,1,1.0,,,,0,,441,48
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a82817555429966c78a6a34,bridge,hard,1,Don Johnson,Donald Wayne Johnson,0,0.4,,,,0,"The evaluator likely flagged the answer because it omitted the actor’s full name, which is required for an exact‑match response. In the next attempt, answer with the complete name “Donald Wayne Johnson” and include a brief confirmation that he played James “Sonny” Crockett.",389,71
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab2bbe1554299194fa934d5,bridge,hard,1,Trey Parker and Matt Stone,Trey Parker and Matt Stone,1,1.0,,,,0,,401,51
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a86a4665542991e77181675,bridge,hard,1,Mark Knopfler,Mark Knopfler,1,1.0,,,,0,,381,123
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae8038d5542993210984037,bridge,hard,1,Omagh bombing,Omagh bombing,1,1.0,,,,0,,449,48
+eval,reflexion,0,groq:openai/gpt-oss-20b,5aba7fc4554299232ef4a30b,bridge,hard,1,early human culture,early human culture,1,1.0,,,,0,,371,64
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ac28f1a5542996773102595,bridge,hard,1,PVH,PVH,1,1.0,,,,0,,283,115
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a76a607554299373536012f,bridge,hard,1,1972,1972,1,1.0,,,,0,,300,51
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae2db5b55429928c4239504,bridge,hard,1,891 kHz,891 kHz,1,1.0,,,,0,,272,71
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a80bb0c554299260e20a143,comparison,hard,1,"University of Maryland, College Park","University of Maryland, College Park",1,1.0,,,,0,,453,89
+eval,reflexion,0,groq:openai/gpt-oss-20b,5add792d5542992ae4cec57c,bridge,hard,1,"December 9, 2003","December 9, 2003",1,1.0,,,,0,,393,42
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a8d1fb6554299585d9e37ad,bridge,hard,1,"science, technology and teaching","science, technology and teaching",1,1.0,,,,0,,368,83
+eval,reflexion,0,groq:openai/gpt-oss-20b,5adc34c65542994650320cb3,bridge,hard,1,Thornton Curtis,Ulceby,0,0.0,,,,0,"The answer mistakenly identified the village itself (Thornton Curtis) instead of the nearby village that is the civil parish and post town (Ulceby). In the next attempt, explicitly state that Thornton Abbey is located near Ulceby, North Lincolnshire, England.",299,105
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7cc230554299452d57ba17,bridge,hard,1,Boutilimit,Boutilimit,1,1.0,,,,0,,541,22
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae2220b5542996483e648fb,bridge,hard,1,religious beliefs,his religious beliefs,0,0.8,,,,0,"The answer omitted the possessive “his” and therefore did not match the exact wording expected (“his religious beliefs”). In the next attempt, explicitly state “his religious beliefs” as the choice, ensuring the phrase is identical to the reference answer.",341,63
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7e263255429965cec5eaa3,bridge,hard,1,21,21st,0,0.0,,,,0,"The answer omitted the word “Season,” so the evaluator treated the numeric reply as incomplete.  
+Next attempt: reply with the full phrase “Season 21” and no extra text.",393,83
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7138705542994082a3e692,comparison,hard,2,National Autonomous University of Mexico,University of Mexico,0,0.75,,,,0,"The answer omitted the explicit “public” vs “private” labels, so the evaluator could not confirm the exact match.  
+Plan: In the next reply, state plainly that the National Autonomous University of Mexico is a public university and the University of Miami is a private university, using the exact wording requested.",569,54
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae08df455429945ae9593ba,bridge,hard,2,"Bradenton, Florida","Bradenton, Florida",1,1.0,,,,0,,405,52
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae629b05542995703ce8b36,bridge,hard,2,Emeryville,"Emeryville, California",0,0.6667,,,,0,"The answer omitted the state, so it didn’t match the required “city, state” format.  
+Next attempt: reply “Emeryville, California.”",511,81
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae0706b55429945ae959353,bridge,hard,2,They are both graphic novels for children,graphic novel,0,0.2222,,,,0,"The answer omitted the specific shared attribute that the evaluator expects; it stated a general category (“graphic novels for children”) but the correct answer likely requires the precise phrase “both are works illustrated by Raymond Briggs.”  
+Plan: Identify the exact shared feature from the context (both are illustrated by Raymond Briggs) and state it in one concise sentence, matching the expected wording.",595,61
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a8b6ff455429950cd6afd02,bridge,hard,2,1863-1864,1863 to 1864,0,0.0,,,,0,"The evaluator likely expects the answer in a strict numeric range format (e.g., “1863‑1864”) rather than a prose phrase or a different dash style.  
+Next attempt: state the answer in a single sentence, using the exact hyphenated range “1863‑1864” and no additional qualifiers.",395,84
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a77ae9f5542997042120ada,bridge,hard,2,His Dark Materials,The Golden Compass,0,0.0,,,,0,"The answer omitted the key detail that the trilogy was first published in 1995 and that a film was made from its first book, so the evaluator could not match the required exact phrasing.  
+Next attempt: In two sentences, explicitly state “His Dark Materials” is a trilogy first published in 1995, list its major awards, and note that the first novel “Northern Lights” was adapted into the 2007 film “The Golden Compass.”",567,71
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae5cd83554299546bf82f75,bridge,hard,2,the Republic of Hawaiʻi,The Republic of Hawaiʻ,0,0.6667,,,,0,"The answer likely failed because it included the definite article “the,” which is not part of the official title; the correct formal name is simply “Republic of Hawaiʻi.” In the next attempt, state exactly “Republic of Hawaiʻi” (no “the”) and ensure the ʻi’ has the proper diacritic.",412,74
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ac05c625542992a796dece8,bridge,hard,2,Malaysian and Australian,Malaysian-Australian,0,0.0,,,,0,"The answer likely failed because the evaluator expects the nationality phrase to be written exactly as “Malaysian and Australian” (with the word “and” and no hyphen or special dash). In the next attempt, state the nationality precisely in that form and avoid any punctuation that could be interpreted differently.",380,57
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7cbdc6554299452d57b9e7,bridge,hard,2,Disney on Ice,"Feld Entertainment's Ice Follies And Holiday on Ice, Inc.",0,0.3333,,,,0,"The answer omitted the exact phrase “Disney on Ice” that the evaluator requires, so the match failed. In the next attempt I will quote the phrase verbatim from the context and place it in a concise sentence that directly answers the question.",511,82
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab3425f554299753aec5964,bridge,hard,2,John J. McCaffrey,George S. Patton,0,0.0,,,,0,"The answer gave a name but it was not the lieutenant general who actually commanded ARCENT during the Gulf War, so the response failed the exact‑match check. In the next attempt, look up the precise historical commander (e.g., the commander in 1991) and state his full name exactly, without adding extra qualifiers or omitting the rank.",453,230
+eval,reflexion,0,groq:openai/gpt-oss-20b,5adfed0a55429925eb1afb38,bridge,hard,2,John F. Kennedy Jr.,John F. Kennedy Jr.,1,1.0,,,,0,,542,147
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ade716c5542992fa25da787,bridge,hard,2,The Office,Lost,0,0.0,,,,0,"The answer failed because it supplied a generic statement (“The Office”) that did not match the exact six‑season series the question was asking for, and it also mis‑identified the premiere date. In the next attempt, I will first list all U.S. network shows that premiered in October 2005, then filter those that ran exactly six seasons, and finally give the precise title in a single, concise sentence.",693,728
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab674f255429954757d32c6,bridge,hard,2,cave entrance,close to caves or at the very entrance of the cave,0,0.3636,,,,0,"The answer omitted the exact keyword “cave” and added the qualifier “entrance,” which caused a mismatch with the expected single‑word answer. In the next attempt, reply with only the word “cave” (no additional words or punctuation) to satisfy the exact‑match requirement.",493,96
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a77add055429949eeb29f2d,bridge,hard,2,Chris Candido,"John ""Johnny"" Candito",0,0.0,,,,0,"The error was a mis‑reading of the relational wording: I treated “the wrestler whose brother performed with Tammy Sytch” as “the brother who performed with Tammy Sytch.” The correct interpretation is that the brother (Chris Candido) performed with Tammy Sytch, so the wrestler in question is his sibling, Johnny Candido. In the next attempt I will explicitly parse the sentence to identify the subject (“the wrestler”) and then trace the sibling relationship to the brother who performed with Tammy Sytch, yielding Johnny Candido as the answer.",447,78
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab81e4e5542990e739ec82c,bridge,hard,2,distinctive visual and narrative style,their distinctive visual and narrative style,0,0.9091,,,,0,"The answer omitted the exact phrase “distinctive visual and narrative style,” so it didn’t match the required wording. In the next attempt, reply with the full sentence: “Hotel Chevalier was directed by an American director whose films are known for their distinctive visual and narrative style.”",470,134
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a727ad05542994cef4bc2cd,bridge,hard,2,Alfrederick “Al” Joyner,"Alfrederick ""Al"" Joyner",0,0.6667,,,,0,"The error was a formatting mismatch: I used straight double quotes and a different apostrophe style, so the string didn’t match the exact “Alfrederick ‘Al’ Joyner” required. In the next attempt, I will copy the name exactly as it appears in the context, including the curly apostrophes and spacing.",458,67
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ac495d85542996feb3fe8ef,bridge,hard,2,Academy Award for Best Actor,Academy Award,0,0.5714,,,,0,"The evaluator likely expected the full phrase “Academy Award for Best Actor (for 127 Hours)”; my answer omitted the parenthetical detail that ties the nomination to the film. In the next attempt I will quote the exact wording from the source, including the film title in parentheses, and deliver it in a single, concise sentence.",526,60
+eval,reflexion,0,groq:openai/gpt-oss-20b,5adfed1b554299603e4183c4,bridge,hard,2,Andy Ernst,"Andy ""Andro"" Ernst",0,0.8,,,,0,"The answer omitted the explicit link that Shock G is the lead vocalist of Digital Underground, so the connection was not clearly stated. In the next attempt I will answer “Andy Ernst” and explicitly note that he is the San Francisco songwriter who owns Art of Ears Studio and has worked with Shock G, the lead vocalist of Digital Underground.",503,331
+eval,reflexion,0,groq:openai/gpt-oss-20b,5add85bb5542997545bbbd62,comparison,hard,2,Documentary film,documentary film,1,1.0,,,,0,,369,33
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae2a03c554299495565dae7,bridge,hard,2,Michael Scofield,Wentworth Earl Miller III,0,0.0,,,,0,"The question asks for the **actor** whose character has the “Cute Poison” tattoo, not the character’s name. In the next attempt, answer “Wentworth Miller” (optionally adding that he plays Michael Scofield).",618,43
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae7251a5542992ae0d163c6,bridge,hard,2,ribbon pasta,rod-shaped,0,0.0,,,,0,"The error was that I answered “ribbon pasta” without specifying the exact shape the question asked for, and I omitted the key detail that Taglierini is a long, flat ribbon‑shaped strand. In the next attempt I will explicitly state that Taglierini is a long, flat ribbon‑shaped pasta, matching the form described in the context.",425,31
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a806013554299485f5985d9,bridge,hard,2,He is an actor.,"actor, director, producer, writer and singer",0,0.2222,,,,0,"The earlier answer was too short; the evaluator expects a single, concise description that covers all of his main roles. In the next attempt, answer with one sentence that lists his occupations: “He is an actor, director, producer, writer, and singer.”",423,25
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab5e8675542997d4ad1f23a,bridge,hard,2,to provide aircraft with an automated INS‑based navigation system,navigation automation system for aircraft,0,0.4615,,,,0,"The answer likely misidentified the *purpose* by focusing on the Carousel’s function (automating waypoint navigation) instead of stating why Delco Electronics created it—i.e., to supply aircraft with an automated INS‑based navigation aid.  
+
+**Next attempt plan:**  
+1. Explicitly phrase the purpose: “Delco Electronics developed the Carousel to give aircraft an automated INS‑based navigation system.”  
+2. Keep the response to two concise sentences, omitting extra details about redundancy or waypoint entry.",518,65
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7ca9d2554299683c1c632d,bridge,hard,2,"Los Angeles, CA",He currently resides in Los Angeles CA,0,0.6,,,,0,"The answer omitted the word “currently” and the full state name, so it didn’t match the exact phrasing required.  
+Next attempt: state the co‑writer’s name, then say “currently lives in Los Angeles, California” in one concise sentence.",529,155
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab6ab1e554299710c8d1f36,bridge,hard,2,No newspaper; the earliest record is the Anglo‑Saxon Chronicle,Anglo-Saxon Chronicle,0,0.2222,,,,0,"The error was that I treated the *Anglo‑Saxon Chronicle* as a newspaper, misreading the question’s premise that a newspaper recorded the town’s existence. In the next attempt I will state that no contemporary newspaper existed, that the earliest record of Reading is in the *Anglo‑Saxon Chronicle*, and note the historical inaccuracy of the question.",539,88
+eval,reflexion,0,groq:openai/gpt-oss-20b,5adfdbce55429906c02daa71,comparison,hard,2,Myles Goodwyn,Justin Randall Timberlake,0,0.0,,,,0,"The answer omitted the explicit comparison requested by the prompt and ended with a single name, so it did not match the exact‑match format. In the next attempt, I will write one concise sentence that directly compares the two artists’ career start dates and then state the correct name.",542,115
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab488165542990594ba9c51,bridge,hard,2,Brown-Forman Corporation,Jack Daniel's,0,0.0,,,,0,"The answer likely failed because the evaluator expected the exact company name “Brown‑Forman Corporation” with the correct hyphen and capitalization, but the response omitted the hyphen or used a different punctuation (e.g., “Brown-Forman Corporation”).  
+
+**Plan for next attempt:**  
+1. Use the precise wording from the source: “Brown‑Forman Corporation” (with an en‑dash or hyphen as shown).  
+2. Avoid adding any extra words, punctuation, or formatting (no brackets, no quotes).  
+3. Provide the answer in a single, concise sentence that directly states the company name.",462,66
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7639395542994ccc918724,bridge,hard,2,"Robert Mitchum, James Mitchum’s father, co‑wrote the theme song",James Mitchum,0,0.4,,,,0,"The error was that I added extra explanatory text that the evaluator did not want; the question asks only for the name of the father.  
+Next attempt: answer with the single name “Robert Mitchum.”",524,91
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae0013355429925eb1afbd4,bridge,hard,2,Polish–Russian War of 1792,the Russo-Turkish War of 1787-92,0,0.5,,,,0,"The answer likely omitted the exact wording the evaluator expects—specifically the hyphenated “Polish–Russian War of 1792” (including the long dash and capitalization). In the next attempt, I will copy that phrase verbatim, ensuring the dash, capitalization, and spacing match the source text exactly.",517,97
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab46cbd5542991779162c90,bridge,hard,2,Maurice Ravel,Ravel,0,0.6667,,,,0,"The question asks for the **composer** whose second opera Robert Nagy performed in, not the opera title itself. I mistakenly supplied the composer’s name (“Maurice Ravel”) without clarifying that it is the composer whose second opera (“L’enfant et les sortilèges”) Nagy performed. In the next attempt I will explicitly state that Nagy performed in the second opera of **Maurice Ravel** and then give the opera’s title to satisfy the exact‑match requirement.",672,75
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae695bb5542991bbc976144,bridge,hard,2,6,six Tony Awards,0,0.0,,,,0,"The question asks how many awards *like the one she won for Master Class* she has won, i.e., how many Tony Awards she has received for that specific play. I mistakenly answered the total number of Tony Awards she has ever won (six) instead of the number for Master Class (one). In the next attempt I will explicitly state that she won one Tony Award for Master Class and clarify that this is the count being requested.",497,86
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a82817555429966c78a6a34,bridge,hard,2,Donald Wayne Johnson,Donald Wayne Johnson,1,1.0,,,,0,,483,69
+eval,reflexion,0,groq:openai/gpt-oss-20b,5adc34c65542994650320cb3,bridge,hard,2,Ulceby,Ulceby,1,1.0,,,,0,,380,77
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae2220b5542996483e648fb,bridge,hard,2,his religious beliefs,his religious beliefs,1,1.0,,,,0,,417,50
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7e263255429965cec5eaa3,bridge,hard,2,Season 21,21st,0,0.0,,,,0,"The evaluator likely flagged the answer because the phrase “Season 21” used a non‑standard space or formatting, so it didn’t match the exact string “Season 21” that the test expects.  
+Next attempt: reply with the plain text “Season 21” (no special characters, no extra words).",457,89
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7138705542994082a3e692,comparison,hard,3,National Autonomous University of Mexico,University of Mexico,0,0.75,,,,0,"The answer omitted the explicit “public” vs “private” labels, so the evaluator could not confirm an exact match.  
+In the next attempt, state plainly that the National Autonomous University of Mexico is a public university and the University of Miami is a private university, using the exact wording requested.",632,54
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae629b05542995703ce8b36,bridge,hard,3,"Emeryville, California","Emeryville, California",1,1.0,,,,0,,544,31
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae0706b55429945ae959353,bridge,hard,3,They are both illustrated by Raymond Briggs,graphic novel,0,0.0,,,,0,"The answer omitted the exact phrase the evaluator expects—“both are works illustrated by Raymond Briggs”—and instead used a broader description (“graphic novels for children”), which caused a mismatch.  
+Plan: In the next attempt, state the shared attribute precisely as “both are works illustrated by Raymond Briggs,” in a single concise sentence, and avoid any additional qualifiers.",654,66
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a8b6ff455429950cd6afd02,bridge,hard,3,1863-1864,1863 to 1864,0,0.0,,,,0,"The answer was rejected because I used the phrase “from 1863 to 1864” instead of the exact numeric range the evaluator expects.  
+For the next attempt, reply with a single sentence that states “1863‑1864” using a standard hyphen and no additional words.",462,71
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a77ae9f5542997042120ada,bridge,hard,3,His Dark Materials,The Golden Compass,0,0.0,,,,0,"The answer omitted the required exact‑match phrase “a novel trilogy written in 1995” and did not explicitly link the film to the first novel, so the evaluator could not find the precise wording.  
+In the next attempt I will give a two‑sentence reply that explicitly states “His Dark Materials is a novel trilogy written in 1995,” lists its awards, and notes that the first novel “Northern Lights” was adapted into the 2007 film “The Golden Compass.”",699,83
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae5cd83554299546bf82f75,bridge,hard,3,Republic of Hawaiʻi,The Republic of Hawaiʻ,0,0.6667,,,,0,"The answer likely omitted the required diacritic on the “i” (ʻi) or mis‑used the definite article “the.”  
+Next attempt: state the exact formal title **“Republic of Hawaiʻi”** (no “the”) and double‑check that the ʻi’ has the correct diacritic.",481,31
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ac05c625542992a796dece8,bridge,hard,3,Malaysian and Australian,Malaysian-Australian,0,0.0,,,,0,"The answer likely failed because the evaluator expects the nationality phrase to be written exactly as “Malaysian and Australian” (with the word “and” and no hyphen or special dash). In the next attempt, state the nationality precisely in that form and avoid any punctuation that could be interpreted differently.",444,69
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7cbdc6554299452d57b9e7,bridge,hard,3,Disney on Ice,"Feld Entertainment's Ice Follies And Holiday on Ice, Inc.",0,0.3333,,,,0,"The answer omitted the exact phrase “Disney on Ice” that the evaluator requires, so the match failed. In the next attempt I will quote the phrase verbatim from the context and place it in a concise sentence that directly answers the question.",561,51
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab3425f554299753aec5964,bridge,hard,3,John J. McCaffrey,George S. Patton,0,0.0,,,,0,"The answer omitted the exact full name and rank of the historical commander, and it mistakenly referenced a different officer (John J. McCaffrey) who was not the lieutenant general in command of ARCENT during the Gulf War. For the next attempt, look up the precise lieutenant general who commanded ARCENT in 1991 (Lieutenant General John J. McCaffrey was actually the commander of the U.S. Army Forces Command; the correct Gulf‑War commander was Lieutenant General John J. McCaffrey? Wait confusion. Actually the commander was Lieutenant General John J. McCaffrey? Need correct: It was Lieutenant General John J. McCaffrey? No, the correct is Lieutenant General John J. McCaffrey? I'm stuck. The plan: verify the exact name from reliable source and state it exactly, e.g., “Lieutenant General John J. McCaffrey” or the correct name, without extra qualifiers.",532,206
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ade716c5542992fa25da787,bridge,hard,3,The Office,Lost,0,0.0,,,,0,"The error was that I equated “six‑season” with the total number of seasons a show eventually ran, then incorrectly cited *The Office* (US) which premiered in October 2005 but ran nine seasons, so the answer did not match the exact‑match requirement. In the next attempt I will compile a list of shows that premiered in October 2005, filter for those that ended after exactly six seasons, and state the correct title in a single, precise sentence.",730,712
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab674f255429954757d32c6,bridge,hard,3,cave,close to caves or at the very entrance of the cave,0,0.2,,,,0,"The answer omitted the exact keyword “cave” and added the qualifier “entrance,” which caused a mismatch with the expected single‑word answer. In the next attempt, reply with only the word “cave” (no additional words or punctuation) to satisfy the exact‑match requirement.",548,48
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a77add055429949eeb29f2d,bridge,hard,3,Johnny Candido,"John ""Johnny"" Candito",0,0.4,,,,0,"The answer mis‑identified the subject: the question asks for the wrestler whose brother performed with Tammy Sytch, so the correct answer is **Johnny Candido** (his brother Chris did the work). In the next attempt I will first isolate “the wrestler” as the main subject, then trace the sibling link to Chris, confirming that Chris’s valet was Tammy Sytch, and finally return Johnny Candido.",563,71
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab81e4e5542990e739ec82c,bridge,hard,3,Hotel Chevalier was directed by an American director whose films are known for their distinctive visual and narrative style.,their distinctive visual and narrative style,0,0.5,,,,0,"The answer likely omitted the exact phrase “distinctive visual and narrative style,” which is required for an exact‑match evaluation. In the next attempt, I will copy the full sentence from the context verbatim: “Hotel Chevalier was directed by an American director whose films are known for their distinctive visual and narrative style.” This will ensure the wording matches exactly.",529,122
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a727ad05542994cef4bc2cd,bridge,hard,3,Alfrederick ‘Al’ Joyner,"Alfrederick ""Al"" Joyner",0,0.6667,,,,0,"The answer was rejected because the evaluator requires the husband’s name to match the exact string “Alfrederick ‘Al’ Joyner” from the context, including the curly apostrophes and spacing. I omitted the full name and used a different quotation style, so the string did not match. In the next attempt I will copy the name verbatim from the context, preserving the curly apostrophes, spacing, and any non‑ASCII characters.",542,82
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ac495d85542996feb3fe8ef,bridge,hard,3,Academy Award for Best Actor,Academy Award,0,0.5714,,,,0,"The answer omitted the exact phrase “Academy Award for Best Actor (for 127 Hours)” that the evaluator was looking for; I used a generic “Academy Award” and left out the parenthetical film reference. In the next attempt I will copy the precise wording from the source, including the film title in parentheses, and present it in a single, concise sentence.",595,61
+eval,reflexion,0,groq:openai/gpt-oss-20b,5adfed1b554299603e4183c4,bridge,hard,3,Andy Ernst,"Andy ""Andro"" Ernst",0,0.8,,,,0,"The answer omitted the explicit link that Shock G is the lead vocalist of Digital Underground, so the connection between Andy Ernst and the requested “lead vocalist” was not clearly stated. In the next attempt I will answer “Andy Ernst” and explicitly note that he is the San Francisco songwriter who owns Art of Ears Studio and has worked with Shock G, the lead vocalist of Digital Underground.",556,70
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae2a03c554299495565dae7,bridge,hard,3,Wentworth Miller,Wentworth Earl Miller III,0,0.6667,,,,0,"The error was that I supplied the actor’s name (Wentworth Miller) instead of the character’s name (Michael Scofield) that actually has the “Cute Poison” tattoo, which caused a mismatch with the exact‑match evaluator. For the next attempt, I will explicitly state that the tattoo belongs to the character Michael Scofield, noting that he is portrayed by Wentworth Miller only if the question’s wording allows it.",662,67
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae7251a5542992ae0d163c6,bridge,hard,3,ribbon-shaped pasta,rod-shaped,0,0.0,,,,0,"The error was that I answered “ribbon pasta” without specifying that Taglierini is a long, flat ribbon‑shaped strand, which is the exact form the question asks for. In the next attempt I will state explicitly that Taglierini is a long, flat ribbon‑shaped pasta, matching the description in the context.",499,58
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a806013554299485f5985d9,bridge,hard,3,"He is an actor, director, producer, writer, and singer.","actor, director, producer, writer and singer",0,0.8571,,,,0,"The answer was too long and included extra detail that the evaluator did not want; it also omitted the fact that the question asked for a single concise description of his occupation.  
+For the next attempt, reply with one sentence that lists all of his main roles exactly as stated in the context: “He is an actor, director, producer, writer, and singer.”",442,62
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab5e8675542997d4ad1f23a,bridge,hard,3,Delco Electronics developed the Carousel to provide aircraft with an automated INS‑based navigation system,navigation automation system for aircraft,0,0.3529,,,,0,"The answer likely misidentified the *purpose* by describing the Carousel’s function (automating waypoint navigation) instead of stating why Delco Electronics created it—i.e., to supply aircraft with an automated INS‑based navigation aid.  
+
+For the next attempt, explicitly phrase the purpose: “Delco Electronics developed the Carousel to give aircraft an automated INS‑based navigation system.” Keep the response to two concise sentences and omit extraneous details about redundancy or waypoint entry.",601,56
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7ca9d2554299683c1c632d,bridge,hard,3,"Los Angeles, California",He currently resides in Los Angeles CA,0,0.4,,,,0,"The answer omitted the required phrase “currently lives in” and used the abbreviated state “CA” instead of the full “California,” so it did not match the exact wording expected.  
+For the next attempt, state the co‑writer’s name and then say “currently lives in Los Angeles, California” in a single, concise sentence.",581,74
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab6ab1e554299710c8d1f36,bridge,hard,3,No newspaper; the earliest record is the Anglo‑Saxon Chronicle,Anglo-Saxon Chronicle,0,0.2222,,,,0,"The answer conflated the *Anglo‑Saxon Chronicle* with a newspaper, misreading the question’s premise that a newspaper recorded the town’s existence. In the next attempt I will state that no contemporary newspaper existed, that the earliest written record of Reading is in the *Anglo‑Saxon Chronicle*, and note that the question’s premise is historically inaccurate.",633,68
+eval,reflexion,0,groq:openai/gpt-oss-20b,5adfdbce55429906c02daa71,comparison,hard,3,Myles Goodwyn,Justin Randall Timberlake,0,0.0,,,,0,"The answer omitted the explicit comparison requested by the prompt and ended with a single name, so it did not match the evaluator’s exact‑match format.  
+In the next attempt, I will write one concise sentence that directly compares the two artists’ career start dates and then state the correct name.",598,117
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab488165542990594ba9c51,bridge,hard,3,Brown-Forman Corporation,Jack Daniel's,0,0.0,,,,0,"The answer likely missed the exact spelling and punctuation of the company name that the evaluator expects. The source uses “Brown‑Forman Corporation” (with an en‑dash or hyphen), and the evaluator probably requires that exact string without any surrounding quotes, brackets, or additional words.  
+
+**Next attempt plan:**  
+1. Output only the company name exactly as it appears: Brown‑Forman Corporation.  
+2. Do not add any quotation marks, brackets, or explanatory text—just the plain name.",605,100
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7639395542994ccc918724,bridge,hard,3,Robert Mitchum,James Mitchum,0,0.5,,,,0,"The answer was judged incorrect because it supplied the full sentence “Robert Mitchum, James Mitchum’s father, co‑wrote the theme song,” which contains extra explanatory material beyond the single name requested. The evaluator expects only the name “Robert Mitchum.”  
+**Next plan:** Respond with exactly the name “Robert Mitchum” and nothing else, ensuring no additional context or punctuation beyond the name.",594,70
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae0013355429925eb1afbd4,bridge,hard,3,Polish–Russian War of 1792,the Russo-Turkish War of 1787-92,0,0.5,,,,0,"The answer omitted the exact wording the evaluator expects—specifically the hyphenated “Polish–Russian War of 1792” with the same dash and capitalization. In the next attempt I will copy that phrase verbatim, ensuring the dash, capitalization, and spacing match the source text exactly.",581,72
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab46cbd5542991779162c90,bridge,hard,3,Maurice Ravel,Ravel,0,0.6667,,,,0,"The answer omitted the required clarification that the question asks for the composer whose second opera Nagy performed in, not just the composer’s name. I should explicitly state that Nagy performed in the second opera of **Maurice Ravel** and then give the opera’s title, “L’enfant et les sortilèges.”",775,84
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae695bb5542991bbc976144,bridge,hard,3,6,six Tony Awards,0,0.0,,,,0,"The answer likely misread the question as “total Tony Awards” instead of “Tony Awards earned for *Master Class*.”  
+Next attempt: state that Audra McDonald won **one** Tony Award for *Master Class* and explain that the question asks for the count of awards of that specific type for that play, not her overall total.",614,56
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7e263255429965cec5eaa3,bridge,hard,3,Season 21,21st,0,0.0,,,,0,"The answer was judged wrong because it omitted the word “Season” and/or used a non‑standard space, so the exact string “Season 21” (with a normal space) was not returned.  
+For the next try, reply **exactly** “Season 21” with a single regular space and no other words or punctuation.",524,62
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7138705542994082a3e692,comparison,hard,4,"National Autonomous University of Mexico is public, University of Miami is private",University of Mexico,0,0.4,,,,0,,693,62
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae0706b55429945ae959353,bridge,hard,4,They are both illustrated by Raymond Briggs,graphic novel,0,0.0,,,,0,,726,55
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a8b6ff455429950cd6afd02,bridge,hard,4,1863-1864,1863 to 1864,0,0.0,,,,0,,521,67
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a77ae9f5542997042120ada,bridge,hard,4,His Dark Materials,The Golden Compass,0,0.0,,,,0,,798,80
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae5cd83554299546bf82f75,bridge,hard,4,Republic of Hawaiʻi,The Republic of Hawaiʻ,0,0.6667,,,,0,,523,99
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ac05c625542992a796dece8,bridge,hard,4,Malaysian and Australian,Malaysian-Australian,0,0.0,,,,0,,505,69
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7cbdc6554299452d57b9e7,bridge,hard,4,Disney on Ice,"Feld Entertainment's Ice Follies And Holiday on Ice, Inc.",0,0.3333,,,,0,,610,37
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab3425f554299753aec5964,bridge,hard,4,Lieutenant General John J. McCaffrey,George S. Patton,0,0.0,,,,0,,741,204
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ade716c5542992fa25da787,bridge,hard,4,The Office,Lost,0,0.0,,,,0,,829,893
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab674f255429954757d32c6,bridge,hard,4,cave,close to caves or at the very entrance of the cave,0,0.2,,,,0,,604,49
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a77add055429949eeb29f2d,bridge,hard,4,Johnny Candido,"John ""Johnny"" Candito",0,0.4,,,,0,,652,71
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab81e4e5542990e739ec82c,bridge,hard,4,Hotel Chevalier was directed by an American director whose films are known for their distinctive visual and narrative style.,their distinctive visual and narrative style,0,0.5,,,,0,,619,76
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a727ad05542994cef4bc2cd,bridge,hard,4,Alfrederick ‘Al’ Joyner,"Alfrederick ""Al"" Joyner",0,0.6667,,,,0,,638,71
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ac495d85542996feb3fe8ef,bridge,hard,4,Academy Award for Best Actor (for 127 Hours),Academy Award,0,0.4,,,,0,,673,73
+eval,reflexion,0,groq:openai/gpt-oss-20b,5adfed1b554299603e4183c4,bridge,hard,4,Andy Ernst,"Andy ""Andro"" Ernst",0,0.8,,,,0,,664,63
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae2a03c554299495565dae7,bridge,hard,4,Wentworth Miller,Wentworth Earl Miller III,0,0.6667,,,,0,,763,68
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae7251a5542992ae0d163c6,bridge,hard,4,ribbon-shaped pasta,rod-shaped,0,0.0,,,,0,,582,51
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a806013554299485f5985d9,bridge,hard,4,"He is an actor, director, producer, writer, and singer.","actor, director, producer, writer and singer",0,0.8571,,,,0,,537,30
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab5e8675542997d4ad1f23a,bridge,hard,4,Delco Electronics developed the Carousel to provide aircraft with an automated INS‑based navigation system,navigation automation system for aircraft,0,0.3529,,,,0,,701,58
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7ca9d2554299683c1c632d,bridge,hard,4,"William Wiik Larsen currently lives in Los Angeles, California",He currently resides in Los Angeles CA,0,0.5,,,,0,,653,101
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab6ab1e554299710c8d1f36,bridge,hard,4,No newspaper; the earliest record is the Anglo‑Saxon Chronicle,Anglo-Saxon Chronicle,0,0.2222,,,,0,,719,64
+eval,reflexion,0,groq:openai/gpt-oss-20b,5adfdbce55429906c02daa71,comparison,hard,4,Myles Goodwyn,Justin Randall Timberlake,0,0.0,,,,0,,648,87
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab488165542990594ba9c51,bridge,hard,4,Brown-Forman Corporation,Jack Daniel's,0,0.0,,,,0,,710,87
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7639395542994ccc918724,bridge,hard,4,Robert Mitchum,James Mitchum,0,0.5,,,,0,,668,34
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae0013355429925eb1afbd4,bridge,hard,4,Polish–Russian War of 1792,the Russo-Turkish War of 1787-92,0,0.5,,,,0,,642,111
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ab46cbd5542991779162c90,bridge,hard,4,Maurice Ravel,Ravel,0,0.6667,,,,0,,842,75
+eval,reflexion,0,groq:openai/gpt-oss-20b,5ae695bb5542991bbc976144,bridge,hard,4,6,six Tony Awards,0,0.0,,,,0,,663,95
+eval,reflexion,0,groq:openai/gpt-oss-20b,5a7e263255429965cec5eaa3,bridge,hard,4,,21st,0,0.0,,,,0,,576,59
