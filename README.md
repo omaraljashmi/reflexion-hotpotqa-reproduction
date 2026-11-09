@@ -46,15 +46,22 @@ model with `--model`, or add `--level hard` to sample only the hard questions.
 
 ### Results
 
+Model `openai/gpt-oss-20b` on Groq, 100 hard questions from the test split
+(seed 0), supporting paragraphs only, up to 4 attempts. Share of questions
+solved by the end of each attempt:
+
 | Attempt | Baseline | Reflexion | Paper baseline | Paper Reflexion |
 |---|---|---|---|---|
-| 1 | | | 0.61 | 0.61 |
-| 2 | | | 0.61 | 0.69 |
-| 3 | | | 0.61 | 0.69 |
-| 4 | | | 0.61 | 0.70 |
+| 1 | 0.66 | 0.65 | 0.61 | 0.61 |
+| 2 | 0.66 | 0.71 | 0.61 | 0.69 |
+| 3 | 0.67 | 0.72 | 0.61 | 0.69 |
+| 4 | 0.67 | 0.72 | 0.61 | 0.70 |
 
-Fill this table from `results/reproduction_report.json` after the run and
-commit the three result files.
+Reflexion recovered 7 of its 35 first-attempt failures (+7 points); the
+baseline moved by one question. The paper reports +9 points by its fourth
+attempt and +14 after seven. The per-attempt records are in
+`results/reproduction_attempts.csv`, the curves in
+`results/reproduction_report.json` and `results/reproduction_curve.png`.
 
 ## Run a real LLM experiment
 
