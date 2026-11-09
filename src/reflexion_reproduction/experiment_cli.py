@@ -1,5 +1,6 @@
 """Command line for the cross-task failure-memory experiment.
 
+    python run_experiment.py reproduce --provider groq --n 100 --trials 4
     python run_experiment.py pilot    --provider groq --n 30
     python run_experiment.py build    --provider groq --n 150
     python run_experiment.py evaluate --provider groq --n 100 --trials 2
@@ -27,6 +28,7 @@ from .pipeline import (
     write_rows,
 )
 from .providers import GroqProvider, OpenAIProvider, ScriptedProvider
+from .reproduction import format_table, run_reproduction, save_reproduction
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -68,6 +70,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Cross-task failure memory on HotpotQA.")
     sub = parser.add_subparsers(dest="command", required=True)
 
+    reproduce = sub.add_parser(
+        "reproduce", help="parent paper check: baseline vs Reflexion accuracy over attempts"
+    )
+    add_common(reproduce, "test", 100)
+    reproduce.add_argument("--trials", type=int, default=4, help="attempts per question")
+
     pilot = sub.add_parser("pilot", help="first-attempt accuracy check to pick a model")
     add_common(pilot, "test", 30)
 
@@ -100,6 +108,22 @@ def build_parser() -> argparse.ArgumentParser:
 
 def _sample(args: argparse.Namespace):
     return load_split(args.split, args.n, seed=args.seed, allow_validation=args.final_validation)
+
+
+def cmd_reproduce(args: argparse.Namespace) -> int:
+    if args.split == "train":
+        raise ValueError("Reproduce on the test split, not train.")
+    model = make_provider(args)
+    examples = _sample(args)
+    rows, summary = run_reproduction(examples, model, max_trials=args.trials, seed=args.seed, progress=print)
+    paths = save_reproduction(args.out_dir, rows, summary, vars(args))
+    print()
+    print(format_table(summary))
+    if args.provider == "scripted":
+        print("\nScripted provider: this checks the pipeline only. The numbers are not results.")
+    for name, path in paths.items():
+        print(f"Saved {name}: {path}")
+    return 0
 
 
 def cmd_pilot(args: argparse.Namespace) -> int:
@@ -195,6 +219,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     try:
         return {
+            "reproduce": cmd_reproduce,
             "pilot": cmd_pilot,
             "build": cmd_build,
             "evaluate": cmd_evaluate,
