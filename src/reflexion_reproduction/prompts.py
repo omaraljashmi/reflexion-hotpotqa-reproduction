@@ -32,7 +32,7 @@ def build_actor_prompt(
     if lessons:
         lesson_lines = "\n".join(f"- {item}" for item in lessons)
         lessons_block = f"""
-Lessons learned from mistakes on other, unrelated questions (apply only if relevant):
+Lessons from earlier mistakes on other questions (follow a lesson only when it fits this question):
 {lesson_lines}
 """
     return f"""{ACTOR_INSTRUCTIONS}
@@ -89,12 +89,16 @@ FAILURE_TYPES = {
 CLASSIFY_INSTRUCTIONS = """You label why a question-answering attempt failed.
 Choose exactly one label from the list. Reply with only the label."""
 
-LESSON_INSTRUCTIONS = """You write reusable lessons for a question-answering agent.
-The agent's answer failed exact-match evaluation. You are not told the correct answer.
+LESSON_INSTRUCTIONS = """You turn one experience of a question-answering agent into a lesson for OTHER questions.
+The agent's answers were graded by exact match against a short reference answer. After each answer it was told only whether it was right or wrong.
+
 Write exactly two lines:
-Diagnosis: one sentence on what likely went wrong in THIS attempt.
-Fix: one general rule the agent can apply to OTHER questions to avoid this kind of mistake.
-The Fix must not mention any specific person, place, title, date, or answer from this question."""
+Diagnosis: one sentence on what was wrong with the first answer in THIS experience. If a later answer was accepted, say how the accepted answer differed from the first one.
+Fix: one rule for OTHER questions of the same kind. Start with "When the question asks for" and name the kind of thing asked for (such as a date, a person, a place, a number, or a yes or no decision), then say exactly what to write or what to check.
+
+Rules for the Fix:
+- It must be concrete enough to change an answer. Do not write "match the expected format" or "be precise".
+- It must not mention any specific person, place, title, date, or answer from this question, and it must not give examples."""
 
 
 def build_classify_prompt(example: Example, failed_trace: str) -> str:
@@ -114,17 +118,27 @@ Failed attempt:
 Label:"""
 
 
-def build_lesson_prompt(example: Example, failed_trace: str, failure_type: str) -> str:
+def build_lesson_prompt(example: Example, experience: str, failure_type: str, recovered: bool) -> str:
+    """``experience`` is the agent's own attempts and reflections on this question.
+
+    The dataset's answer is never included. When the agent recovered, the
+    accepted answer in the experience is one the agent produced itself.
+    """
+
     meaning = FAILURE_TYPES.get(failure_type, FAILURE_TYPES["OTHER"])
+    outcome = (
+        "The last answer above was accepted." if recovered else "No answer was accepted."
+    )
     return f"""{LESSON_INSTRUCTIONS}
 
-Failure type: {failure_type} ({meaning})
+Failure type of the first answer: {failure_type} ({meaning})
 Question type: {example.qtype or "unknown"}
 Question: {example.question}
 
 Relevant context:
 {example.context_text}
 
-Failed attempt:
-{failed_trace}
+Experience:
+{experience}
+{outcome}
 """

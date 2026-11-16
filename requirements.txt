@@ -1,3 +1,5 @@
-# Only needed for --provider openai. The default scripted demo uses the Python standard library.
+# Needed for --provider groq and --provider openai. The scripted provider and the
+# tests use the Python standard library only.
 openai>=1.99.0,<3
-
+# Optional: draws the figures. Without it the tables are still written.
+matplotlib>=3.7

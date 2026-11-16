@@ -7,6 +7,7 @@ from enum import Enum
 from typing import Callable, Protocol, Sequence
 
 from .metrics import exact_match, token_f1
+from .parallel import parallel_map
 
 
 class Strategy(str, Enum):
@@ -80,6 +81,8 @@ class TrialRecord:
     lesson_ids: list[str] = field(default_factory=list)
     prompt_tokens: int = 0
     completion_tokens: int = 0
+    seconds: float = 0.0  # response time of the Actor call
+    reflection_tokens: int = 0  # tokens spent writing the reflection after this attempt
 
 
 @dataclass
@@ -131,6 +134,7 @@ class ReflexionAgent:
         strategy: Strategy,
         lessons: Sequence[str] = (),
         lesson_ids: Sequence[str] = (),
+        lessons_from_trial: int = 1,
     ) -> None:
         self.example = example
         self.model = model
@@ -139,6 +143,9 @@ class ReflexionAgent:
         # reflections (self.memory) are the original Reflexion mechanism.
         self.lessons = list(lessons)
         self.lesson_ids = list(lesson_ids)
+        # 1: the agent reads the lessons from its first attempt on. 2: only
+        # once it has failed, so a first answer is never changed by a lesson.
+        self.lessons_from_trial = lessons_from_trial
         self.memory: list[str] = []
         self.previous_trace = ""
         self.solved = False
@@ -149,12 +156,14 @@ class ReflexionAgent:
         # attempt is a fresh prompt with no trace of earlier attempts. Only the
         # Reflexion agent carries its failed trial and reflections forward.
         previous = self.previous_trace if self.strategy is Strategy.REFLEXION else ""
+        shown = trial >= self.lessons_from_trial
+        lessons = self.lessons if shown else []
         output = self.model.act(
             example=self.example,
             memory=memory_before,
             previous_trace=previous,
             attempt=trial,
-            lessons=self.lessons,
+            lessons=lessons,
         )
         usage = dict(getattr(self.model, "last_usage", {}) or {})
         is_correct = exact_match(output.answer, self.example.answer)
@@ -168,10 +177,11 @@ class ReflexionAgent:
             f1=token_f1(output.answer, self.example.answer),
             feedback="CORRECT" if is_correct else "INCORRECT",
             memory_before=memory_before,
-            lessons_used=list(self.lessons),
-            lesson_ids=list(self.lesson_ids),
+            lessons_used=list(lessons),
+            lesson_ids=list(self.lesson_ids) if shown else [],
             prompt_tokens=int(usage.get("prompt_tokens", 0)),
             completion_tokens=int(usage.get("completion_tokens", 0)),
+            seconds=float(usage.get("seconds", 0.0)),
         )
 
         self.previous_trace = output.trace + f"\nObservation: Answer is {record.feedback}"
@@ -183,6 +193,10 @@ class ReflexionAgent:
                 failed_trace=self.previous_trace,
                 memory=self.memory,
             ).strip()
+            used = dict(getattr(self.model, "last_usage", {}) or {})
+            record.reflection_tokens = int(used.get("prompt_tokens", 0)) + int(
+                used.get("completion_tokens", 0)
+            )
             if reflection:
                 self.memory.append(reflection)
                 record.reflection_added = reflection
@@ -195,11 +209,17 @@ def run_experiment(
     strategy: Strategy,
     max_trials: int,
     lessons_for: Callable[[Example], tuple[Sequence[str], Sequence[str]]] | None = None,
+    workers: int = 1,
+    progress: Callable[[int, int, int], None] | None = None,
+    lessons_from_trial: int = 1,
 ) -> ExperimentResult:
     """Evaluate cumulative task success across repeated trials.
 
     ``lessons_for`` optionally returns (lesson texts, lesson ids) retrieved from a
-    cross-task memory bank before the first attempt on each example.
+    cross-task memory bank before the first attempt on each example. ``workers``
+    runs that many questions side by side; each question keeps its own agent and
+    memory, so the results are the same as with one worker. ``progress(trial,
+    done, total)`` is called after each finished attempt.
     """
 
     if max_trials < 1:
@@ -208,7 +228,7 @@ def run_experiment(
     agents = []
     for example in examples:
         texts, ids = lessons_for(example) if lessons_for else ((), ())
-        agents.append(ReflexionAgent(example, model, strategy, texts, ids))
+        agents.append(ReflexionAgent(example, model, strategy, texts, ids, lessons_from_trial))
     result = ExperimentResult(
         strategy=strategy,
         provider=model.name,
@@ -217,11 +237,15 @@ def run_experiment(
     )
 
     for trial in range(1, max_trials + 1):
-        for agent in agents:
-            if agent.solved:
-                continue
-            result.records.append(
-                agent.run_trial(trial=trial, can_reflect=trial < max_trials)
+        pending = [agent for agent in agents if not agent.solved]
+        can_reflect = trial < max_trials
+        result.records.extend(
+            parallel_map(
+                lambda agent: agent.run_trial(trial=trial, can_reflect=can_reflect),
+                pending,
+                workers,
+                on_done=(lambda done, total: progress(trial, done, total)) if progress else None,
             )
+        )
     return result
 
