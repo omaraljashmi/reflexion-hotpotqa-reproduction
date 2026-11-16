@@ -19,9 +19,9 @@ LAYOUTS = {
     "wide": dict(width=7.2, row=0.6, left=2.45, right=1.3, top=0.62, bottom=0.78, wrap=24,
                  label=10, number=10, small=9, note=8, dot=10, ring=9, legend_columns=3,
                  first_column=1.15, second_column=1.34),
-    "column": dict(width=3.45, row=0.34, left=1.2, right=0.72, top=0.5, bottom=0.5, wrap=19,
+    "column": dict(width=3.45, row=0.34, left=1.2, right=0.8, top=0.5, bottom=0.58, wrap=19,
                    label=7, number=7, small=6.5, note=5.5, dot=6.5, ring=6, legend_columns=2,
-                   first_column=1.2, second_column=1.45),
+                   first_column=1.21, second_column=1.47),
 }
 
 

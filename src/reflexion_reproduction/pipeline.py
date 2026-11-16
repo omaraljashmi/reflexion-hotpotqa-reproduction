@@ -287,7 +287,7 @@ def paired(
         "fail_to_pass": c,
         "pass_to_fail": b,
         "net_gain": c - b,
-        "mcnemar_p": round(mcnemar_exact(b, c), 4),
+        "mcnemar_p": round(mcnemar_exact(b, c), 6),
     }
 
 
@@ -362,15 +362,15 @@ def analyze(rows: Sequence[dict], bank: MemoryBank | None = None) -> dict:
                 "condition": cond,
                 "label": CONDITIONS[cond].label,
                 "examples": n,
-                "first_attempt_em": round(sum(o.first for o in items) / n, 4) if n else 0,
-                "first_attempt_em_ci95": [round(low, 4), round(high, 4)],
-                "first_attempt_f1": round(sum(o.first_f1 for o in items) / n, 4) if n else 0,
-                "final_em": round(sum(o.final for o in items) / n, 4) if n else 0,
+                "first_attempt_em": round(sum(o.first for o in items) / n, 6) if n else 0,
+                "first_attempt_em_ci95": [round(low, 6), round(high, 6)],
+                "first_attempt_f1": round(sum(o.first_f1 for o in items) / n, 6) if n else 0,
+                "final_em": round(sum(o.final for o in items) / n, 6) if n else 0,
                 "attempts": max_trial,
                 "lessons_per_question": round(first_attempt_mean(cond, "n_lessons"), 2),
                 "lessons_from": CONDITIONS[cond].lessons_from if CONDITIONS[cond].retrieval else None,
-                "first_attempt_tokens": round(first_tokens, 1),
-                "first_attempt_seconds": round(first_attempt_mean(cond, "seconds"), 3),
+                "first_attempt_tokens": round(first_tokens, 3),
+                "first_attempt_seconds": round(first_attempt_mean(cond, "seconds"), 6),
                 "tokens_per_example": round(tokens / n, 1) if n else 0,
             }
         )
@@ -379,7 +379,7 @@ def analyze(rows: Sequence[dict], bank: MemoryBank | None = None) -> dict:
     )
     for row in summary:
         row["added_first_attempt_tokens"] = (
-            round(row["first_attempt_tokens"] - base_tokens, 1) if base_tokens is not None else None
+            round(row["first_attempt_tokens"] - base_tokens, 3) if base_tokens is not None else None
         )
 
     comparisons = []
@@ -411,8 +411,8 @@ def analyze(rows: Sequence[dict], bank: MemoryBank | None = None) -> dict:
                     "run_id": run,
                     "condition": cond,
                     "examples": len(items),
-                    "first_attempt_em": round(sum(o.first for o in items) / len(items), 4),
-                    "final_em": round(sum(o.final for o in items) / len(items), 4),
+                    "first_attempt_em": round(sum(o.first for o in items) / len(items), 6),
+                    "final_em": round(sum(o.final for o in items) / len(items), 6),
                 }
             )
 
@@ -588,7 +588,7 @@ def print_analysis(report: dict, echo: Callable[[str], None] = print) -> None:
         echo(
             f"  {comp['condition']:<18} vs {comp['reference']:<18} [{comp['metric']:<5}] "
             f"+{comp['fail_to_pass']} / -{comp['pass_to_fail']}  net {comp['net_gain']:+d}  "
-            f"p={comp['mcnemar_p']}"
+            f"p={comp['mcnemar_p']:.4f}"
         )
     echo("\nFirst-attempt failure types")
     for cond, counts in report["first_attempt_failure_types"].items():

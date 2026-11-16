@@ -2,10 +2,10 @@
 
 | Method | Lessons | First attempt EM | 95% CI | First attempt F1 | Fixed | Broken | p | EM after 4 attempts | Added tokens | Seconds |
 |---|---|---|---|---|---|---|---|---|---|---|
-| No memory | 0 | 65.3% | 59.8% to 70.5% | 0.801 |  |  |  | 66.3% | +0 | 0.28 |
+| No memory | 0 | 65.3% | 59.8% to 70.5% | 0.801 |  |  |  | 66.3% | +0 | 0.29 |
 | Reflexion (parent paper) | 0 | 65.7% | 60.1% to 70.8% | 0.802 | 1 | 0 | 1.000 | 73.3% | +0 | 0.28 |
 | Lessons by failure type (proposed) | 3 | 67.0% | 61.5% to 72.1% | 0.810 | 16 | 11 | 0.442 | 75.0% | +190 | 0.51 |
-| Random lessons | 3 | 65.7% | 60.1% to 70.8% | 0.826 | 10 | 9 | 1.000 | 72.0% | +189 | 0.38 |
+| Random lessons | 3 | 65.7% | 60.1% to 70.8% | 0.825 | 10 | 9 | 1.000 | 72.0% | +189 | 0.38 |
 | Lessons from similar questions | 3 | 67.0% | 61.5% to 72.1% | 0.817 | 13 | 8 | 0.383 | 75.0% | +179 | 0.54 |
 
 Fixed and broken count first attempt answers that changed against the no memory

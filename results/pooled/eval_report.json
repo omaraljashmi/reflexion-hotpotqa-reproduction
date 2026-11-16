@@ -9,18 +9,18 @@
       "condition": "no_memory",
       "label": "No memory",
       "examples": 600,
-      "first_attempt_em": 0.6517,
+      "first_attempt_em": 0.651667,
       "first_attempt_em_ci95": [
-        0.6127,
-        0.6887
+        0.612688,
+        0.688716
       ],
-      "first_attempt_f1": 0.7902,
-      "final_em": 0.6617,
+      "first_attempt_f1": 0.790162,
+      "final_em": 0.661667,
       "attempts": 4,
       "lessons_per_question": 0.0,
       "lessons_from": null,
-      "first_attempt_tokens": 467.3,
-      "first_attempt_seconds": 0.292,
+      "first_attempt_tokens": 467.325,
+      "first_attempt_seconds": 0.292372,
       "tokens_per_example": 972.2,
       "added_first_attempt_tokens": 0.0
     },
@@ -30,75 +30,75 @@
       "examples": 600,
       "first_attempt_em": 0.65,
       "first_attempt_em_ci95": [
-        0.611,
-        0.6871
+        0.61099,
+        0.687102
       ],
-      "first_attempt_f1": 0.789,
+      "first_attempt_f1": 0.788995,
       "final_em": 0.73,
       "attempts": 4,
       "lessons_per_question": 0.0,
       "lessons_from": null,
-      "first_attempt_tokens": 469.6,
-      "first_attempt_seconds": 0.283,
+      "first_attempt_tokens": 469.632,
+      "first_attempt_seconds": 0.283077,
       "tokens_per_example": 1699.5,
-      "added_first_attempt_tokens": 2.3
+      "added_first_attempt_tokens": 2.307
     },
     {
       "condition": "failure_memory",
       "label": "Lessons by failure type (proposed)",
       "examples": 600,
-      "first_attempt_em": 0.6683,
+      "first_attempt_em": 0.668333,
       "first_attempt_em_ci95": [
-        0.6297,
-        0.7048
+        0.629694,
+        0.70483
       ],
-      "first_attempt_f1": 0.8061,
+      "first_attempt_f1": 0.806138,
       "final_em": 0.75,
       "attempts": 4,
       "lessons_per_question": 3.0,
       "lessons_from": 1,
-      "first_attempt_tokens": 656.8,
-      "first_attempt_seconds": 0.481,
+      "first_attempt_tokens": 656.768,
+      "first_attempt_seconds": 0.480765,
       "tokens_per_example": 1969.3,
-      "added_first_attempt_tokens": 189.5
+      "added_first_attempt_tokens": 189.443
     },
     {
       "condition": "random_memory",
       "label": "Random lessons",
       "examples": 600,
-      "first_attempt_em": 0.6633,
+      "first_attempt_em": 0.663333,
       "first_attempt_em_ci95": [
-        0.6246,
-        0.7
+        0.624587,
+        0.700002
       ],
-      "first_attempt_f1": 0.8106,
-      "final_em": 0.7383,
+      "first_attempt_f1": 0.810625,
+      "final_em": 0.738333,
       "attempts": 4,
       "lessons_per_question": 3.0,
       "lessons_from": 1,
-      "first_attempt_tokens": 658.5,
-      "first_attempt_seconds": 0.364,
+      "first_attempt_tokens": 658.493,
+      "first_attempt_seconds": 0.363933,
       "tokens_per_example": 2000.4,
-      "added_first_attempt_tokens": 191.2
+      "added_first_attempt_tokens": 191.168
     },
     {
       "condition": "similarity_memory",
       "label": "Lessons from similar questions",
       "examples": 600,
-      "first_attempt_em": 0.6833,
+      "first_attempt_em": 0.683333,
       "first_attempt_em_ci95": [
-        0.645,
-        0.7193
+        0.645045,
+        0.719289
       ],
-      "first_attempt_f1": 0.8182,
-      "final_em": 0.7733,
+      "first_attempt_f1": 0.818186,
+      "final_em": 0.773333,
       "attempts": 4,
       "lessons_per_question": 3.0,
       "lessons_from": 1,
-      "first_attempt_tokens": 645.3,
-      "first_attempt_seconds": 0.484,
+      "first_attempt_tokens": 645.273,
+      "first_attempt_seconds": 0.484082,
       "tokens_per_example": 1864.9,
-      "added_first_attempt_tokens": 178.0
+      "added_first_attempt_tokens": 177.948
     }
   ],
   "comparisons": [
@@ -130,7 +130,7 @@
       "fail_to_pass": 32,
       "pass_to_fail": 22,
       "net_gain": 10,
-      "mcnemar_p": 0.2203
+      "mcnemar_p": 0.220328
     },
     {
       "reference": "no_memory",
@@ -150,7 +150,7 @@
       "fail_to_pass": 25,
       "pass_to_fail": 18,
       "net_gain": 7,
-      "mcnemar_p": 0.3604
+      "mcnemar_p": 0.360378
     },
     {
       "reference": "no_memory",
@@ -170,7 +170,7 @@
       "fail_to_pass": 36,
       "pass_to_fail": 17,
       "net_gain": 19,
-      "mcnemar_p": 0.0127
+      "mcnemar_p": 0.01266
     },
     {
       "reference": "no_memory",
@@ -190,7 +190,7 @@
       "fail_to_pass": 34,
       "pass_to_fail": 23,
       "net_gain": 11,
-      "mcnemar_p": 0.1849
+      "mcnemar_p": 0.18485
     },
     {
       "reference": "reflexion",
@@ -200,7 +200,7 @@
       "fail_to_pass": 32,
       "pass_to_fail": 20,
       "net_gain": 12,
-      "mcnemar_p": 0.1263
+      "mcnemar_p": 0.126347
     },
     {
       "reference": "reflexion",
@@ -210,7 +210,7 @@
       "fail_to_pass": 27,
       "pass_to_fail": 19,
       "net_gain": 8,
-      "mcnemar_p": 0.302
+      "mcnemar_p": 0.301996
     },
     {
       "reference": "reflexion",
@@ -220,7 +220,7 @@
       "fail_to_pass": 26,
       "pass_to_fail": 21,
       "net_gain": 5,
-      "mcnemar_p": 0.5601
+      "mcnemar_p": 0.560065
     },
     {
       "reference": "reflexion",
@@ -230,7 +230,7 @@
       "fail_to_pass": 36,
       "pass_to_fail": 16,
       "net_gain": 20,
-      "mcnemar_p": 0.0078
+      "mcnemar_p": 0.007787
     },
     {
       "reference": "reflexion",
@@ -240,7 +240,7 @@
       "fail_to_pass": 41,
       "pass_to_fail": 15,
       "net_gain": 26,
-      "mcnemar_p": 0.0007
+      "mcnemar_p": 0.000686
     },
     {
       "reference": "random_memory",
@@ -250,7 +250,7 @@
       "fail_to_pass": 22,
       "pass_to_fail": 19,
       "net_gain": 3,
-      "mcnemar_p": 0.7552
+      "mcnemar_p": 0.755229
     },
     {
       "reference": "random_memory",
@@ -260,7 +260,7 @@
       "fail_to_pass": 24,
       "pass_to_fail": 17,
       "net_gain": 7,
-      "mcnemar_p": 0.3489
+      "mcnemar_p": 0.348889
     },
     {
       "reference": "similarity_memory",
@@ -270,7 +270,7 @@
       "fail_to_pass": 15,
       "pass_to_fail": 24,
       "net_gain": -9,
-      "mcnemar_p": 0.1996
+      "mcnemar_p": 0.199591
     },
     {
       "reference": "similarity_memory",
@@ -280,7 +280,7 @@
       "fail_to_pass": 15,
       "pass_to_fail": 29,
       "net_gain": -14,
-      "mcnemar_p": 0.0488
+      "mcnemar_p": 0.048767
     }
   ],
   "first_attempt_f1_changes": [
@@ -330,8 +330,8 @@
       "run_id": "0",
       "condition": "no_memory",
       "examples": 600,
-      "first_attempt_em": 0.6517,
-      "final_em": 0.6617
+      "first_attempt_em": 0.651667,
+      "final_em": 0.661667
     },
     {
       "run_id": "0",
@@ -344,22 +344,22 @@
       "run_id": "0",
       "condition": "failure_memory",
       "examples": 600,
-      "first_attempt_em": 0.6683,
+      "first_attempt_em": 0.668333,
       "final_em": 0.75
     },
     {
       "run_id": "0",
       "condition": "random_memory",
       "examples": 600,
-      "first_attempt_em": 0.6633,
-      "final_em": 0.7383
+      "first_attempt_em": 0.663333,
+      "final_em": 0.738333
     },
     {
       "run_id": "0",
       "condition": "similarity_memory",
       "examples": 600,
-      "first_attempt_em": 0.6833,
-      "final_em": 0.7733
+      "first_attempt_em": 0.683333,
+      "final_em": 0.773333
     }
   ],
   "by_question_type": {

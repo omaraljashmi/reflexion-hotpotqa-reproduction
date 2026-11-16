@@ -155,6 +155,11 @@ def build_parser() -> argparse.ArgumentParser:
     report.add_argument("--conditions", default="",
                         help="comma list of conditions to keep (default: all in the files)")
     report.add_argument("--out", type=Path, default=None)
+    report.add_argument(
+        "--layout", choices=("wide", "column"), default="wide",
+        help="figure size: wide for a README or slide, column for one column of a two column "
+        "paper (saved as comparison_column.png)",
+    )
     return parser
 
 
@@ -382,8 +387,8 @@ def cmd_analyze(args: argparse.Namespace) -> int:
     save_report(out, report)
     suffix = "_validation" if first.stem.endswith("_validation") else ""
     paths = save_comparison(out.parent, report, suffix=suffix)
-    figure = out.parent / f"comparison{suffix}.png"
-    if plot_comparison(report, figure):
+    figure = out.parent / f"comparison{suffix}{'_column' if args.layout == 'column' else ''}.png"
+    if plot_comparison(report, figure, layout=args.layout):
         paths["figure"] = figure
     print(f"\nSaved {out}")
     for name, path in paths.items():

@@ -468,6 +468,18 @@ class AnalysisTests(unittest.TestCase):
         self.assertEqual(by_method["No memory"]["Fixed"], "")  # nothing to compare it with
         self.assertIn("EM after 2 attempts", table[0])
 
+    def test_table_cells_are_rounded_once(self) -> None:
+        # Mean F1 0.82545 and mean response time 0.3452 s. Rounding the report
+        # first and the table second would print 0.826 and 0.34.
+        rows = [
+            {"phase": "eval", "condition": "no_memory", "run_id": 0, "example_id": f"e{i}", "trial": 1,
+             "exact_match": 1, "f1": f1, "lesson_ids": "", "n_lessons": 0, "failure_type": "",
+             "prompt_tokens": 100, "completion_tokens": 10, "seconds": seconds}
+            for i, (f1, seconds) in enumerate([(0.8255, 0.3452), (0.8255, 0.3452), (0.8255, 0.3452), (0.8253, 0.3452)])
+        ]
+        row = comparison_table(analyze(rows))[0]
+        self.assertEqual((row["First attempt F1"], row["Seconds"]), ("0.825", "0.35"))
+
     def test_repeated_runs_do_not_double_count_questions(self) -> None:
         examples = [make_example(f"e{i}", answer=f"ans{i}") for i in range(6)]
         rows = []
@@ -528,6 +540,11 @@ class CliTests(unittest.TestCase):
             for name in ("eval_report.json", "comparison_table.md", "comparison_table.csv"):
                 self.assertTrue((folder / name).exists(), name)
             self.assertEqual(experiment_main(["analyze", "--attempts", str(attempts)]), 0)
+            self.assertEqual(
+                experiment_main(["analyze", "--attempts", str(attempts), "--layout", "column"]), 0
+            )
+            if (folder / "comparison.png").exists():  # figures need matplotlib
+                self.assertTrue((folder / "comparison_column.png").exists())
             self.assertEqual(experiment_main(["evaluate", "--split", "validation", "--n", "2", *out]), 1)
             self.assertEqual(experiment_main(["evaluate", "--split", "train", "--n", "2", *out]), 1)
 

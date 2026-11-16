@@ -173,7 +173,7 @@ First sample, 300 questions (seed 0):
 | No memory | 0 | 65.0% | 59.4% to 70.2% | 0.779 |  |  |  | 66.0% | +0 | 0.30 |
 | Reflexion (parent paper) | 0 | 64.3% | 58.8% to 69.5% | 0.776 | 0 | 2 | 0.500 | 72.7% | +5 | 0.28 |
 | Lessons by failure type (proposed) | 3 | 66.7% | 61.2% to 71.8% | 0.802 | 16 | 11 | 0.442 | 75.0% | +189 | 0.45 |
-| Random lessons | 3 | 67.0% | 61.5% to 72.1% | 0.796 | 15 | 9 | 0.307 | 75.7% | +193 | 0.34 |
+| Random lessons | 3 | 67.0% | 61.5% to 72.1% | 0.796 | 15 | 9 | 0.307 | 75.7% | +193 | 0.35 |
 | Lessons from similar questions | 3 | 69.7% | 64.2% to 74.6% | 0.819 | 23 | 9 | 0.020 | 79.7% | +177 | 0.42 |
 | Lessons checked by retry only | 3 | 66.7% | 61.2% to 71.8% | 0.797 | 16 | 11 | 0.442 | 74.0% | +175 | 0.31 |
 | Unchecked lessons | 3 | 66.0% | 60.5% to 71.1% | 0.786 | 15 | 12 | 0.701 | 75.7% | +186 | 0.33 |
@@ -190,10 +190,10 @@ questions (seed 1, none shared with the first sample):
 
 | Method | Lessons | First attempt EM | 95% CI | First attempt F1 | Fixed | Broken | p | EM after 4 attempts | Added tokens | Seconds |
 |---|---|---|---|---|---|---|---|---|---|---|
-| No memory | 0 | 65.3% | 59.8% to 70.5% | 0.801 |  |  |  | 66.3% | +0 | 0.28 |
+| No memory | 0 | 65.3% | 59.8% to 70.5% | 0.801 |  |  |  | 66.3% | +0 | 0.29 |
 | Reflexion (parent paper) | 0 | 65.7% | 60.1% to 70.8% | 0.802 | 1 | 0 | 1.000 | 73.3% | +0 | 0.28 |
 | Lessons by failure type (proposed) | 3 | 67.0% | 61.5% to 72.1% | 0.810 | 16 | 11 | 0.442 | 75.0% | +190 | 0.51 |
-| Random lessons | 3 | 65.7% | 60.1% to 70.8% | 0.826 | 10 | 9 | 1.000 | 72.0% | +189 | 0.38 |
+| Random lessons | 3 | 65.7% | 60.1% to 70.8% | 0.825 | 10 | 9 | 1.000 | 72.0% | +189 | 0.38 |
 | Lessons from similar questions | 3 | 67.0% | 61.5% to 72.1% | 0.817 | 13 | 8 | 0.383 | 75.0% | +179 | 0.54 |
 
 Both samples together, 600 questions:
@@ -202,7 +202,7 @@ Both samples together, 600 questions:
 |---|---|---|---|---|---|---|---|---|---|---|
 | No memory | 0 | 65.2% | 61.3% to 68.9% | 0.790 |  |  |  | 66.2% | +0 | 0.29 |
 | Reflexion (parent paper) | 0 | 65.0% | 61.1% to 68.7% | 0.789 | 1 | 2 | 1.000 | 73.0% | +2 | 0.28 |
-| Lessons by failure type (proposed) | 3 | 66.8% | 63.0% to 70.5% | 0.806 | 32 | 22 | 0.220 | 75.0% | +190 | 0.48 |
+| Lessons by failure type (proposed) | 3 | 66.8% | 63.0% to 70.5% | 0.806 | 32 | 22 | 0.220 | 75.0% | +189 | 0.48 |
 | Random lessons | 3 | 66.3% | 62.5% to 70.0% | 0.811 | 25 | 18 | 0.360 | 73.8% | +191 | 0.36 |
 | Lessons from similar questions | 3 | 68.3% | 64.5% to 71.9% | 0.818 | 36 | 17 | 0.013 | 77.3% | +178 | 0.48 |
 
@@ -216,7 +216,8 @@ What the numbers say:
   72.7% and 73.3% for Reflexion. Over 600 questions it gained 32 questions and
   lost 20 (p = 0.13).
 - Choosing lessons by failure type was not better than choosing them at random
-  from the same pool: 66.8% against 66.3% on the first attempt (p = 0.76).
+  from the same pool: 66.8% against 66.3% on the first attempt (p = 0.76). On
+  F1 the random lessons were slightly ahead, 0.811 against 0.806.
 - Lessons from similar questions had the best first sample (69.7%, p = 0.02)
   and a smaller gain in the second (67.0%). Over 600 questions that is 68.3%
   with 36 fixed and 17 broken (p = 0.013), and 77.3% after four attempts. Read
@@ -269,6 +270,9 @@ python run_experiment.py analyze --attempts results/eval_attempts.csv
 python run_experiment.py analyze --attempts results/eval_attempts.csv results/replication/eval_attempts.csv \
     --conditions $FIVE --out results/pooled/eval_report.json
 ```
+
+Add `--layout column` to the last command to also draw the figure at the width
+of one column of a two column paper (`results/pooled/comparison_column.png`).
 
 `--workers 8 --tpm 235000` suit Groq's paid tier, which allows 250,000 tokens
 per minute. On the free tier leave both out and expect a much longer run.
