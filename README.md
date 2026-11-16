@@ -141,6 +141,11 @@ changed about 9 of the 100 development answers: on average 3.8 turned right and
 and six answers that had been right. `results/memory.json` holds every lesson,
 its checks, and the reason it was kept or dropped.
 
+![Every lesson on the development questions: answers helped against answers hurt](results/lesson_checks.png)
+
+The 50 lessons of check 2, each tried alone on the 100 development questions.
+Only the eight above the diagonal turned more answers right than wrong.
+
 ### Techniques compared
 
 Every condition answers the same questions with the same model and the same
@@ -207,6 +212,26 @@ Both samples together, 600 questions:
 | Random lessons | 3 | 66.3% | 62.5% to 70.0% | 0.811 | 25 | 18 | 0.360 | 73.8% | +191 | 0.36 |
 | Lessons from similar questions | 3 | 68.3% | 64.5% to 71.9% | 0.818 | 36 | 17 | 0.013 | 77.3% | +178 | 0.48 |
 
+Three more views of the same 600 questions.
+
+![Share of questions solved by the end of each attempt](results/pooled/attempts.png)
+
+Questions solved by the end of each attempt, the form of the parent paper's
+own figure. The proposed method stays between 1.3 and 2.0 points above
+Reflexion at every attempt.
+
+![First attempt answers fixed and broken against no memory](results/pooled/fixed_broken.png)
+
+The two counts behind each p value: wrong answers that became right and right
+answers that became wrong. The Reflexion row shows the noise. Its first attempt
+uses the same prompt as no memory, and three answers still changed.
+
+![Bootstrap of the first attempt gain of the proposed method](results/pooled/gain_bootstrap.png)
+
+The first attempt gain of the proposed method when the 600 questions are
+resampled 5,000 times. The 95% interval runs from 0.7 points below zero to 4.2
+above, and 91% of the resamples show a gain. Zero is still inside the range.
+
 What the numbers say:
 
 - The proposed method raised first attempt EM by 1.7 points in both samples,
@@ -272,8 +297,8 @@ python run_experiment.py analyze --attempts results/eval_attempts.csv results/re
     --conditions $FIVE --out results/pooled/eval_report.json
 ```
 
-Add `--layout column` to the last command to also draw the figure at the width
-of one column of a two column paper (`results/pooled/comparison_column.png`).
+Add `--layout column` to the last command to also draw the figures at the width
+of one column of a two column paper (the files that end in `_column.png`).
 
 `--workers 8 --tpm 235000` suit Groq's paid tier, which allows 250,000 tokens
 per minute. On the free tier leave both out and expect a much longer run.
@@ -349,7 +374,7 @@ tests/test_failure_memory.py             tests for the extension
 src/reflexion_reproduction/reproduction.py  baseline vs Reflexion curves next to the paper's
 tests/test_reproduction.py               tests for the reproduction command
 src/reflexion_reproduction/parallel.py  parallel workers and token pacing
-src/reflexion_reproduction/figures.py   comparison figure
+src/reflexion_reproduction/figures.py   the figures
 notebooks/failure_memory_experiment.ipynb  Colab walkthrough
 results/reproduction_*                   the reproduction run
 results/memory.json                      every lesson, its checks, why it was kept or dropped

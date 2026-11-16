@@ -19,7 +19,7 @@ from typing import Sequence
 
 from .data import SealedSplitError, load_split
 from .failure_memory import MemoryBank, build_memory
-from .figures import plot_comparison
+from .figures import plot_all, plot_lesson_checks
 from .pipeline import (
     CONDITIONS,
     analyze,
@@ -158,7 +158,7 @@ def build_parser() -> argparse.ArgumentParser:
     report.add_argument(
         "--layout", choices=("wide", "column"), default="wide",
         help="figure size: wide for a README or slide, column for one column of a two column "
-        "paper (saved as comparison_column.png)",
+        "paper (those files end in _column.png)",
     )
     return parser
 
@@ -272,6 +272,7 @@ def cmd_build(args: argparse.Namespace) -> int:
     memory_path = args.memory or args.out_dir / "memory.json"
     bank.save(memory_path)
     write_rows(args.out_dir / "build_attempts.csv", build_rows(logs, model.name))
+    plot_lesson_checks(bank, memory_path.with_name("lesson_checks.png"))
 
     print(f"\nTraining first-attempt EM: {sum(l.correct for l in first)}/{len(first)}")
     print(
@@ -302,9 +303,7 @@ def _finish_evaluation(out_dir: Path, rows: list[dict], bank, config: dict, suff
     report["config"] = config
     save_report(out_dir / f"eval_report{suffix}.json", report)
     paths = save_comparison(out_dir, report, suffix=suffix)
-    figure = out_dir / f"comparison{suffix}.png"
-    if plot_comparison(report, figure):
-        paths["figure"] = figure
+    paths.update(plot_all(report, out_dir, suffix))
     print_analysis(report)
     for name, path in paths.items():
         print(f"Saved {name}: {path}")
@@ -387,9 +386,9 @@ def cmd_analyze(args: argparse.Namespace) -> int:
     save_report(out, report)
     suffix = "_validation" if first.stem.endswith("_validation") else ""
     paths = save_comparison(out.parent, report, suffix=suffix)
-    figure = out.parent / f"comparison{suffix}{'_column' if args.layout == 'column' else ''}.png"
-    if plot_comparison(report, figure, layout=args.layout):
-        paths["figure"] = figure
+    # The lesson check figure belongs beside the memory file it is drawn from.
+    beside_memory = bank is not None and memory.parent.resolve() == out.parent.resolve()
+    paths.update(plot_all(report, out.parent, suffix, args.layout, bank if beside_memory else None))
     print(f"\nSaved {out}")
     for name, path in paths.items():
         print(f"Saved {name}: {path}")

@@ -32,6 +32,7 @@ from reflexion_reproduction.failure_memory import (  # noqa: E402
     parse_lesson,
     rule_failure_type,
 )
+from reflexion_reproduction.figures import plot_all  # noqa: E402
 from reflexion_reproduction.metrics import exact_match  # noqa: E402
 from reflexion_reproduction.parallel import TokenBudget, parallel_map  # noqa: E402
 from reflexion_reproduction.pipeline import (  # noqa: E402
@@ -40,6 +41,7 @@ from reflexion_reproduction.pipeline import (  # noqa: E402
     comparison_table,
     mcnemar_exact,
     paired_f1,
+    paired_gain,
     read_rows,
     run_condition,
     wilson_interval,
@@ -468,6 +470,39 @@ class AnalysisTests(unittest.TestCase):
         self.assertEqual(by_method["No memory"]["Fixed"], "")  # nothing to compare it with
         self.assertIn("EM after 2 attempts", table[0])
 
+    def test_gain_bootstrap_counts_fixed_minus_broken(self) -> None:
+        examples = [make_example(f"e{i}", answer=f"ans{i}") for i in range(12)]
+        bank = MemoryBank([make_lesson("L1", "bridge", "WRONG_ENTITY")])
+        rows = run_condition("no_memory", examples, ScriptedProvider(), 1, label="rules")
+        rows += run_condition("failure_memory", examples, ScriptedProvider(), 1, bank=bank, label="rules")
+        report = analyze(rows, bank)
+        gain = report["first_attempt_em_gains"][0]
+        fixed = sum(1 for r in rows if r["condition"] == "no_memory" and not r["exact_match"])
+        self.assertEqual((gain["condition"], gain["pairs"]), ("failure_memory", 12))
+        self.assertAlmostEqual(gain["gain_points"], 100 * fixed / 12, places=3)
+        low, high = gain["ci95_points"]
+        self.assertLessEqual(low, gain["gain_points"])
+        self.assertGreaterEqual(high, gain["gain_points"])
+        self.assertEqual(sum(gain["net_counts"].values()), gain["resamples"])
+        self.assertEqual(gain["share_above_zero"], 1.0)  # the scripted lesson never breaks an answer
+        # The same seed gives the same resamples, so a figure can be redrawn exactly.
+        self.assertEqual(report["first_attempt_em_gains"], analyze(rows, bank)["first_attempt_em_gains"])
+        self.assertEqual(paired_gain({}, "no_memory", "reflexion")["pairs"], 0)
+
+    def test_report_holds_the_curve_of_every_condition(self) -> None:
+        examples = [make_example(f"e{i}", answer=f"ans{i}") for i in range(9)]
+        rows = run_condition("no_memory", examples, ScriptedProvider(), 3, label="rules")
+        rows += run_condition("reflexion", examples, ScriptedProvider(), 3, label="rules")
+        curves = analyze(rows)["accuracy_by_attempt"]
+        self.assertEqual(len(curves["no_memory"]), 3)
+        self.assertEqual(curves["no_memory"][0], curves["no_memory"][-1])  # no memory, no change
+        self.assertEqual(curves["reflexion"][0], curves["no_memory"][0])
+        self.assertEqual(curves["reflexion"][-1], 1.0)  # the scripted agent recovers after one reflection
+
+    def test_figures_skip_what_a_report_cannot_show(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            self.assertEqual(plot_all({}, Path(directory)), {})
+
     def test_table_cells_are_rounded_once(self) -> None:
         # Mean F1 0.82545 and mean response time 0.3452 s. Rounding the report
         # first and the table second would print 0.826 and 0.34.
@@ -544,7 +579,9 @@ class CliTests(unittest.TestCase):
                 experiment_main(["analyze", "--attempts", str(attempts), "--layout", "column"]), 0
             )
             if (folder / "comparison.png").exists():  # figures need matplotlib
-                self.assertTrue((folder / "comparison_column.png").exists())
+                for name in ("comparison", "attempts", "fixed_broken", "gain_bootstrap", "lesson_checks"):
+                    self.assertTrue((folder / f"{name}.png").exists(), name)
+                    self.assertTrue((folder / f"{name}_column.png").exists(), name)
             self.assertEqual(experiment_main(["evaluate", "--split", "validation", "--n", "2", *out]), 1)
             self.assertEqual(experiment_main(["evaluate", "--split", "train", "--n", "2", *out]), 1)
 

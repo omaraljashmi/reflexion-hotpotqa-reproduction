@@ -315,6 +315,40 @@ def paired_f1(
     }
 
 
+def paired_gain(
+    data: dict[tuple[str, str, str], Outcome], reference: str, condition: str,
+    resamples: int = 5000, seed: int = 0,
+) -> dict:
+    """Gain in first-attempt exact match on the same questions, with a bootstrap 95% interval.
+
+    Each question counts +1 if the condition fixed it, -1 if it broke it and 0
+    otherwise. The questions are resampled with replacement; ``net_counts``
+    maps a net number of answers gained to how many resamples produced it,
+    which is all a histogram of the gain needs.
+    """
+
+    ref = {(run, ex): o.first for (cond, run, ex), o in data.items() if cond == reference}
+    cur = {(run, ex): o.first for (cond, run, ex), o in data.items() if cond == condition}
+    changes = [int(cur[key]) - int(ref[key]) for key in sorted(set(ref) & set(cur))]
+    n = len(changes)
+    if n == 0:
+        return {"reference": reference, "condition": condition, "pairs": 0, "gain_points": 0.0,
+                "ci95_points": [0.0, 0.0], "share_above_zero": 0.0, "resamples": 0, "net_counts": {}}
+    rng = random.Random(seed)
+    nets = sorted(sum(rng.choices(changes, k=n)) for _ in range(resamples))
+    low, high = nets[int(0.025 * resamples)], nets[int(0.975 * resamples) - 1]
+    return {
+        "reference": reference,
+        "condition": condition,
+        "pairs": n,
+        "gain_points": round(100 * sum(changes) / n, 4),
+        "ci95_points": [round(100 * low / n, 4), round(100 * high / n, 4)],
+        "share_above_zero": round(sum(1 for net in nets if net > 0) / resamples, 4),
+        "resamples": resamples,
+        "net_counts": {str(net): count for net, count in sorted(Counter(nets).items())},
+    }
+
+
 def _run_order(run_id: str) -> tuple[int, str]:
     return (int(run_id), "") if run_id.lstrip("-").isdigit() else (10**9, run_id)
 
@@ -399,8 +433,15 @@ def analyze(rows: Sequence[dict], bank: MemoryBank | None = None) -> dict:
                 comparisons.append(paired(data, ref, cond, field))
 
     f1_changes = [paired_f1(data, "no_memory", c) for c in conditions if c != "no_memory"]
+    em_gains = [paired_gain(data, "no_memory", c) for c in conditions if c != "no_memory"]
     if "no_memory" not in conditions:
-        f1_changes = []
+        f1_changes, em_gains = [], []
+
+    # Share of questions solved by the end of each attempt (the parent paper's Fig. 4).
+    curves = {
+        cond: [round(share, 6) for share in cumulative_accuracy(eval_rows, cond, max_trial, run_id=primary)]
+        for cond in conditions
+    }
 
     by_run = []
     for run in runs:
@@ -494,6 +535,8 @@ def analyze(rows: Sequence[dict], bank: MemoryBank | None = None) -> dict:
         "summary": summary,
         "comparisons": comparisons,
         "first_attempt_f1_changes": f1_changes,
+        "first_attempt_em_gains": em_gains,
+        "accuracy_by_attempt": curves,
         "by_run": by_run,
         "by_question_type": by_question_type,
         "by_lesson_failure_type": {
