@@ -105,7 +105,8 @@ drops it. This project changes one block of the agent, the memory. After a
 failed question the reflection is rewritten as a short lesson, the lesson is
 tested, and the lessons that pass are shown to the agent before it answers a
 different question. The Actor, the Evaluator, the reflection step and the model
-are the same as in the reproduction above.
+are the same as in the reproduction above, apart from the grading change noted
+there.
 
 ### How a lesson is made and checked
 
@@ -224,11 +225,11 @@ What the numbers say:
   this row with two cautions. It is one of six lesson conditions, so a low p
   value turns up by chance more often than its face value says. And the pool
   has only eight lessons, whose questions share almost no words with a new
-  question, so this condition showed nearly the same three lessons every time
-  (L0029 for 297 of the first 300 questions, L0045 for 281, L0060 for 173). Two
-  of those tell the agent to answer with the name or the single word alone.
-  So the row is evidence about that set of three lessons, and it says little
-  about similarity search.
+  question, so this condition showed two lessons to almost every question and
+  a third to more than half (L0029 for 297 of the first 300 questions, L0045
+  for 281, L0060 for 173). Two of those tell the agent to answer with the name
+  or the single word alone. So the row is evidence about those few lessons,
+  and it says little about similarity search.
 - Lessons help on comparison questions and do little on bridge questions. Over
   600 questions the proposed method fixed 7 comparison answers and broke 1
   (73.6% to 78.3%). On bridge questions it fixed 25 and broke 21. In the first
