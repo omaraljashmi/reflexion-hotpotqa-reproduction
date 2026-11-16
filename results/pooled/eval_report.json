@@ -1,0 +1,675 @@
+{
+  "model": "groq:openai/gpt-oss-20b",
+  "runs": [
+    "0"
+  ],
+  "primary_run": "0",
+  "summary": [
+    {
+      "condition": "no_memory",
+      "label": "No memory",
+      "examples": 600,
+      "first_attempt_em": 0.6517,
+      "first_attempt_em_ci95": [
+        0.6127,
+        0.6887
+      ],
+      "first_attempt_f1": 0.7902,
+      "final_em": 0.6617,
+      "attempts": 4,
+      "lessons_per_question": 0.0,
+      "lessons_from": null,
+      "first_attempt_tokens": 467.3,
+      "first_attempt_seconds": 0.292,
+      "tokens_per_example": 972.2,
+      "added_first_attempt_tokens": 0.0
+    },
+    {
+      "condition": "reflexion",
+      "label": "Reflexion (parent paper)",
+      "examples": 600,
+      "first_attempt_em": 0.65,
+      "first_attempt_em_ci95": [
+        0.611,
+        0.6871
+      ],
+      "first_attempt_f1": 0.789,
+      "final_em": 0.73,
+      "attempts": 4,
+      "lessons_per_question": 0.0,
+      "lessons_from": null,
+      "first_attempt_tokens": 469.6,
+      "first_attempt_seconds": 0.283,
+      "tokens_per_example": 1699.5,
+      "added_first_attempt_tokens": 2.3
+    },
+    {
+      "condition": "failure_memory",
+      "label": "Lessons by failure type (proposed)",
+      "examples": 600,
+      "first_attempt_em": 0.6683,
+      "first_attempt_em_ci95": [
+        0.6297,
+        0.7048
+      ],
+      "first_attempt_f1": 0.8061,
+      "final_em": 0.75,
+      "attempts": 4,
+      "lessons_per_question": 3.0,
+      "lessons_from": 1,
+      "first_attempt_tokens": 656.8,
+      "first_attempt_seconds": 0.481,
+      "tokens_per_example": 1969.3,
+      "added_first_attempt_tokens": 189.5
+    },
+    {
+      "condition": "random_memory",
+      "label": "Random lessons",
+      "examples": 600,
+      "first_attempt_em": 0.6633,
+      "first_attempt_em_ci95": [
+        0.6246,
+        0.7
+      ],
+      "first_attempt_f1": 0.8106,
+      "final_em": 0.7383,
+      "attempts": 4,
+      "lessons_per_question": 3.0,
+      "lessons_from": 1,
+      "first_attempt_tokens": 658.5,
+      "first_attempt_seconds": 0.364,
+      "tokens_per_example": 2000.4,
+      "added_first_attempt_tokens": 191.2
+    },
+    {
+      "condition": "similarity_memory",
+      "label": "Lessons from similar questions",
+      "examples": 600,
+      "first_attempt_em": 0.6833,
+      "first_attempt_em_ci95": [
+        0.645,
+        0.7193
+      ],
+      "first_attempt_f1": 0.8182,
+      "final_em": 0.7733,
+      "attempts": 4,
+      "lessons_per_question": 3.0,
+      "lessons_from": 1,
+      "first_attempt_tokens": 645.3,
+      "first_attempt_seconds": 0.484,
+      "tokens_per_example": 1864.9,
+      "added_first_attempt_tokens": 178.0
+    }
+  ],
+  "comparisons": [
+    {
+      "reference": "no_memory",
+      "condition": "reflexion",
+      "metric": "first",
+      "pairs": 600,
+      "fail_to_pass": 1,
+      "pass_to_fail": 2,
+      "net_gain": -1,
+      "mcnemar_p": 1.0
+    },
+    {
+      "reference": "no_memory",
+      "condition": "reflexion",
+      "metric": "final",
+      "pairs": 600,
+      "fail_to_pass": 45,
+      "pass_to_fail": 4,
+      "net_gain": 41,
+      "mcnemar_p": 0.0
+    },
+    {
+      "reference": "no_memory",
+      "condition": "failure_memory",
+      "metric": "first",
+      "pairs": 600,
+      "fail_to_pass": 32,
+      "pass_to_fail": 22,
+      "net_gain": 10,
+      "mcnemar_p": 0.2203
+    },
+    {
+      "reference": "no_memory",
+      "condition": "failure_memory",
+      "metric": "final",
+      "pairs": 600,
+      "fail_to_pass": 63,
+      "pass_to_fail": 10,
+      "net_gain": 53,
+      "mcnemar_p": 0.0
+    },
+    {
+      "reference": "no_memory",
+      "condition": "random_memory",
+      "metric": "first",
+      "pairs": 600,
+      "fail_to_pass": 25,
+      "pass_to_fail": 18,
+      "net_gain": 7,
+      "mcnemar_p": 0.3604
+    },
+    {
+      "reference": "no_memory",
+      "condition": "random_memory",
+      "metric": "final",
+      "pairs": 600,
+      "fail_to_pass": 59,
+      "pass_to_fail": 13,
+      "net_gain": 46,
+      "mcnemar_p": 0.0
+    },
+    {
+      "reference": "no_memory",
+      "condition": "similarity_memory",
+      "metric": "first",
+      "pairs": 600,
+      "fail_to_pass": 36,
+      "pass_to_fail": 17,
+      "net_gain": 19,
+      "mcnemar_p": 0.0127
+    },
+    {
+      "reference": "no_memory",
+      "condition": "similarity_memory",
+      "metric": "final",
+      "pairs": 600,
+      "fail_to_pass": 71,
+      "pass_to_fail": 4,
+      "net_gain": 67,
+      "mcnemar_p": 0.0
+    },
+    {
+      "reference": "reflexion",
+      "condition": "failure_memory",
+      "metric": "first",
+      "pairs": 600,
+      "fail_to_pass": 34,
+      "pass_to_fail": 23,
+      "net_gain": 11,
+      "mcnemar_p": 0.1849
+    },
+    {
+      "reference": "reflexion",
+      "condition": "failure_memory",
+      "metric": "final",
+      "pairs": 600,
+      "fail_to_pass": 32,
+      "pass_to_fail": 20,
+      "net_gain": 12,
+      "mcnemar_p": 0.1263
+    },
+    {
+      "reference": "reflexion",
+      "condition": "random_memory",
+      "metric": "first",
+      "pairs": 600,
+      "fail_to_pass": 27,
+      "pass_to_fail": 19,
+      "net_gain": 8,
+      "mcnemar_p": 0.302
+    },
+    {
+      "reference": "reflexion",
+      "condition": "random_memory",
+      "metric": "final",
+      "pairs": 600,
+      "fail_to_pass": 26,
+      "pass_to_fail": 21,
+      "net_gain": 5,
+      "mcnemar_p": 0.5601
+    },
+    {
+      "reference": "reflexion",
+      "condition": "similarity_memory",
+      "metric": "first",
+      "pairs": 600,
+      "fail_to_pass": 36,
+      "pass_to_fail": 16,
+      "net_gain": 20,
+      "mcnemar_p": 0.0078
+    },
+    {
+      "reference": "reflexion",
+      "condition": "similarity_memory",
+      "metric": "final",
+      "pairs": 600,
+      "fail_to_pass": 41,
+      "pass_to_fail": 15,
+      "net_gain": 26,
+      "mcnemar_p": 0.0007
+    },
+    {
+      "reference": "random_memory",
+      "condition": "failure_memory",
+      "metric": "first",
+      "pairs": 600,
+      "fail_to_pass": 22,
+      "pass_to_fail": 19,
+      "net_gain": 3,
+      "mcnemar_p": 0.7552
+    },
+    {
+      "reference": "random_memory",
+      "condition": "failure_memory",
+      "metric": "final",
+      "pairs": 600,
+      "fail_to_pass": 24,
+      "pass_to_fail": 17,
+      "net_gain": 7,
+      "mcnemar_p": 0.3489
+    },
+    {
+      "reference": "similarity_memory",
+      "condition": "failure_memory",
+      "metric": "first",
+      "pairs": 600,
+      "fail_to_pass": 15,
+      "pass_to_fail": 24,
+      "net_gain": -9,
+      "mcnemar_p": 0.1996
+    },
+    {
+      "reference": "similarity_memory",
+      "condition": "failure_memory",
+      "metric": "final",
+      "pairs": 600,
+      "fail_to_pass": 15,
+      "pass_to_fail": 29,
+      "net_gain": -14,
+      "mcnemar_p": 0.0488
+    }
+  ],
+  "first_attempt_f1_changes": [
+    {
+      "reference": "no_memory",
+      "condition": "reflexion",
+      "pairs": 600,
+      "f1_change": -0.0012,
+      "ci95": [
+        -0.0038,
+        0.0007
+      ]
+    },
+    {
+      "reference": "no_memory",
+      "condition": "failure_memory",
+      "pairs": 600,
+      "f1_change": 0.016,
+      "ci95": [
+        -0.0005,
+        0.0329
+      ]
+    },
+    {
+      "reference": "no_memory",
+      "condition": "random_memory",
+      "pairs": 600,
+      "f1_change": 0.0205,
+      "ci95": [
+        0.0055,
+        0.0357
+      ]
+    },
+    {
+      "reference": "no_memory",
+      "condition": "similarity_memory",
+      "pairs": 600,
+      "f1_change": 0.028,
+      "ci95": [
+        0.0115,
+        0.0462
+      ]
+    }
+  ],
+  "by_run": [
+    {
+      "run_id": "0",
+      "condition": "no_memory",
+      "examples": 600,
+      "first_attempt_em": 0.6517,
+      "final_em": 0.6617
+    },
+    {
+      "run_id": "0",
+      "condition": "reflexion",
+      "examples": 600,
+      "first_attempt_em": 0.65,
+      "final_em": 0.73
+    },
+    {
+      "run_id": "0",
+      "condition": "failure_memory",
+      "examples": 600,
+      "first_attempt_em": 0.6683,
+      "final_em": 0.75
+    },
+    {
+      "run_id": "0",
+      "condition": "random_memory",
+      "examples": 600,
+      "first_attempt_em": 0.6633,
+      "final_em": 0.7383
+    },
+    {
+      "run_id": "0",
+      "condition": "similarity_memory",
+      "examples": 600,
+      "first_attempt_em": 0.6833,
+      "final_em": 0.7733
+    }
+  ],
+  "by_question_type": {
+    "no_memory": {
+      "bridge": {
+        "questions": 471,
+        "first_attempt_em": 0.6285,
+        "fixed": 0,
+        "broken": 0
+      },
+      "comparison": {
+        "questions": 129,
+        "first_attempt_em": 0.7364,
+        "fixed": 0,
+        "broken": 0
+      }
+    },
+    "reflexion": {
+      "bridge": {
+        "questions": 471,
+        "first_attempt_em": 0.6285,
+        "fixed": 1,
+        "broken": 1
+      },
+      "comparison": {
+        "questions": 129,
+        "first_attempt_em": 0.7287,
+        "fixed": 0,
+        "broken": 1
+      }
+    },
+    "failure_memory": {
+      "bridge": {
+        "questions": 471,
+        "first_attempt_em": 0.6369,
+        "fixed": 25,
+        "broken": 21
+      },
+      "comparison": {
+        "questions": 129,
+        "first_attempt_em": 0.7829,
+        "fixed": 7,
+        "broken": 1
+      }
+    },
+    "random_memory": {
+      "bridge": {
+        "questions": 471,
+        "first_attempt_em": 0.6285,
+        "fixed": 18,
+        "broken": 18
+      },
+      "comparison": {
+        "questions": 129,
+        "first_attempt_em": 0.7907,
+        "fixed": 7,
+        "broken": 0
+      }
+    },
+    "similarity_memory": {
+      "bridge": {
+        "questions": 471,
+        "first_attempt_em": 0.6476,
+        "fixed": 26,
+        "broken": 17
+      },
+      "comparison": {
+        "questions": 129,
+        "first_attempt_em": 0.814,
+        "fixed": 10,
+        "broken": 0
+      }
+    }
+  },
+  "by_lesson_failure_type": {
+    "failure_memory": {
+      "FORMAT_MISMATCH": {
+        "questions": 600,
+        "fixed": 32,
+        "broken": 22
+      },
+      "OTHER": {
+        "questions": 129,
+        "fixed": 7,
+        "broken": 1
+      },
+      "WRONG_ATTRIBUTE": {
+        "questions": 471,
+        "fixed": 25,
+        "broken": 21
+      },
+      "YES_NO_ERROR": {
+        "questions": 129,
+        "fixed": 7,
+        "broken": 1
+      }
+    },
+    "random_memory": {
+      "FORMAT_MISMATCH": {
+        "questions": 592,
+        "fixed": 25,
+        "broken": 18
+      },
+      "OTHER": {
+        "questions": 228,
+        "fixed": 7,
+        "broken": 8
+      },
+      "WRONG_ATTRIBUTE": {
+        "questions": 229,
+        "fixed": 11,
+        "broken": 6
+      },
+      "YES_NO_ERROR": {
+        "questions": 228,
+        "fixed": 7,
+        "broken": 2
+      }
+    },
+    "similarity_memory": {
+      "FORMAT_MISMATCH": {
+        "questions": 600,
+        "fixed": 36,
+        "broken": 17
+      },
+      "OTHER": {
+        "questions": 341,
+        "fixed": 19,
+        "broken": 8
+      },
+      "WRONG_ATTRIBUTE": {
+        "questions": 103,
+        "fixed": 6,
+        "broken": 6
+      },
+      "YES_NO_ERROR": {
+        "questions": 83,
+        "fixed": 6,
+        "broken": 0
+      }
+    }
+  },
+  "first_attempt_failure_types": {
+    "no_memory": {
+      "FORMAT_MISMATCH": 117,
+      "OTHER": 85,
+      "YES_NO_ERROR": 5,
+      "NO_ANSWER": 2
+    },
+    "reflexion": {
+      "FORMAT_MISMATCH": 118,
+      "OTHER": 85,
+      "YES_NO_ERROR": 5,
+      "NO_ANSWER": 2
+    },
+    "failure_memory": {
+      "FORMAT_MISMATCH": 117,
+      "OTHER": 78,
+      "YES_NO_ERROR": 4
+    },
+    "random_memory": {
+      "FORMAT_MISMATCH": 124,
+      "OTHER": 75,
+      "YES_NO_ERROR": 3
+    },
+    "similarity_memory": {
+      "FORMAT_MISMATCH": 113,
+      "OTHER": 76,
+      "YES_NO_ERROR": 1
+    }
+  },
+  "lesson_effects": {
+    "failure_memory:L0029": {
+      "neutral": 121,
+      "helped": 7,
+      "hurt": 1
+    },
+    "failure_memory:L0045": {
+      "neutral": 27,
+      "hurt": 4,
+      "helped": 1
+    },
+    "failure_memory:L0060": {
+      "neutral": 121,
+      "helped": 7,
+      "hurt": 1
+    },
+    "failure_memory:L0079": {
+      "neutral": 18,
+      "helped": 2
+    },
+    "failure_memory:L0124": {
+      "neutral": 386,
+      "helped": 23,
+      "hurt": 17
+    },
+    "failure_memory:L0212": {
+      "neutral": 425,
+      "helped": 25,
+      "hurt": 21
+    },
+    "failure_memory:L0229": {
+      "neutral": 121,
+      "helped": 7,
+      "hurt": 1
+    },
+    "failure_memory:L0307": {
+      "neutral": 419,
+      "helped": 24,
+      "hurt": 21
+    },
+    "random_memory:L0029": {
+      "neutral": 227,
+      "helped": 12,
+      "hurt": 8
+    },
+    "random_memory:L0045": {
+      "neutral": 203,
+      "helped": 6,
+      "hurt": 10
+    },
+    "random_memory:L0060": {
+      "neutral": 213,
+      "hurt": 8,
+      "helped": 7
+    },
+    "random_memory:L0079": {
+      "neutral": 196,
+      "helped": 13,
+      "hurt": 3
+    },
+    "random_memory:L0124": {
+      "neutral": 204,
+      "helped": 10,
+      "hurt": 4
+    },
+    "random_memory:L0212": {
+      "neutral": 212,
+      "helped": 11,
+      "hurt": 6
+    },
+    "random_memory:L0229": {
+      "neutral": 219,
+      "helped": 7,
+      "hurt": 2
+    },
+    "random_memory:L0307": {
+      "neutral": 197,
+      "helped": 9,
+      "hurt": 13
+    },
+    "similarity_memory:L0029": {
+      "neutral": 541,
+      "helped": 35,
+      "hurt": 16
+    },
+    "similarity_memory:L0045": {
+      "neutral": 509,
+      "helped": 32,
+      "hurt": 16
+    },
+    "similarity_memory:L0060": {
+      "neutral": 314,
+      "helped": 19,
+      "hurt": 8
+    },
+    "similarity_memory:L0079": {
+      "neutral": 19,
+      "helped": 3
+    },
+    "similarity_memory:L0124": {
+      "neutral": 54,
+      "helped": 4,
+      "hurt": 3
+    },
+    "similarity_memory:L0212": {
+      "neutral": 91,
+      "helped": 6,
+      "hurt": 6
+    },
+    "similarity_memory:L0229": {
+      "neutral": 77,
+      "helped": 6
+    },
+    "similarity_memory:L0307": {
+      "neutral": 36,
+      "helped": 3,
+      "hurt": 2
+    }
+  },
+  "repeated_mistakes": {
+    "no_memory": {
+      "consecutive_failures": 616,
+      "same_failure_type": 609
+    },
+    "reflexion": {
+      "consecutive_failures": 490,
+      "same_failure_type": 435
+    },
+    "failure_memory": {
+      "consecutive_failures": 461,
+      "same_failure_type": 387
+    },
+    "random_memory": {
+      "consecutive_failures": 475,
+      "same_failure_type": 420
+    },
+    "similarity_memory": {
+      "consecutive_failures": 422,
+      "same_failure_type": 380
+    }
+  }
+}
