@@ -324,9 +324,9 @@ def plot_attempts(report: dict, path: Path, layout: str = "wide") -> bool:
 
 
 FLIP_LAYOUTS = {
-    "wide": dict(width=7.2, row=0.52, left=2.45, right=1.6, top=0.5, bottom=0.78, wrap=24,
+    "wide": dict(width=7.2, row=0.52, left=2.45, right=1.6, top=0.36, bottom=0.78, wrap=24,
                  label=10, number=10, small=9, note=8, bar=0.2, net_column=0.62, p_column=1.38),
-    "column": dict(width=3.45, row=0.3, left=1.2, right=0.8, top=0.36, bottom=0.58, wrap=19,
+    "column": dict(width=3.45, row=0.3, left=1.2, right=0.8, top=0.24, bottom=0.58, wrap=19,
                    label=7, number=7, small=6.5, note=5.5, bar=0.115, net_column=0.3, p_column=0.7),
 }
 
@@ -369,7 +369,7 @@ def plot_fixed_broken(report: dict, path: Path, layout: str = "wide") -> bool:
         fixed, broken = comp["fail_to_pass"], comp["pass_to_fail"]
         _bar(ax, 0, fixed, y, size["bar"] * per_y, color)
         _bar(ax, 0, -broken, y, size["bar"] * per_y, color)
-        offset = 0.05 * per_x
+        offset = 0.065 * per_x
         weight = "bold" if row["condition"] == PROPOSED else "normal"
         ax.text(fixed + offset, y, str(fixed), ha="left", va="center", fontsize=size["number"],
                 color=INK, fontweight=weight)
