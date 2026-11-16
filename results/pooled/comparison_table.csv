@@ -1,0 +1,6 @@
+Method,Lessons,First attempt EM,95% CI,First attempt F1,Fixed,Broken,p,EM after 4 attempts,Added tokens,Seconds
+No memory,0,65.2%,61.3% to 68.9%,0.790,,,,66.2%,+0,0.29
+Reflexion (parent paper),0,65.0%,61.1% to 68.7%,0.789,1,2,1.000,73.0%,+2,0.28
+Lessons by failure type (proposed),3,66.8%,63.0% to 70.5%,0.806,32,22,0.220,75.0%,+189,0.48
+Random lessons,3,66.3%,62.5% to 70.0%,0.811,25,18,0.360,73.8%,+191,0.36
+Lessons from similar questions,3,68.3%,64.5% to 71.9%,0.818,36,17,0.013,77.3%,+178,0.48

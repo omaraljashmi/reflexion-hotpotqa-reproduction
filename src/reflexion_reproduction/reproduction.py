@@ -35,6 +35,7 @@ def run_reproduction(
     max_trials: int,
     seed: int = 0,
     progress: Callable[[str], None] | None = None,
+    workers: int = 1,
 ) -> tuple[list[dict], dict]:
     """Run baseline and Reflexion on the same questions and summarize both curves."""
 
@@ -43,7 +44,9 @@ def run_reproduction(
         if progress:
             progress(f"Running {condition} on {len(examples)} questions, up to {max_trials} attempts")
         # label="none": no extra model calls to classify failures.
-        rows += run_condition(condition, examples, model, max_trials=max_trials, seed=seed, label="none")
+        rows += run_condition(
+            condition, examples, model, max_trials=max_trials, seed=seed, label="none", workers=workers
+        )
 
     curves = {cond: cumulative_accuracy(rows, cond, max_trials) for cond in CONDITIONS}
     first = {cond: _first_attempt_failures(rows, cond) for cond in CONDITIONS}

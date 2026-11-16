@@ -3,12 +3,15 @@
 from __future__ import annotations
 
 import os
+import random
 import re
+import threading
 import time
 import zlib
 from typing import Sequence
 
 from .core import ActorOutput, Example
+from .parallel import TokenBudget
 from .prompts import (
     CLASSIFY_INSTRUCTIONS,
     LESSON_INSTRUCTIONS,
@@ -112,26 +115,55 @@ class ScriptedProvider:
         )
 
 
+_USAGE_LOCK = threading.Lock()
+
+
 class _LiveProvider:
     """Shared Actor/Reflection logic for live API providers."""
 
     name = "live"
 
     def __init__(self) -> None:
-        self.last_usage: dict = {}
-        self.total_usage = {"prompt_tokens": 0, "completion_tokens": 0, "calls": 0}
+        self.total_usage = {
+            "prompt_tokens": 0, "completion_tokens": 0, "calls": 0, "retries": 0, "seconds": 0.0,
+        }
+
+    # ``last_usage`` is the token count and response time of the most recent
+    # call made by the current thread, so parallel workers never read each
+    # other's numbers.
+    def _thread_store(self) -> threading.local:
+        store = self.__dict__.get("_local")
+        if store is None:
+            store = self.__dict__["_local"] = threading.local()
+        return store
+
+    @property
+    def last_usage(self) -> dict:
+        return getattr(self._thread_store(), "usage", {})
+
+    @last_usage.setter
+    def last_usage(self, value: dict) -> None:
+        self._thread_store().usage = dict(value)
 
     def _generate(self, instructions: str, prompt: str) -> str:  # pragma: no cover
         raise NotImplementedError
 
-    def _record_usage(self, prompt_tokens: int, completion_tokens: int) -> None:
+    def _record_usage(self, prompt_tokens: int, completion_tokens: int, seconds: float = 0.0) -> None:
         self.last_usage = {
             "prompt_tokens": prompt_tokens,
             "completion_tokens": completion_tokens,
+            "seconds": seconds,
         }
-        self.total_usage["prompt_tokens"] += prompt_tokens
-        self.total_usage["completion_tokens"] += completion_tokens
-        self.total_usage["calls"] += 1
+        with _USAGE_LOCK:
+            total = self.total_usage
+            total["prompt_tokens"] += prompt_tokens
+            total["completion_tokens"] += completion_tokens
+            total["calls"] += 1
+            total["seconds"] = total.get("seconds", 0.0) + seconds
+
+    def _count_retry(self) -> None:
+        with _USAGE_LOCK:
+            self.total_usage["retries"] = self.total_usage.get("retries", 0) + 1
 
     def act(
         self,
@@ -167,8 +199,22 @@ class _LiveProvider:
         return self._generate(instructions=instructions, prompt=prompt)
 
 
-def _with_retries(call, attempts: int = 6, base_delay: float = 2.0):
-    """Retry rate-limit and transient server errors with exponential backoff."""
+def _retry_after_seconds(error: Exception) -> float | None:
+    """Seconds the server asked us to wait, if it said so."""
+
+    headers = getattr(getattr(error, "response", None), "headers", None) or {}
+    try:
+        return float(headers.get("retry-after"))
+    except (TypeError, ValueError):
+        return None
+
+
+def _with_retries(call, attempts: int = 8, base_delay: float = 2.0, max_delay: float = 60.0, on_retry=None):
+    """Retry rate-limit and transient server errors with exponential backoff.
+
+    The wait is randomized so that parallel workers do not all retry at the
+    same moment.
+    """
 
     for attempt in range(attempts):
         try:
@@ -180,7 +226,10 @@ def _with_retries(call, attempts: int = 6, base_delay: float = 2.0):
             ).__name__ in ("APIConnectionError", "APITimeoutError")
             if not transient or attempt == attempts - 1:
                 raise
-            time.sleep(base_delay * (2**attempt))
+            if on_retry:
+                on_retry()
+            delay = _retry_after_seconds(error) or base_delay * (2**attempt)
+            time.sleep(min(max_delay, delay) * (0.5 + random.random()))
     raise RuntimeError("unreachable")
 
 
@@ -196,6 +245,7 @@ class GroqProvider(_LiveProvider):
         reasoning_effort: str | None = "low",
         max_tokens: int = 1024,
         seed: int | None = None,
+        tokens_per_minute: int = 0,
     ) -> None:
         super().__init__()
         if not os.getenv("GROQ_API_KEY"):
@@ -218,14 +268,24 @@ class GroqProvider(_LiveProvider):
         self.reasoning_effort = reasoning_effort if "gpt-oss" in model else None
         self.max_tokens = max_tokens
         self.seed = seed
-        self.client = OpenAI(api_key=os.environ["GROQ_API_KEY"], base_url=self.BASE_URL)
+        # Optional pacing for parallel runs: stay under the account's tokens per minute.
+        self.budget = TokenBudget(tokens_per_minute) if tokens_per_minute else None
+        # Retries are handled by _with_retries so response times exclude the waits.
+        self.client = OpenAI(
+            api_key=os.environ["GROQ_API_KEY"], base_url=self.BASE_URL, timeout=90.0, max_retries=0
+        )
 
     def _generate(self, instructions: str, prompt: str) -> str:
         text = self._call(instructions, prompt, self.max_tokens)
         if not text and self.reasoning_effort:
             # A reasoning model can spend the whole budget on hidden reasoning
             # and return nothing. Give it one more try with a larger budget.
+            first = dict(self.last_usage)
             text = self._call(instructions, prompt, max(4 * self.max_tokens, 4096))
+            # Charge the attempt for both calls.
+            self.last_usage = {
+                key: first.get(key, 0) + value for key, value in self.last_usage.items()
+            }
         if not text:
             # Counted as a failed attempt by the caller; never abort a whole run.
             print("  warning: the model returned no text; counting this call as a failure")
@@ -248,15 +308,26 @@ class GroqProvider(_LiveProvider):
             # room in the token budget for the actual answer.
             kwargs["reasoning_effort"] = self.reasoning_effort
             kwargs["extra_body"] = {"include_reasoning": False}
+        timing = {"seconds": 0.0}
+
+        def request():
+            if self.budget:
+                self.budget.wait()
+            start = time.perf_counter()
+            reply = self.client.chat.completions.create(**kwargs)
+            timing["seconds"] = time.perf_counter() - start  # the successful request only
+            return reply
+
         try:
-            response = _with_retries(lambda: self.client.chat.completions.create(**kwargs))
+            response = _with_retries(request, on_retry=self._count_retry)
         except Exception as error:
             raise RuntimeError(f"Groq request failed: {error}") from error
         usage = getattr(response, "usage", None)
-        self._record_usage(
-            int(getattr(usage, "prompt_tokens", 0) or 0),
-            int(getattr(usage, "completion_tokens", 0) or 0),
-        )
+        prompt_tokens = int(getattr(usage, "prompt_tokens", 0) or 0)
+        completion_tokens = int(getattr(usage, "completion_tokens", 0) or 0)
+        if self.budget:
+            self.budget.spend(prompt_tokens + completion_tokens)
+        self._record_usage(prompt_tokens, completion_tokens, timing["seconds"])
         return (response.choices[0].message.content or "").strip()
 
 

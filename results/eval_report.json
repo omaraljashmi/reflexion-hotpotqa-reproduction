@@ -1,0 +1,2230 @@
+{
+  "model": "groq:openai/gpt-oss-20b",
+  "runs": [
+    "0"
+  ],
+  "primary_run": "0",
+  "summary": [
+    {
+      "condition": "no_memory",
+      "label": "No memory",
+      "examples": 300,
+      "first_attempt_em": 0.65,
+      "first_attempt_em_ci95": [
+        0.594438,
+        0.701769
+      ],
+      "first_attempt_f1": 0.779162,
+      "final_em": 0.66,
+      "attempts": 4,
+      "lessons_per_question": 0.0,
+      "lessons_from": null,
+      "first_attempt_tokens": 471.51,
+      "first_attempt_seconds": 0.299393,
+      "tokens_per_example": 983.7,
+      "added_first_attempt_tokens": 0.0
+    },
+    {
+      "condition": "reflexion",
+      "label": "Reflexion (parent paper)",
+      "examples": 300,
+      "first_attempt_em": 0.643333,
+      "first_attempt_em_ci95": [
+        0.587629,
+        0.695413
+      ],
+      "first_attempt_f1": 0.775903,
+      "final_em": 0.726667,
+      "attempts": 4,
+      "lessons_per_question": 0.0,
+      "lessons_from": null,
+      "first_attempt_tokens": 476.217,
+      "first_attempt_seconds": 0.284887,
+      "tokens_per_example": 1753.1,
+      "added_first_attempt_tokens": 4.707
+    },
+    {
+      "condition": "failure_memory",
+      "label": "Lessons by failure type (proposed)",
+      "examples": 300,
+      "first_attempt_em": 0.666667,
+      "first_attempt_em_ci95": [
+        0.611511,
+        0.717607
+      ],
+      "first_attempt_f1": 0.802081,
+      "final_em": 0.75,
+      "attempts": 4,
+      "lessons_per_question": 3.0,
+      "lessons_from": 1,
+      "first_attempt_tokens": 660.177,
+      "first_attempt_seconds": 0.447867,
+      "tokens_per_example": 1949.7,
+      "added_first_attempt_tokens": 188.667
+    },
+    {
+      "condition": "random_memory",
+      "label": "Random lessons",
+      "examples": 300,
+      "first_attempt_em": 0.67,
+      "first_attempt_em_ci95": [
+        0.614935,
+        0.720766
+      ],
+      "first_attempt_f1": 0.795763,
+      "final_em": 0.756667,
+      "attempts": 4,
+      "lessons_per_question": 3.0,
+      "lessons_from": 1,
+      "first_attempt_tokens": 664.853,
+      "first_attempt_seconds": 0.345327,
+      "tokens_per_example": 1935.0,
+      "added_first_attempt_tokens": 193.343
+    },
+    {
+      "condition": "similarity_memory",
+      "label": "Lessons from similar questions",
+      "examples": 300,
+      "first_attempt_em": 0.696667,
+      "first_attempt_em_ci95": [
+        0.642431,
+        0.74593
+      ],
+      "first_attempt_f1": 0.819312,
+      "final_em": 0.796667,
+      "attempts": 4,
+      "lessons_per_question": 3.0,
+      "lessons_from": 1,
+      "first_attempt_tokens": 648.56,
+      "first_attempt_seconds": 0.424013,
+      "tokens_per_example": 1786.5,
+      "added_first_attempt_tokens": 177.05
+    },
+    {
+      "condition": "retry_memory",
+      "label": "Lessons checked by retry only",
+      "examples": 300,
+      "first_attempt_em": 0.666667,
+      "first_attempt_em_ci95": [
+        0.611511,
+        0.717607
+      ],
+      "first_attempt_f1": 0.797424,
+      "final_em": 0.74,
+      "attempts": 4,
+      "lessons_per_question": 3.0,
+      "lessons_from": 1,
+      "first_attempt_tokens": 646.593,
+      "first_attempt_seconds": 0.31357,
+      "tokens_per_example": 1983.9,
+      "added_first_attempt_tokens": 175.083
+    },
+    {
+      "condition": "unvalidated_memory",
+      "label": "Unchecked lessons",
+      "examples": 300,
+      "first_attempt_em": 0.66,
+      "first_attempt_em_ci95": [
+        0.604673,
+        0.711281
+      ],
+      "first_attempt_f1": 0.785716,
+      "final_em": 0.756667,
+      "attempts": 4,
+      "lessons_per_question": 3.0,
+      "lessons_from": 1,
+      "first_attempt_tokens": 657.087,
+      "first_attempt_seconds": 0.333573,
+      "tokens_per_example": 1936.4,
+      "added_first_attempt_tokens": 185.577
+    },
+    {
+      "condition": "late_memory",
+      "label": "Lessons after a failed attempt",
+      "examples": 300,
+      "first_attempt_em": 0.653333,
+      "first_attempt_em_ci95": [
+        0.597847,
+        0.704942
+      ],
+      "first_attempt_f1": 0.782495,
+      "final_em": 0.72,
+      "attempts": 4,
+      "lessons_per_question": 0.0,
+      "lessons_from": 2,
+      "first_attempt_tokens": 475.047,
+      "first_attempt_seconds": 0.301717,
+      "tokens_per_example": 1852.6,
+      "added_first_attempt_tokens": 3.537
+    }
+  ],
+  "comparisons": [
+    {
+      "reference": "no_memory",
+      "condition": "reflexion",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 0,
+      "pass_to_fail": 2,
+      "net_gain": -2,
+      "mcnemar_p": 0.5
+    },
+    {
+      "reference": "no_memory",
+      "condition": "reflexion",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 22,
+      "pass_to_fail": 2,
+      "net_gain": 20,
+      "mcnemar_p": 3.6e-05
+    },
+    {
+      "reference": "no_memory",
+      "condition": "failure_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 16,
+      "pass_to_fail": 11,
+      "net_gain": 5,
+      "mcnemar_p": 0.442068
+    },
+    {
+      "reference": "no_memory",
+      "condition": "failure_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 32,
+      "pass_to_fail": 5,
+      "net_gain": 27,
+      "mcnemar_p": 7e-06
+    },
+    {
+      "reference": "no_memory",
+      "condition": "random_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 15,
+      "pass_to_fail": 9,
+      "net_gain": 6,
+      "mcnemar_p": 0.307456
+    },
+    {
+      "reference": "no_memory",
+      "condition": "random_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 33,
+      "pass_to_fail": 4,
+      "net_gain": 29,
+      "mcnemar_p": 1e-06
+    },
+    {
+      "reference": "no_memory",
+      "condition": "similarity_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 23,
+      "pass_to_fail": 9,
+      "net_gain": 14,
+      "mcnemar_p": 0.020062
+    },
+    {
+      "reference": "no_memory",
+      "condition": "similarity_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 42,
+      "pass_to_fail": 1,
+      "net_gain": 41,
+      "mcnemar_p": 0.0
+    },
+    {
+      "reference": "no_memory",
+      "condition": "retry_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 16,
+      "pass_to_fail": 11,
+      "net_gain": 5,
+      "mcnemar_p": 0.442068
+    },
+    {
+      "reference": "no_memory",
+      "condition": "retry_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 29,
+      "pass_to_fail": 5,
+      "net_gain": 24,
+      "mcnemar_p": 3.9e-05
+    },
+    {
+      "reference": "no_memory",
+      "condition": "unvalidated_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 15,
+      "pass_to_fail": 12,
+      "net_gain": 3,
+      "mcnemar_p": 0.701108
+    },
+    {
+      "reference": "no_memory",
+      "condition": "unvalidated_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 33,
+      "pass_to_fail": 4,
+      "net_gain": 29,
+      "mcnemar_p": 1e-06
+    },
+    {
+      "reference": "no_memory",
+      "condition": "late_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 1,
+      "pass_to_fail": 0,
+      "net_gain": 1,
+      "mcnemar_p": 1.0
+    },
+    {
+      "reference": "no_memory",
+      "condition": "late_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 20,
+      "pass_to_fail": 2,
+      "net_gain": 18,
+      "mcnemar_p": 0.000121
+    },
+    {
+      "reference": "reflexion",
+      "condition": "failure_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 18,
+      "pass_to_fail": 11,
+      "net_gain": 7,
+      "mcnemar_p": 0.264931
+    },
+    {
+      "reference": "reflexion",
+      "condition": "failure_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 16,
+      "pass_to_fail": 9,
+      "net_gain": 7,
+      "mcnemar_p": 0.229523
+    },
+    {
+      "reference": "reflexion",
+      "condition": "random_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 17,
+      "pass_to_fail": 9,
+      "net_gain": 8,
+      "mcnemar_p": 0.168638
+    },
+    {
+      "reference": "reflexion",
+      "condition": "random_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 16,
+      "pass_to_fail": 7,
+      "net_gain": 9,
+      "mcnemar_p": 0.09314
+    },
+    {
+      "reference": "reflexion",
+      "condition": "similarity_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 24,
+      "pass_to_fail": 8,
+      "net_gain": 16,
+      "mcnemar_p": 0.007
+    },
+    {
+      "reference": "reflexion",
+      "condition": "similarity_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 27,
+      "pass_to_fail": 6,
+      "net_gain": 21,
+      "mcnemar_p": 0.000324
+    },
+    {
+      "reference": "reflexion",
+      "condition": "retry_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 18,
+      "pass_to_fail": 11,
+      "net_gain": 7,
+      "mcnemar_p": 0.264931
+    },
+    {
+      "reference": "reflexion",
+      "condition": "retry_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 14,
+      "pass_to_fail": 10,
+      "net_gain": 4,
+      "mcnemar_p": 0.541256
+    },
+    {
+      "reference": "reflexion",
+      "condition": "unvalidated_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 17,
+      "pass_to_fail": 12,
+      "net_gain": 5,
+      "mcnemar_p": 0.458258
+    },
+    {
+      "reference": "reflexion",
+      "condition": "unvalidated_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 17,
+      "pass_to_fail": 8,
+      "net_gain": 9,
+      "mcnemar_p": 0.107752
+    },
+    {
+      "reference": "reflexion",
+      "condition": "late_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 3,
+      "pass_to_fail": 0,
+      "net_gain": 3,
+      "mcnemar_p": 0.25
+    },
+    {
+      "reference": "reflexion",
+      "condition": "late_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 5,
+      "pass_to_fail": 7,
+      "net_gain": -2,
+      "mcnemar_p": 0.774414
+    },
+    {
+      "reference": "random_memory",
+      "condition": "failure_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 8,
+      "pass_to_fail": 9,
+      "net_gain": -1,
+      "mcnemar_p": 1.0
+    },
+    {
+      "reference": "random_memory",
+      "condition": "failure_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 10,
+      "pass_to_fail": 12,
+      "net_gain": -2,
+      "mcnemar_p": 0.831812
+    },
+    {
+      "reference": "similarity_memory",
+      "condition": "failure_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 8,
+      "pass_to_fail": 17,
+      "net_gain": -9,
+      "mcnemar_p": 0.107752
+    },
+    {
+      "reference": "similarity_memory",
+      "condition": "failure_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 7,
+      "pass_to_fail": 21,
+      "net_gain": -14,
+      "mcnemar_p": 0.012541
+    },
+    {
+      "reference": "retry_memory",
+      "condition": "failure_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 5,
+      "pass_to_fail": 5,
+      "net_gain": 0,
+      "mcnemar_p": 1.0
+    },
+    {
+      "reference": "retry_memory",
+      "condition": "failure_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 11,
+      "pass_to_fail": 8,
+      "net_gain": 3,
+      "mcnemar_p": 0.647606
+    },
+    {
+      "reference": "unvalidated_memory",
+      "condition": "failure_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 13,
+      "pass_to_fail": 11,
+      "net_gain": 2,
+      "mcnemar_p": 0.83882
+    },
+    {
+      "reference": "unvalidated_memory",
+      "condition": "failure_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 10,
+      "pass_to_fail": 12,
+      "net_gain": -2,
+      "mcnemar_p": 0.831812
+    },
+    {
+      "reference": "late_memory",
+      "condition": "failure_memory",
+      "metric": "first",
+      "pairs": 300,
+      "fail_to_pass": 15,
+      "pass_to_fail": 11,
+      "net_gain": 4,
+      "mcnemar_p": 0.557197
+    },
+    {
+      "reference": "late_memory",
+      "condition": "failure_memory",
+      "metric": "final",
+      "pairs": 300,
+      "fail_to_pass": 15,
+      "pass_to_fail": 6,
+      "net_gain": 9,
+      "mcnemar_p": 0.078354
+    }
+  ],
+  "first_attempt_f1_changes": [
+    {
+      "reference": "no_memory",
+      "condition": "reflexion",
+      "pairs": 300,
+      "f1_change": -0.0033,
+      "ci95": [
+        -0.0084,
+        0.0
+      ]
+    },
+    {
+      "reference": "no_memory",
+      "condition": "failure_memory",
+      "pairs": 300,
+      "f1_change": 0.0229,
+      "ci95": [
+        0.0025,
+        0.0447
+      ]
+    },
+    {
+      "reference": "no_memory",
+      "condition": "random_memory",
+      "pairs": 300,
+      "f1_change": 0.0166,
+      "ci95": [
+        -0.0025,
+        0.0369
+      ]
+    },
+    {
+      "reference": "no_memory",
+      "condition": "similarity_memory",
+      "pairs": 300,
+      "f1_change": 0.0401,
+      "ci95": [
+        0.0153,
+        0.0667
+      ]
+    },
+    {
+      "reference": "no_memory",
+      "condition": "retry_memory",
+      "pairs": 300,
+      "f1_change": 0.0183,
+      "ci95": [
+        -0.0024,
+        0.0395
+      ]
+    },
+    {
+      "reference": "no_memory",
+      "condition": "unvalidated_memory",
+      "pairs": 300,
+      "f1_change": 0.0066,
+      "ci95": [
+        -0.0143,
+        0.0267
+      ]
+    },
+    {
+      "reference": "no_memory",
+      "condition": "late_memory",
+      "pairs": 300,
+      "f1_change": 0.0033,
+      "ci95": [
+        0.0,
+        0.01
+      ]
+    }
+  ],
+  "first_attempt_em_gains": [
+    {
+      "reference": "no_memory",
+      "condition": "reflexion",
+      "pairs": 300,
+      "gain_points": -0.6667,
+      "ci95_points": [
+        -1.6667,
+        0.0
+      ],
+      "share_above_zero": 0.0,
+      "resamples": 5000,
+      "net_counts": {
+        "-9": 2,
+        "-8": 7,
+        "-7": 27,
+        "-6": 57,
+        "-5": 161,
+        "-4": 448,
+        "-3": 882,
+        "-2": 1403,
+        "-1": 1364,
+        "0": 649
+      }
+    },
+    {
+      "reference": "no_memory",
+      "condition": "failure_memory",
+      "pairs": 300,
+      "gain_points": 1.6667,
+      "ci95_points": [
+        -1.6667,
+        5.0
+      ],
+      "share_above_zero": 0.8092,
+      "resamples": 5000,
+      "net_counts": {
+        "-15": 1,
+        "-12": 3,
+        "-11": 1,
+        "-10": 7,
+        "-9": 9,
+        "-8": 18,
+        "-7": 26,
+        "-6": 40,
+        "-5": 56,
+        "-4": 86,
+        "-3": 111,
+        "-2": 154,
+        "-1": 174,
+        "0": 268,
+        "1": 282,
+        "2": 323,
+        "3": 357,
+        "4": 365,
+        "5": 388,
+        "6": 387,
+        "7": 394,
+        "8": 343,
+        "9": 283,
+        "10": 250,
+        "11": 187,
+        "12": 142,
+        "13": 113,
+        "14": 85,
+        "15": 60,
+        "16": 27,
+        "17": 23,
+        "18": 14,
+        "19": 11,
+        "20": 6,
+        "21": 4,
+        "22": 2
+      }
+    },
+    {
+      "reference": "no_memory",
+      "condition": "random_memory",
+      "pairs": 300,
+      "gain_points": 2.0,
+      "ci95_points": [
+        -1.0,
+        5.3333
+      ],
+      "share_above_zero": 0.8736,
+      "resamples": 5000,
+      "net_counts": {
+        "-12": 2,
+        "-8": 6,
+        "-7": 12,
+        "-6": 16,
+        "-5": 42,
+        "-4": 47,
+        "-3": 81,
+        "-2": 94,
+        "-1": 139,
+        "0": 193,
+        "1": 222,
+        "2": 287,
+        "3": 335,
+        "4": 381,
+        "5": 415,
+        "6": 426,
+        "7": 405,
+        "8": 379,
+        "9": 323,
+        "10": 315,
+        "11": 255,
+        "12": 173,
+        "13": 139,
+        "14": 111,
+        "15": 60,
+        "16": 49,
+        "17": 36,
+        "18": 23,
+        "19": 10,
+        "20": 12,
+        "21": 7,
+        "22": 1,
+        "23": 1,
+        "25": 3
+      }
+    },
+    {
+      "reference": "no_memory",
+      "condition": "similarity_memory",
+      "pairs": 300,
+      "gain_points": 4.6667,
+      "ci95_points": [
+        1.0,
+        8.3333
+      ],
+      "share_above_zero": 0.9936,
+      "resamples": 5000,
+      "net_counts": {
+        "-4": 1,
+        "-3": 4,
+        "-2": 2,
+        "-1": 11,
+        "0": 14,
+        "1": 27,
+        "2": 23,
+        "3": 55,
+        "4": 86,
+        "5": 95,
+        "6": 135,
+        "7": 154,
+        "8": 184,
+        "9": 227,
+        "10": 290,
+        "11": 310,
+        "12": 378,
+        "13": 351,
+        "14": 376,
+        "15": 349,
+        "16": 329,
+        "17": 297,
+        "18": 262,
+        "19": 247,
+        "20": 202,
+        "21": 166,
+        "22": 121,
+        "23": 84,
+        "24": 62,
+        "25": 50,
+        "26": 27,
+        "27": 23,
+        "28": 26,
+        "29": 17,
+        "30": 5,
+        "31": 7,
+        "32": 3
+      }
+    },
+    {
+      "reference": "no_memory",
+      "condition": "retry_memory",
+      "pairs": 300,
+      "gain_points": 1.6667,
+      "ci95_points": [
+        -1.6667,
+        5.0
+      ],
+      "share_above_zero": 0.8106,
+      "resamples": 5000,
+      "net_counts": {
+        "-15": 1,
+        "-14": 1,
+        "-13": 1,
+        "-12": 1,
+        "-10": 7,
+        "-9": 7,
+        "-8": 10,
+        "-7": 21,
+        "-6": 41,
+        "-5": 56,
+        "-4": 78,
+        "-3": 130,
+        "-2": 143,
+        "-1": 188,
+        "0": 262,
+        "1": 262,
+        "2": 341,
+        "3": 364,
+        "4": 382,
+        "5": 378,
+        "6": 416,
+        "7": 353,
+        "8": 331,
+        "9": 300,
+        "10": 215,
+        "11": 202,
+        "12": 150,
+        "13": 116,
+        "14": 75,
+        "15": 57,
+        "16": 39,
+        "17": 22,
+        "18": 29,
+        "19": 11,
+        "20": 3,
+        "21": 4,
+        "22": 3
+      }
+    },
+    {
+      "reference": "no_memory",
+      "condition": "unvalidated_memory",
+      "pairs": 300,
+      "gain_points": 1.0,
+      "ci95_points": [
+        -2.3333,
+        4.3333
+      ],
+      "share_above_zero": 0.6884,
+      "resamples": 5000,
+      "net_counts": {
+        "-15": 3,
+        "-13": 3,
+        "-12": 4,
+        "-11": 6,
+        "-10": 24,
+        "-9": 31,
+        "-8": 33,
+        "-7": 46,
+        "-6": 78,
+        "-5": 107,
+        "-4": 167,
+        "-3": 210,
+        "-2": 227,
+        "-1": 306,
+        "0": 313,
+        "1": 350,
+        "2": 367,
+        "3": 407,
+        "4": 409,
+        "5": 364,
+        "6": 314,
+        "7": 287,
+        "8": 240,
+        "9": 194,
+        "10": 140,
+        "11": 128,
+        "12": 78,
+        "13": 58,
+        "14": 45,
+        "15": 24,
+        "16": 15,
+        "17": 7,
+        "18": 5,
+        "19": 5,
+        "20": 3,
+        "21": 2
+      }
+    },
+    {
+      "reference": "no_memory",
+      "condition": "late_memory",
+      "pairs": 300,
+      "gain_points": 0.3333,
+      "ci95_points": [
+        0.0,
+        1.0
+      ],
+      "share_above_zero": 0.6184,
+      "resamples": 5000,
+      "net_counts": {
+        "0": 1908,
+        "1": 1801,
+        "2": 889,
+        "3": 310,
+        "4": 73,
+        "5": 14,
+        "6": 4,
+        "7": 1
+      }
+    }
+  ],
+  "accuracy_by_attempt": {
+    "no_memory": [
+      0.65,
+      0.653333,
+      0.653333,
+      0.66
+    ],
+    "reflexion": [
+      0.643333,
+      0.72,
+      0.726667,
+      0.726667
+    ],
+    "failure_memory": [
+      0.666667,
+      0.743333,
+      0.746667,
+      0.75
+    ],
+    "random_memory": [
+      0.67,
+      0.753333,
+      0.756667,
+      0.756667
+    ],
+    "similarity_memory": [
+      0.696667,
+      0.78,
+      0.79,
+      0.796667
+    ],
+    "retry_memory": [
+      0.666667,
+      0.736667,
+      0.736667,
+      0.74
+    ],
+    "unvalidated_memory": [
+      0.66,
+      0.75,
+      0.753333,
+      0.756667
+    ],
+    "late_memory": [
+      0.653333,
+      0.72,
+      0.72,
+      0.72
+    ]
+  },
+  "by_run": [
+    {
+      "run_id": "0",
+      "condition": "no_memory",
+      "examples": 300,
+      "first_attempt_em": 0.65,
+      "final_em": 0.66
+    },
+    {
+      "run_id": "0",
+      "condition": "reflexion",
+      "examples": 300,
+      "first_attempt_em": 0.643333,
+      "final_em": 0.726667
+    },
+    {
+      "run_id": "0",
+      "condition": "failure_memory",
+      "examples": 300,
+      "first_attempt_em": 0.666667,
+      "final_em": 0.75
+    },
+    {
+      "run_id": "0",
+      "condition": "random_memory",
+      "examples": 300,
+      "first_attempt_em": 0.67,
+      "final_em": 0.756667
+    },
+    {
+      "run_id": "0",
+      "condition": "similarity_memory",
+      "examples": 300,
+      "first_attempt_em": 0.696667,
+      "final_em": 0.796667
+    },
+    {
+      "run_id": "0",
+      "condition": "retry_memory",
+      "examples": 300,
+      "first_attempt_em": 0.666667,
+      "final_em": 0.74
+    },
+    {
+      "run_id": "0",
+      "condition": "unvalidated_memory",
+      "examples": 300,
+      "first_attempt_em": 0.66,
+      "final_em": 0.756667
+    },
+    {
+      "run_id": "0",
+      "condition": "late_memory",
+      "examples": 300,
+      "first_attempt_em": 0.653333,
+      "final_em": 0.72
+    }
+  ],
+  "by_question_type": {
+    "no_memory": {
+      "bridge": {
+        "questions": 240,
+        "first_attempt_em": 0.6292,
+        "fixed": 0,
+        "broken": 0
+      },
+      "comparison": {
+        "questions": 60,
+        "first_attempt_em": 0.7333,
+        "fixed": 0,
+        "broken": 0
+      }
+    },
+    "reflexion": {
+      "bridge": {
+        "questions": 240,
+        "first_attempt_em": 0.625,
+        "fixed": 0,
+        "broken": 1
+      },
+      "comparison": {
+        "questions": 60,
+        "first_attempt_em": 0.7167,
+        "fixed": 0,
+        "broken": 1
+      }
+    },
+    "failure_memory": {
+      "bridge": {
+        "questions": 240,
+        "first_attempt_em": 0.6333,
+        "fixed": 12,
+        "broken": 11
+      },
+      "comparison": {
+        "questions": 60,
+        "first_attempt_em": 0.8,
+        "fixed": 4,
+        "broken": 0
+      }
+    },
+    "random_memory": {
+      "bridge": {
+        "questions": 240,
+        "first_attempt_em": 0.6292,
+        "fixed": 9,
+        "broken": 9
+      },
+      "comparison": {
+        "questions": 60,
+        "first_attempt_em": 0.8333,
+        "fixed": 6,
+        "broken": 0
+      }
+    },
+    "similarity_memory": {
+      "bridge": {
+        "questions": 240,
+        "first_attempt_em": 0.6542,
+        "fixed": 15,
+        "broken": 9
+      },
+      "comparison": {
+        "questions": 60,
+        "first_attempt_em": 0.8667,
+        "fixed": 8,
+        "broken": 0
+      }
+    },
+    "retry_memory": {
+      "bridge": {
+        "questions": 240,
+        "first_attempt_em": 0.6292,
+        "fixed": 11,
+        "broken": 11
+      },
+      "comparison": {
+        "questions": 60,
+        "first_attempt_em": 0.8167,
+        "fixed": 5,
+        "broken": 0
+      }
+    },
+    "unvalidated_memory": {
+      "bridge": {
+        "questions": 240,
+        "first_attempt_em": 0.6375,
+        "fixed": 13,
+        "broken": 11
+      },
+      "comparison": {
+        "questions": 60,
+        "first_attempt_em": 0.75,
+        "fixed": 2,
+        "broken": 1
+      }
+    },
+    "late_memory": {
+      "bridge": {
+        "questions": 240,
+        "first_attempt_em": 0.6292,
+        "fixed": 0,
+        "broken": 0
+      },
+      "comparison": {
+        "questions": 60,
+        "first_attempt_em": 0.75,
+        "fixed": 1,
+        "broken": 0
+      }
+    }
+  },
+  "by_lesson_failure_type": {
+    "failure_memory": {
+      "FORMAT_MISMATCH": {
+        "questions": 300,
+        "fixed": 16,
+        "broken": 11
+      },
+      "OTHER": {
+        "questions": 60,
+        "fixed": 4,
+        "broken": 0
+      },
+      "WRONG_ATTRIBUTE": {
+        "questions": 240,
+        "fixed": 12,
+        "broken": 11
+      },
+      "YES_NO_ERROR": {
+        "questions": 60,
+        "fixed": 4,
+        "broken": 0
+      }
+    },
+    "random_memory": {
+      "FORMAT_MISMATCH": {
+        "questions": 297,
+        "fixed": 15,
+        "broken": 9
+      },
+      "OTHER": {
+        "questions": 119,
+        "fixed": 5,
+        "broken": 6
+      },
+      "WRONG_ATTRIBUTE": {
+        "questions": 120,
+        "fixed": 6,
+        "broken": 2
+      },
+      "YES_NO_ERROR": {
+        "questions": 112,
+        "fixed": 3,
+        "broken": 1
+      }
+    },
+    "similarity_memory": {
+      "FORMAT_MISMATCH": {
+        "questions": 300,
+        "fixed": 23,
+        "broken": 9
+      },
+      "OTHER": {
+        "questions": 173,
+        "fixed": 8,
+        "broken": 5
+      },
+      "WRONG_ATTRIBUTE": {
+        "questions": 50,
+        "fixed": 6,
+        "broken": 2
+      },
+      "YES_NO_ERROR": {
+        "questions": 35,
+        "fixed": 6,
+        "broken": 0
+      }
+    },
+    "retry_memory": {
+      "FORMAT_MISMATCH": {
+        "questions": 300,
+        "fixed": 16,
+        "broken": 11
+      },
+      "OTHER": {
+        "questions": 240,
+        "fixed": 11,
+        "broken": 11
+      },
+      "WRONG_ATTRIBUTE": {
+        "questions": 240,
+        "fixed": 11,
+        "broken": 11
+      },
+      "WRONG_ENTITY": {
+        "questions": 60,
+        "fixed": 5,
+        "broken": 0
+      },
+      "YES_NO_ERROR": {
+        "questions": 60,
+        "fixed": 5,
+        "broken": 0
+      }
+    },
+    "unvalidated_memory": {
+      "FORMAT_MISMATCH": {
+        "questions": 300,
+        "fixed": 15,
+        "broken": 12
+      },
+      "OTHER": {
+        "questions": 300,
+        "fixed": 15,
+        "broken": 12
+      },
+      "WRONG_ENTITY": {
+        "questions": 240,
+        "fixed": 13,
+        "broken": 11
+      },
+      "YES_NO_ERROR": {
+        "questions": 60,
+        "fixed": 2,
+        "broken": 1
+      }
+    }
+  },
+  "first_attempt_failure_types": {
+    "no_memory": {
+      "FORMAT_MISMATCH": 56,
+      "OTHER": 44,
+      "YES_NO_ERROR": 4,
+      "NO_ANSWER": 1
+    },
+    "reflexion": {
+      "FORMAT_MISMATCH": 58,
+      "OTHER": 44,
+      "YES_NO_ERROR": 4,
+      "NO_ANSWER": 1
+    },
+    "failure_memory": {
+      "FORMAT_MISMATCH": 56,
+      "OTHER": 42,
+      "YES_NO_ERROR": 2
+    },
+    "random_memory": {
+      "FORMAT_MISMATCH": 53,
+      "OTHER": 44,
+      "YES_NO_ERROR": 2
+    },
+    "similarity_memory": {
+      "FORMAT_MISMATCH": 50,
+      "OTHER": 41
+    },
+    "retry_memory": {
+      "OTHER": 45,
+      "FORMAT_MISMATCH": 53,
+      "YES_NO_ERROR": 2
+    },
+    "unvalidated_memory": {
+      "OTHER": 47,
+      "FORMAT_MISMATCH": 51,
+      "YES_NO_ERROR": 4
+    },
+    "late_memory": {
+      "FORMAT_MISMATCH": 56,
+      "OTHER": 43,
+      "YES_NO_ERROR": 4,
+      "NO_ANSWER": 1
+    }
+  },
+  "lesson_effects": {
+    "failure_memory:L0029": {
+      "neutral": 56,
+      "helped": 4
+    },
+    "failure_memory:L0045": {
+      "neutral": 10,
+      "hurt": 2,
+      "helped": 1
+    },
+    "failure_memory:L0060": {
+      "neutral": 56,
+      "helped": 4
+    },
+    "failure_memory:L0079": {
+      "neutral": 10
+    },
+    "failure_memory:L0124": {
+      "neutral": 199,
+      "helped": 12,
+      "hurt": 9
+    },
+    "failure_memory:L0212": {
+      "neutral": 217,
+      "helped": 12,
+      "hurt": 11
+    },
+    "failure_memory:L0229": {
+      "neutral": 56,
+      "helped": 4
+    },
+    "failure_memory:L0307": {
+      "neutral": 215,
+      "helped": 11,
+      "hurt": 11
+    },
+    "random_memory:L0029": {
+      "neutral": 113,
+      "helped": 6,
+      "hurt": 5
+    },
+    "random_memory:L0045": {
+      "neutral": 107,
+      "helped": 4,
+      "hurt": 3
+    },
+    "random_memory:L0060": {
+      "neutral": 108,
+      "hurt": 6,
+      "helped": 5
+    },
+    "random_memory:L0079": {
+      "neutral": 86,
+      "helped": 6,
+      "hurt": 1
+    },
+    "random_memory:L0124": {
+      "neutral": 102,
+      "helped": 9,
+      "hurt": 3
+    },
+    "random_memory:L0212": {
+      "neutral": 112,
+      "helped": 6,
+      "hurt": 2
+    },
+    "random_memory:L0229": {
+      "neutral": 108,
+      "helped": 3,
+      "hurt": 1
+    },
+    "random_memory:L0307": {
+      "neutral": 92,
+      "helped": 6,
+      "hurt": 6
+    },
+    "retry_memory:L0001": {
+      "neutral": 4
+    },
+    "retry_memory:L0020": {
+      "helped": 2,
+      "neutral": 6,
+      "hurt": 1
+    },
+    "retry_memory:L0029": {
+      "neutral": 55,
+      "helped": 5
+    },
+    "retry_memory:L0034": {
+      "neutral": 7
+    },
+    "retry_memory:L0045": {
+      "neutral": 2
+    },
+    "retry_memory:L0047": {
+      "helped": 2,
+      "neutral": 4
+    },
+    "retry_memory:L0057": {
+      "helped": 1,
+      "hurt": 2,
+      "neutral": 9
+    },
+    "retry_memory:L0072": {
+      "neutral": 40,
+      "helped": 2,
+      "hurt": 1
+    },
+    "retry_memory:L0079": {
+      "neutral": 4
+    },
+    "retry_memory:L0108": {
+      "hurt": 2,
+      "neutral": 3
+    },
+    "retry_memory:L0110": {
+      "neutral": 20,
+      "helped": 3
+    },
+    "retry_memory:L0117": {
+      "neutral": 11,
+      "helped": 1,
+      "hurt": 1
+    },
+    "retry_memory:L0124": {
+      "neutral": 4
+    },
+    "retry_memory:L0141": {
+      "helped": 1,
+      "neutral": 1
+    },
+    "retry_memory:L0168": {
+      "helped": 1,
+      "neutral": 3,
+      "hurt": 1
+    },
+    "retry_memory:L0171": {
+      "neutral": 9,
+      "helped": 1,
+      "hurt": 1
+    },
+    "retry_memory:L0175": {
+      "neutral": 2
+    },
+    "retry_memory:L0181": {
+      "neutral": 161,
+      "helped": 6,
+      "hurt": 8
+    },
+    "retry_memory:L0182": {
+      "neutral": 1
+    },
+    "retry_memory:L0183": {
+      "neutral": 7
+    },
+    "retry_memory:L0191": {
+      "neutral": 21
+    },
+    "retry_memory:L0212": {
+      "helped": 4,
+      "neutral": 40,
+      "hurt": 2
+    },
+    "retry_memory:L0217": {
+      "neutral": 35,
+      "helped": 2
+    },
+    "retry_memory:L0229": {
+      "neutral": 21,
+      "helped": 3
+    },
+    "retry_memory:L0232": {
+      "neutral": 10,
+      "helped": 1
+    },
+    "retry_memory:L0233": {
+      "neutral": 3
+    },
+    "retry_memory:L0253": {
+      "neutral": 6
+    },
+    "retry_memory:L0259": {
+      "neutral": 1
+    },
+    "retry_memory:L0266": {
+      "neutral": 11,
+      "hurt": 1
+    },
+    "retry_memory:L0267": {
+      "neutral": 9,
+      "hurt": 1
+    },
+    "retry_memory:L0269": {
+      "hurt": 1,
+      "neutral": 12,
+      "helped": 2
+    },
+    "retry_memory:L0280": {
+      "neutral": 3
+    },
+    "retry_memory:L0287": {
+      "neutral": 16,
+      "helped": 1,
+      "hurt": 1
+    },
+    "retry_memory:L0289": {
+      "neutral": 5
+    },
+    "retry_memory:L0298": {
+      "neutral": 10
+    },
+    "retry_memory:L0306": {
+      "neutral": 19,
+      "helped": 1
+    },
+    "retry_memory:L0307": {
+      "neutral": 9,
+      "helped": 1
+    },
+    "retry_memory:L0319": {
+      "neutral": 2
+    },
+    "retry_memory:L0339": {
+      "neutral": 2
+    },
+    "retry_memory:L0341": {
+      "neutral": 8
+    },
+    "retry_memory:L0347": {
+      "neutral": 45,
+      "helped": 1,
+      "hurt": 1
+    },
+    "retry_memory:L0351": {
+      "neutral": 178,
+      "helped": 7,
+      "hurt": 9
+    },
+    "similarity_memory:L0029": {
+      "neutral": 266,
+      "helped": 22,
+      "hurt": 9
+    },
+    "similarity_memory:L0045": {
+      "neutral": 253,
+      "helped": 19,
+      "hurt": 9
+    },
+    "similarity_memory:L0060": {
+      "neutral": 160,
+      "helped": 8,
+      "hurt": 5
+    },
+    "similarity_memory:L0079": {
+      "neutral": 10,
+      "helped": 1
+    },
+    "similarity_memory:L0124": {
+      "neutral": 29,
+      "helped": 4,
+      "hurt": 2
+    },
+    "similarity_memory:L0212": {
+      "neutral": 42,
+      "helped": 6,
+      "hurt": 2
+    },
+    "similarity_memory:L0229": {
+      "neutral": 29,
+      "helped": 6
+    },
+    "similarity_memory:L0307": {
+      "neutral": 15,
+      "helped": 3
+    },
+    "unvalidated_memory:L0002": {
+      "neutral": 3,
+      "helped": 1,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0003": {
+      "helped": 1,
+      "neutral": 6
+    },
+    "unvalidated_memory:L0004": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0005": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0009": {
+      "neutral": 4
+    },
+    "unvalidated_memory:L0010": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0014": {
+      "neutral": 2,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0016": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0017": {
+      "neutral": 1,
+      "helped": 1
+    },
+    "unvalidated_memory:L0018": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0020": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0024": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0025": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0028": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0030": {
+      "helped": 1,
+      "neutral": 1
+    },
+    "unvalidated_memory:L0031": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0039": {
+      "neutral": 5
+    },
+    "unvalidated_memory:L0041": {
+      "neutral": 7
+    },
+    "unvalidated_memory:L0042": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0043": {
+      "neutral": 10
+    },
+    "unvalidated_memory:L0044": {
+      "neutral": 12,
+      "helped": 1
+    },
+    "unvalidated_memory:L0047": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0057": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0059": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0063": {
+      "neutral": 18,
+      "helped": 1,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0064": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0069": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0070": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0072": {
+      "neutral": 9
+    },
+    "unvalidated_memory:L0073": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0075": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0078": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0079": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0081": {
+      "neutral": 7,
+      "helped": 1,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0082": {
+      "neutral": 4
+    },
+    "unvalidated_memory:L0083": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0084": {
+      "neutral": 4,
+      "helped": 1
+    },
+    "unvalidated_memory:L0085": {
+      "neutral": 4
+    },
+    "unvalidated_memory:L0086": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0090": {
+      "neutral": 6
+    },
+    "unvalidated_memory:L0092": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0093": {
+      "hurt": 1,
+      "neutral": 1
+    },
+    "unvalidated_memory:L0094": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0096": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0097": {
+      "neutral": 18,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0098": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0100": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0101": {
+      "helped": 3,
+      "neutral": 17
+    },
+    "unvalidated_memory:L0102": {
+      "hurt": 1,
+      "neutral": 7
+    },
+    "unvalidated_memory:L0104": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0105": {
+      "helped": 1,
+      "neutral": 5
+    },
+    "unvalidated_memory:L0106": {
+      "neutral": 9,
+      "helped": 1
+    },
+    "unvalidated_memory:L0107": {
+      "neutral": 4
+    },
+    "unvalidated_memory:L0108": {
+      "hurt": 1,
+      "neutral": 1
+    },
+    "unvalidated_memory:L0109": {
+      "neutral": 1,
+      "helped": 1
+    },
+    "unvalidated_memory:L0112": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0113": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0114": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0115": {
+      "neutral": 7,
+      "helped": 1
+    },
+    "unvalidated_memory:L0117": {
+      "neutral": 5
+    },
+    "unvalidated_memory:L0119": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0121": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0126": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0128": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0136": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0137": {
+      "neutral": 8
+    },
+    "unvalidated_memory:L0138": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0139": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0140": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0141": {
+      "helped": 1
+    },
+    "unvalidated_memory:L0143": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0144": {
+      "neutral": 6
+    },
+    "unvalidated_memory:L0145": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0147": {
+      "neutral": 13
+    },
+    "unvalidated_memory:L0150": {
+      "neutral": 4
+    },
+    "unvalidated_memory:L0151": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0152": {
+      "neutral": 2,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0153": {
+      "helped": 1,
+      "neutral": 4
+    },
+    "unvalidated_memory:L0155": {
+      "neutral": 3,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0162": {
+      "neutral": 2,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0163": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0165": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0167": {
+      "neutral": 4
+    },
+    "unvalidated_memory:L0168": {
+      "helped": 1,
+      "neutral": 1
+    },
+    "unvalidated_memory:L0171": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0173": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0178": {
+      "neutral": 16,
+      "helped": 2
+    },
+    "unvalidated_memory:L0181": {
+      "neutral": 7
+    },
+    "unvalidated_memory:L0183": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0184": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0185": {
+      "neutral": 1,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0186": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0187": {
+      "neutral": 10
+    },
+    "unvalidated_memory:L0188": {
+      "neutral": 4,
+      "hurt": 1,
+      "helped": 1
+    },
+    "unvalidated_memory:L0191": {
+      "neutral": 5
+    },
+    "unvalidated_memory:L0192": {
+      "neutral": 11
+    },
+    "unvalidated_memory:L0201": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0203": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0204": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0205": {
+      "neutral": 5
+    },
+    "unvalidated_memory:L0207": {
+      "neutral": 9,
+      "helped": 1
+    },
+    "unvalidated_memory:L0208": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0210": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0218": {
+      "neutral": 12
+    },
+    "unvalidated_memory:L0220": {
+      "neutral": 6,
+      "hurt": 2,
+      "helped": 1
+    },
+    "unvalidated_memory:L0221": {
+      "neutral": 8,
+      "helped": 1
+    },
+    "unvalidated_memory:L0223": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0224": {
+      "neutral": 4,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0226": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0228": {
+      "neutral": 5
+    },
+    "unvalidated_memory:L0229": {
+      "neutral": 5
+    },
+    "unvalidated_memory:L0230": {
+      "helped": 1,
+      "neutral": 6
+    },
+    "unvalidated_memory:L0232": {
+      "neutral": 8
+    },
+    "unvalidated_memory:L0234": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0236": {
+      "helped": 1
+    },
+    "unvalidated_memory:L0237": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0238": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0239": {
+      "helped": 1,
+      "neutral": 2
+    },
+    "unvalidated_memory:L0240": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0241": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0242": {
+      "neutral": 4
+    },
+    "unvalidated_memory:L0245": {
+      "neutral": 5
+    },
+    "unvalidated_memory:L0247": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0249": {
+      "neutral": 4
+    },
+    "unvalidated_memory:L0250": {
+      "neutral": 7,
+      "helped": 1,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0252": {
+      "neutral": 2,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0256": {
+      "neutral": 24,
+      "helped": 1,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0257": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0260": {
+      "neutral": 4
+    },
+    "unvalidated_memory:L0262": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0263": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0264": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0266": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0269": {
+      "neutral": 7,
+      "helped": 1
+    },
+    "unvalidated_memory:L0270": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0273": {
+      "neutral": 2,
+      "helped": 1
+    },
+    "unvalidated_memory:L0276": {
+      "neutral": 1,
+      "helped": 1
+    },
+    "unvalidated_memory:L0277": {
+      "neutral": 9,
+      "helped": 1
+    },
+    "unvalidated_memory:L0278": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0279": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0281": {
+      "neutral": 6,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0282": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0283": {
+      "neutral": 9
+    },
+    "unvalidated_memory:L0285": {
+      "neutral": 6,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0286": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0287": {
+      "neutral": 5
+    },
+    "unvalidated_memory:L0289": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0294": {
+      "neutral": 25,
+      "hurt": 3,
+      "helped": 1
+    },
+    "unvalidated_memory:L0295": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0296": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0298": {
+      "neutral": 4,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0299": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0300": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0301": {
+      "neutral": 15,
+      "helped": 1,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0302": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0304": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0305": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0306": {
+      "helped": 1
+    },
+    "unvalidated_memory:L0311": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0313": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0314": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0315": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0316": {
+      "neutral": 19
+    },
+    "unvalidated_memory:L0317": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0318": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0319": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0321": {
+      "neutral": 2,
+      "helped": 1
+    },
+    "unvalidated_memory:L0322": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0325": {
+      "neutral": 13,
+      "helped": 1
+    },
+    "unvalidated_memory:L0328": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0329": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0330": {
+      "neutral": 3
+    },
+    "unvalidated_memory:L0331": {
+      "neutral": 66,
+      "helped": 3,
+      "hurt": 4
+    },
+    "unvalidated_memory:L0333": {
+      "helped": 1,
+      "neutral": 1
+    },
+    "unvalidated_memory:L0334": {
+      "neutral": 9
+    },
+    "unvalidated_memory:L0338": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0341": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0342": {
+      "helped": 2,
+      "neutral": 6,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0343": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0347": {
+      "neutral": 1,
+      "hurt": 1
+    },
+    "unvalidated_memory:L0348": {
+      "neutral": 2
+    },
+    "unvalidated_memory:L0349": {
+      "neutral": 1
+    },
+    "unvalidated_memory:L0353": {
+      "helped": 1,
+      "neutral": 27,
+      "hurt": 3
+    },
+    "unvalidated_memory:L0356": {
+      "neutral": 13
+    },
+    "unvalidated_memory:L0357": {
+      "neutral": 10,
+      "hurt": 1
+    }
+  },
+  "repeated_mistakes": {
+    "no_memory": {
+      "consecutive_failures": 310,
+      "same_failure_type": 303
+    },
+    "reflexion": {
+      "consecutive_failures": 248,
+      "same_failure_type": 211
+    },
+    "failure_memory": {
+      "consecutive_failures": 228,
+      "same_failure_type": 189
+    },
+    "random_memory": {
+      "consecutive_failures": 220,
+      "same_failure_type": 190
+    },
+    "similarity_memory": {
+      "consecutive_failures": 190,
+      "same_failure_type": 164
+    },
+    "retry_memory": {
+      "consecutive_failures": 236,
+      "same_failure_type": 205
+    },
+    "unvalidated_memory": {
+      "consecutive_failures": 222,
+      "same_failure_type": 194
+    },
+    "late_memory": {
+      "consecutive_failures": 252,
+      "same_failure_type": 207
+    }
+  },
+  "config": {
+    "command": "evaluate",
+    "provider": "groq",
+    "model": "openai/gpt-oss-20b",
+    "split": "test",
+    "n": "300",
+    "level": "hard",
+    "context": "gold",
+    "seed": "0",
+    "temperature": "0.0",
+    "reasoning_effort": "low",
+    "max_tokens": "1024",
+    "workers": "8",
+    "tpm": "235000",
+    "out_dir": "/home/claude/runs/main",
+    "final_validation": "False",
+    "conditions": "all",
+    "trials": "4",
+    "k": "3",
+    "lesson_content": "fix",
+    "repeats": "1",
+    "memory": "None",
+    "label": "rules",
+    "resume": "True"
+  }
+}
